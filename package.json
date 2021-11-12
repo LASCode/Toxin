@@ -2,9 +2,8 @@
   "name": "toxin",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+
   },
   "repository": {
     "type": "git",
@@ -16,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/LASCode/toxin/issues"
   },
-  "homepage": "https://github.com/LASCode/toxin#readme"
+  "homepage": "https://github.com/LASCode/toxin#readme",
+  "devDependencies": {
+    "webpack": "^5.64.0",
+    "webpack-cli": "^4.9.1"
+  }
 }
