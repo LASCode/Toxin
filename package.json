@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-
+    "dev": "webpack --mode development --config webpack/webpack.config.js",
+    "build": "webpack --mode production --config webpack/webpack.config.js"
   },
   "repository": {
     "type": "git",
