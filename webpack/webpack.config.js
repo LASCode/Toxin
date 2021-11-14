@@ -1,6 +1,7 @@
 const fs = require('fs'),
       path = require('path'),
       HtmlWebpackPlugin = require('html-webpack-plugin'),
+      {ProvidePlugin} = require('webpack'),
       getLoaders = require('./loaders'),
       MiniCssExtractPlugin = require('mini-css-extract-plugin'),
       createProjectManager = require('./projectFunc')
@@ -37,6 +38,11 @@ module.exports = {
     })),
     new MiniCssExtractPlugin({
       filename: 'css/[name].css'
+    }),
+    new ProvidePlugin({
+      $:'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery',
     }),
   ]
 }
