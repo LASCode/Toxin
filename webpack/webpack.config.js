@@ -29,7 +29,7 @@ module.exports = {
         use: getLoaders.scss()
       },
       {
-        test: /(\.(woff2?|ttf|eot|otf)$|font.*\.svg$)/,
+        test: /\.font.(svg|woff|ttf)$/,
         type: "asset/resource",
         generator: {filename: 'fonts/[name][ext]'}
       },
