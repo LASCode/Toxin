@@ -13,6 +13,11 @@ module.exports = {
     filename: "js/[name].js",
     path: PM_path.dist
   },
+  optimization: {
+    splitChunks: {
+      chunks: "all",
+    }
+  },
   module: {
     rules: [
       {
