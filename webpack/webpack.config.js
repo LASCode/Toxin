@@ -34,6 +34,9 @@ module.exports = {
       filename: `./${page.fileName.replace(/\.pug/,'.html')}`,
       template: page.filePath,
       chunks: [page.pageName]
-    }))
+    })),
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].css'
+    }),
   ]
 }
