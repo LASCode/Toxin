@@ -1,10 +1,11 @@
 const fs = require('fs'),
       path = require('path'),
+      HtmlWebpackPlugin = require('html-webpack-plugin'),
       getLoaders = require('./loaders'),
+      MiniCssExtractPlugin = require('mini-css-extract-plugin'),
       createProjectManager = require('./projectFunc')
 
-const {PM_entries, PM_fun, PM_path} = createProjectManager(path.resolve(__dirname, '../'))
-console.log(PM_entries)
+const {PM_entries, PM_fun, PM_path, PM_pages} = createProjectManager(path.resolve(__dirname, '../'))
 module.exports = {
   entry: PM_entries,
   output: {
@@ -28,5 +29,11 @@ module.exports = {
       },
     ]
   },
-  plugins: []
+  plugins: [
+    ...PM_fun.getFilesByType(PM_pages, 'pug').map(page=> new HtmlWebpackPlugin({
+      filename: `./${page.fileName.replace(/\.pug/,'.html')}`,
+      template: page.filePath,
+      chunks: [page.pageName]
+    }))
+  ]
 }
