@@ -42,9 +42,8 @@ const createProjectManager = (globalDir)=>{
       dist: distDir,
       pages: pagesDir
     },
-    PM_entries: {
-      entries
-    },
+    PM_entries: entries,
+    PM_pages: pagesObj,
     PM_fun: {
       getFilesByType
     }
