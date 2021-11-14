@@ -1,6 +1,6 @@
 const fs = require('fs'),
       path = require('path'),
-  MiniCssExtractPlugin = require('mini')
+      MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const getLoaders = {
   pug(){
