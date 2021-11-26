@@ -2,3 +2,9 @@
 @import "./variables.scss";
 @import "./components.scss";
 @import "./normalize.scss";
+
+.global{
+  &--hidden{
+    visibility: hidden;
+  }
+}
