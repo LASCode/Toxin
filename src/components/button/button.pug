@@ -2,23 +2,27 @@ mixin button(props)
   - const {type='default', text='click me', disabled=false, hover=false, href=false, icon} = props
   -
     const buttonCLassObj = {
-      button: true,
+      "button": true,
       "button--default": type === "default",
       "button--outlined": type === "outlined",
       "button--borderless": type === "borderless",
       "button--big": type === "big",
       "button--hover": hover,
-      "button--disabled": disabled,
+      "button--disabled": disabled
     }
 
   if (!href)
-    button(class=buttonCLassObj disabled=disabled)
-      span.button__wrapper= text
+    button(class=buttonCLassObj disabled=disabled)&attributes(attributes)
+      span.button__wrapper
+        span.button__text= text
         if (icon)
-          i.material-icons.button__icon= icon
+          i.button__icon.material-icons= icon
+
   else
-    a(class=buttonCLassObj href=href)
-      span.button__wrapper= text
+    a(class=buttonCLassObj href= href)&attributes(attributes)
+      span.button__wrapper
+        span.button__text= text
         if (icon)
-          i.material-icons.button__icon= icon
+          i.button__icon.material-icons= icon
+
 

@@ -1,20 +1,19 @@
 .button {
+  width: 100%;
   position: relative;
+  box-sizing: border-box;
   border-radius: 22px;
-  line-height: 15px;
-  font-size: 12px;
   padding: 15px 20px;
-  background-color: transparent;
+  display: inline-block;
 
   text-transform: uppercase;
+  white-space: nowrap;
   border: none;
   outline: none;
   cursor: pointer;
   user-select: none;
   text-decoration: none;
   z-index: 0;
-
-  font-family: "Montserrat-Regular", sans-serif;
 
   &--default{
     background: $gradient-primary-default;
@@ -29,32 +28,36 @@
       box-shadow: 0 0 2px 2px $text-dark-50;
     }
   }
-  &--outlined{
+  &--outlined {
     color: $text-purple;
     background: $gradient-primary-default;
-    &:before{
+    &:before {
       content: '';
       position: absolute;
-      top: 0;left: 0;right: 0;bottom: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
       background-color: white;
       border-radius: inherit;
       margin: 2px;
       z-index: -1;
     }
-    &:hover,.button--hover{
-      opacity: 50%;
-    }
-    &:disabled,.button--disabled{
-      opacity: 50%;
-    }
-    &:focus{
-      box-shadow: 0 0 2px 2px $text-dark-50;
-    }
+      &:hover,.button--hover{
+        opacity: 50%;
+      }
+      &:disabled,.button--disabled{
+        opacity: 50%;
+      }
+      &:focus{
+        box-shadow: 0 0 2px 2px $text-dark-50;
+      }
   }
   &--borderless{
     color: $text-purple;
     padding: 0;
     border-radius: 0;
+    width: auto;
     background-color: transparent;
     &:hover,.button--hover{
       color: $text-dark-50;
@@ -63,13 +66,12 @@
       color: $text-dark-50;
     }
     &:focus{
-      text-shadow: 0px 0px 2px $text-dark-50;
+      text-shadow: 0 0 2px $text-dark-50;
     }
   }
   &--big{
     background: $gradient-primary-default;
     color: $text-white;
-    width: 100%;
     &:hover,.button--hover{
       opacity: 50%;
     }
@@ -80,28 +82,32 @@
       box-shadow: 0 0 2px 2px $text-dark-50;
     }
   }
-  &:active{
-    transform: scale(0.99);
-  }
-
 
 
   &__wrapper{
-    font-weight: 1000;
-    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__text{
+    font-family: "Montserrat-Bold", sans-serif;
+
+    font-size: 0.8400rem;
+    line-height: 14px;
+    font-weight: 700;
+    box-sizing: border-box;
   }
   &__icon{
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 44px;
-    width: 44px;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 44px;
+      width: 44px;
+      font-weight: normal;
+      font-size: 24px;
+      line-height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
   }
-
 }
