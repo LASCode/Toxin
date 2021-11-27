@@ -1,0 +1,20 @@
+mixin rooms-dropdown(props={})
+  - const {defaultValues=false} = props
+  -
+    const roomItems = [
+      {name: 'Спальни'},
+      {name: 'Кровати'},
+      {name: 'Ванные комнаты'}
+    ]
+
+  .dropdown-rooms&attributes({"data-dropdownName": "rooms-dropdown"})
+    for roomItem in roomItems
+      .dropdown-rooms__type-container&attributes({"data-name": roomItem.name})
+        .dropdown-rooms__type-name= roomItem.name
+        .dropdown-rooms__btn-container
+          button.dropdown-rooms__change-count-button&attributes({"data-action": "reduce"}) -
+          if (defaultValues[roomItem.name])
+            span.dropdown-rooms__rooms-count= defaultValues[roomItem.name]
+          else
+            span.dropdown-rooms__rooms-count 0
+          button.dropdown-rooms__change-count-button&attributes({"data-action": "add"}) +
