@@ -1,0 +1,217 @@
+.air-datepicker{
+  width: 100%;
+  border: 1px solid $text-dark-25;
+  padding: 20px;
+  box-sizing: border-box;
+
+
+  &-nav{
+    padding: 0;
+    line-height: 22px;
+    align-items: flex-start;
+    border-bottom: none;
+    font-family: $font-Montserrat-Bold;
+    &--action{
+      font-size: 24px;
+    }
+    &--title{
+      font-size: 19px;
+    }
+  }
+  &--buttons{
+    margin-top: 21px;
+    border-top: none;
+    padding: 0;
+  }
+  &-buttons{
+    display: flex;
+    justify-content: space-between;
+  }
+  &--content{
+    padding: 0;
+    margin-top: 26px;
+  }
+  &-body--day-names{
+    margin: 8px 0 12px 0;
+  }
+  &-body--day-name{
+    font-family: "Montserrat-Bold";
+    color: $text-purple;
+    font-size: 12px;
+    text-transform: none;
+  }
+  &-body--cells.-days-{
+    grid-auto-rows: 40px;
+  }
+  .air-datepicker-body--cells{
+    .air-datepicker-cell{
+      &.-day-{
+        font-family: $font-Montserrat-Default;
+        color: $text-dark-50;
+        font-size: 12px;
+        position: relative;
+        width: 40px;
+        height: 40px;
+
+        // Обнуляем предустановленные стили для модификаторов
+        &.-range-to-, &.-range-from-, &.-in-range-, &.-focus-, &.-current-, &.-selected-, &.-other-month-, & div{
+          border: none;
+          background-color: transparent;
+          border-radius: 0;
+          font-family: $font-Montserrat-Default;
+          color: $text-dark-50;
+        }
+
+        &.-other-month-{
+          background-color: transparent;;
+          color: $text-dark-25;
+        }
+        &.-disabled-{}
+        &.-focus-:not(.-in-range-){
+          background-color: rgba(31, 32, 65, 0.05);
+          border-radius: 50%;
+        }
+        &.-current-{
+          font-family: $font-Montserrat-Bold;
+          border-radius: 20px;
+          background: $gradient-secondary-default;
+          color: #FFFFFF;
+          &.-in-range-{
+            &:before{
+              content: '';
+              position: absolute;
+              height: 40px;
+              width: 40px;
+              background: radial-gradient(at center, transparent 70%, rgba(188, 156, 255, 0.25) 50%);
+            }
+          }
+        }
+        &.-in-range-{
+          &:not(.-current-){
+            background: $gradient-primary-25;
+          }
+
+        }
+        &.-selected-{
+          border-radius: 50%;
+          background: $gradient-primary-default;
+          font-family: $font-Montserrat-Bold;
+          color: #FFFFFF;
+        }
+        &.-selected-.-range-from-{
+          &:before{
+            content: '';
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            top: 0;
+            right: 0;
+            background: radial-gradient(at left bottom, transparent 70%, rgba(188, 156, 255, 0.25) 50%);
+          }
+          &:after{
+            content: '';
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            bottom: 0;
+            right: 0;
+            background: radial-gradient(at left top, transparent 70%, rgba(188, 156, 255, 0.25) 50%);
+          }
+        }
+        &.-selected-.-range-to-:not(.-range-from-){
+          &:before{
+            content: '';
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            top: 0;
+            left: 0;
+            background: radial-gradient(at right bottom, transparent 70%, rgba(188, 156, 255, 0.25) 50%);
+          }
+          &:after{
+            content: '';
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            bottom: 0;
+            left: 0;
+            background: radial-gradient(at right top, transparent 70%, rgba(188, 156, 255, 0.25) 50%);
+          }
+        }
+
+        &.-range-to-:not(.-range-from-):not(.-selected-){
+          &:not(.-current-){
+            border-radius: 20px;
+            background: $gradient-primary-25;
+          }
+          &:before{
+            content: '';
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            top: 0;
+            left: 0;
+            background: radial-gradient(at right bottom, transparent 70%, rgba(188, 156, 255, 0.25) 50%);
+          }
+          &:after{
+            content: '';
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            bottom: 0;
+            left: 0;
+            background: radial-gradient(at right top, transparent 70%, rgba(188, 156, 255, 0.25) 50%);
+          }
+        }
+        &.-range-from-:not(.-range-to-):not(.-selected-){
+          &:not(.-current-){
+            border-radius: 20px;
+            background: $gradient-primary-25;
+          }
+          &:before{
+            content: '';
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            top: 0;
+            right: 0;
+            background: radial-gradient(at left bottom, transparent 70%, rgba(188, 156, 255, 0.25) 50%);
+          }
+          &:after{
+            content: '';
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            bottom: 0;
+            right: 0;
+            background: radial-gradient(at left top, transparent 70%, rgba(188, 156, 255, 0.25) 50%);
+          }
+        }
+      }
+    }
+  }
+
+
+}
+.dropdown-date{
+  position: absolute;
+  top: 5px;
+  width: 100%;
+}
+.dropdown-date__input{
+  display: none;
+}
+.dropdown-date__button{
+  margin: 0;
+  padding: 0;
+  width: auto;
+  height: auto;
+  font-family: $font-Montserrat-Bold;
+  text-transform: uppercase;
+  color: $text-purple;
+  font-size: 12px;
+  &:hover{
+    color: $text-purple;
+    background-color: transparent;
+  }
+}
