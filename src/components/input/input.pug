@@ -1,0 +1,41 @@
+mixin input(props)
+  -
+    const {placeholder, readonly, defaultValue, masked, dropdown, icon, hovered, href, open, double} = props
+    const inputArray = new Array(!double?1:2)
+    const wrapperCLassObj = {
+    "form-input": true,
+    "form-input--double": double,
+    "form-input--single": !double,
+    "form-input--with-dropdown": dropdown,
+    "form-input--dropdown-expanded": open,
+    }
+    const inputClassObj = {
+      "form-input__input": true,
+      "form-input__input--hovered": hovered,
+      "form-input__input--with-icon": icon,
+      "form-input__input--readonly": readonly,
+      "form-input__input--masked": masked
+    }
+    const inputAttributesObj = {
+      "readonly": readonly,
+      "data-action": (dropdown?"toggleDropdown":false),
+      "placeholder": placeholder,
+      "value": defaultValue
+    }
+
+
+  div(class = wrapperCLassObj)
+    for _, index in inputArray
+      .form-input__single-input-wrapper
+        input(class = inputClassObj)&attributes(inputAttributesObj, {"data-index": index})
+        if (icon)
+          if (href)
+            button(type="submit").form-input__button.material-icons= icon
+          else
+            i.form-input__icon.material-icons= icon
+    if (dropdown)
+      .form-input__dropdown-wrapper
+        block
+
+
+

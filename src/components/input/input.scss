@@ -1,0 +1,89 @@
+.form-input{
+  z-index: 10;
+  position: relative;
+
+  &--single{
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  &--double{
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 1fr 1fr;
+  }
+  &__single-input-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+  }
+  &__input{
+    width: 100%;
+    padding: 13px 15px;
+    background: #FFFFFF;
+    border: 1px solid $text-dark-25;
+    box-sizing: border-box;
+    border-radius: 4px;
+    font-size: 14px;
+    color: $text-dark-75;
+    outline: none;
+    text-overflow: ellipsis;
+    &::placeholder{
+      color: $text-dark-25;
+    }
+    &:hover, &:focus{
+      border: 1px solid $text-dark-50;
+    }
+  }
+  &__input--with-icon{
+    padding: 13px 44px 13px 15px;
+  }
+  &__input--hovered{
+    border: 1px solid $text-dark-50;
+  }
+  &__input--readonly{
+    cursor: pointer;
+  }
+  &__icon{
+    position: absolute;
+    font-size: 24px;
+    line-height: 24px;
+    height: 24px;
+    margin-right: 10px;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  &__button{
+    position: absolute;
+    font-size: 24px;
+    line-height: 24px;
+    height: 24px;
+    margin-right: 10px;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    background: $gradient-primary-default;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    &:hover{}
+  }
+
+  &--dropdown-expanded{
+    .form-input__input{
+      border-radius: 4px 4px 0 0;
+    }
+    .form-input__dropdown-wrapper{
+      display: block;
+    }
+  }
+  &__dropdown-wrapper{
+    position: absolute;
+    width: 100%;
+    display: none;
+    bottom: 0;
+  }
+
+}
