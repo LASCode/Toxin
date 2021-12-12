@@ -1,0 +1,18 @@
+.form-item-container {
+  &__header{
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &--with-short-margin{
+      margin-bottom: 5px;
+    }
+  }
+  &__title{}
+  &__subtitle{
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+    color: $text-dark-50;
+  }
+}

@@ -1,0 +1,16 @@
+mixin form-item-container (props={})
+  -
+    const {title="default text", subtitle=false, shortTitleMargin=false} = props
+
+    const headerClassObj = {
+      "form-item-container__header": true,
+      "form-item-container__header--with-short-margin": shortTitleMargin
+    }
+
+  .form-item-container
+    div(class=headerClassObj)
+      h3.form-item-container__title= title
+      if (subtitle)
+        span.form-item-container__subtitle= subtitle
+    .form-item-container__body
+      block
