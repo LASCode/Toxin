@@ -5,6 +5,7 @@ $text-dark-100: #1F2041;
 $text-dark-75: rgba($text-dark-100, 0.75);
 $text-dark-50: rgba($text-dark-100, 0.50);
 $text-dark-25: rgba($text-dark-100, 0.25);
+$text-dark-10: rgba($text-dark-100, 0.1);
 $text-dark-5: rgba($text-dark-100, 0.05);
 
 
@@ -12,6 +13,10 @@ $Green: #6FCF97;
 $Purple: #BC9CFF;
 
 $gradient-primary-default: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+$gradient-primary-25: linear-gradient(180deg, rgba(188, 156, 255, 0.25) 0%, rgba(139, 164, 249, 0.25) 100%);
+$gradient-secondary-default: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
 
-$font-primary: 'Monoserrat-Regular', Arial, serif;
+$font-Montserrat-Default: 'Montserrat-Regular', Arial, serif;
+$font-Montserrat-Bold: 'Montserrat-Bold', Arial, serif;
+$font-MaterialIcon-Default: 'MaterialIcons-Regular', Arial, serif;
 $font-secondary: 'Quicksand-Regular', 'Open Sans', Arial, serif;
