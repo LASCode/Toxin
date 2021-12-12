@@ -1,0 +1,14 @@
+mixin rate-button(props={})
+  -
+    const {stars=10, defaultValue=4} = props
+    const starsArr = new Array(stars).fill(false)
+
+
+  span.rate-button
+    input.rate-button__input(value=defaultValue)
+    for value, index in starsArr
+      -
+        const isActive = (index<defaultValue)
+        const textStar = isActive?"star":"star_border"
+      span.rate-button__star.material-icons(data-index=index+1 class={active: isActive})= textStar
+

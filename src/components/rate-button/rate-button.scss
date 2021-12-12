@@ -1,0 +1,14 @@
+.rate-button{
+
+  &__input{
+    display: none;
+  }
+  &__star{
+    background: $gradient-primary-default;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 20.4px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+}
