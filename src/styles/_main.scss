@@ -8,3 +8,30 @@
     visibility: hidden;
   }
 }
+h1{
+  font-family: $font-Montserrat-Bold;
+  font-size: 24px;
+  line-height: 29px;
+  color: $text-dark-100;
+}
+h2{
+  font-family: $font-Montserrat-Bold;
+  font-size: 19px;
+  line-height: 23px;
+  color: $text-dark-100;
+}
+h3{
+  font-family: $font-Montserrat-Bold;
+  font-size: 12px;
+  line-height: 15px;
+  color: $text-dark-100;
+  text-transform: uppercase;
+  margin: 0;
+
+}
+body{
+  font-family: $font-Montserrat-Default;
+  font-size: 14px;
+  line-height: 24px;
+  color: $text-dark-75
+}
