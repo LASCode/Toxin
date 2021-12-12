@@ -1,0 +1,32 @@
+.checkbox-expandable-list{
+  &__body{
+    margin-top: 3px;
+  }
+  &__details{
+    &[open]{
+      .checkbox-expandable-list__icon{
+        transform: rotate(180deg);
+      }
+    }
+  }
+  &__summary{
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    font-family: $font-Montserrat-Bold;
+    font-size: 12px;
+    user-select: none;
+    cursor: pointer;
+  }
+  &__icon{
+    padding: 10px;
+    line-height: 100%;
+    font-size: 24px;
+    margin-left: 30px;
+  }
+  &__checkbox-container{
+    padding: 0;
+    margin-top: 4px;
+    text-decoration: none;
+  }
+}
