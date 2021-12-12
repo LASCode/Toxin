@@ -1,0 +1,10 @@
+mixin bullet-list(props={})
+  -
+    const {items=[]} = props
+
+  .bullet-list
+    for item in items
+      .bullet-list__item
+        span.bullet-list__marker
+        if (item.title)
+          span.bullet-list__title= item.title
