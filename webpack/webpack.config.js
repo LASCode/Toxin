@@ -4,6 +4,7 @@ const fs = require('fs'),
       {ProvidePlugin} = require('webpack'),
       getLoaders = require('./loaders'),
       MiniCssExtractPlugin = require('mini-css-extract-plugin'),
+      copyWebpackPlugin = require("copy-webpack-plugin"),
       createProjectManager = require('./projectFunc')
 
 const {PM_entries, PM_fun, PM_path, PM_pages} = createProjectManager(path.resolve(__dirname, '../'))
@@ -25,8 +26,16 @@ module.exports = {
         use: getLoaders.pug()
       },
       {
-        test: /\.(s*)css$/,
+        test: /\.css$/,
+        use: getLoaders.css()
+      },
+      {
+        test: /\.scss$/,
         use: getLoaders.scss()
+      },
+      {
+        test: /\.less$/,
+        use: getLoaders.less()
       },
       {
         test: /\.font.(svg|woff|ttf)$/,
@@ -49,5 +58,10 @@ module.exports = {
       jQuery: 'jquery',
       'window.jQuery': 'jquery',
     }),
+    new copyWebpackPlugin({
+      patterns: [
+        {from: path.resolve(PM_path.src, "assets/img"), to: path.resolve(PM_path.dist, "img")}
+      ]
+    })
   ]
 }
