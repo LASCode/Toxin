@@ -1,0 +1,37 @@
+.comment{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  grid-template-rows: 48px 1fr;
+  grid-template-areas: "avatar userdata" "likebtn text";
+  grid-gap: 10px;
+  &__avatar-wrapper{
+    grid-area: avatar;
+  }
+  &__data-wrapper{
+    grid-area: userdata;
+    display: inline-flex;
+    flex-direction: column;
+  }
+  &__text-wrapper{
+    grid-area: text;
+  }
+  &__like-wrapper{
+    grid-area: likebtn;
+    display: flex;
+    justify-content: center;
+    margin-top: 2px;
+  }
+
+  &__avatar{
+    border-radius: 50%;
+    border: 2px solid #FFFFFF;
+    box-sizing: border-box;
+    width: 48px;
+    height: 48px;
+  }
+  &__name{
+    font-family: $font-Montserrat-Bold;
+  }
+  &__time{}
+}

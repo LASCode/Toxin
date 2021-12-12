@@ -1,0 +1,19 @@
+include ../like-button/like-button
+mixin comment(props={})
+  -
+    const {img="notFound.jpg", userName="Not found", commentDate="Очень давно", commentText="OwO", likeCount=0, liked=false} = props
+
+
+  .comment
+    .comment__avatar-wrapper
+      img(src=img).comment__avatar
+
+    .comment__data-wrapper
+      span.comment__name= userName
+      span.comment__time= commentDate
+
+    .comment__text-wrapper
+      span.comment__text= commentText
+
+    .comment__like-wrapper
+      +like-button({count: likeCount, liked: liked})
