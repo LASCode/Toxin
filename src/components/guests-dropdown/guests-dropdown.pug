@@ -7,7 +7,7 @@ mixin guest-dropdown(props={})
       {name: 'Младенцы'}
     ]
 
-  .dropdown-guest&attributes({"data-dropdownName": "guest-dropdown"})
+  .dropdown-guest
     for guestItem in guestItems
       .dropdown-guest__type-container&attributes({"data-name": guestItem.name})
         .dropdown-guest__type-name= guestItem.name
