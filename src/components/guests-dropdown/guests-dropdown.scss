@@ -1,4 +1,5 @@
 .dropdown-guest{
+  position: absolute;
   padding: 6px 6px 14px 14px;
   box-sizing: border-box;
   width: 100%;
@@ -9,7 +10,7 @@
   border-right: 1px solid $text-dark-50;
   border-left: 1px solid $text-dark-50;
 
-  font-family: "Montserrat-Bold", sans-serif;
+  font-family: $font-Montserrat-Bold;
   font-size: 12px;
 
   &__type-container{
