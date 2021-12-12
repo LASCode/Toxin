@@ -73,26 +73,6 @@ const getDataAttribute = (target, data)=>{
     return false
   }
 }
-// const buttonEnableDisableToggle = (target, personObj)=>{
-//   let totalCount = 0
-//   $.each(personObj, (key)=>{
-//     let singlePersonObj = personObj[key]
-//     totalCount = totalCount+singlePersonObj.count
-//     switch (true){
-//       case singlePersonObj.count !== MAX_VALUE: singlePersonObj.button.positive.enable(); break
-//       case singlePersonObj.count === MAX_VALUE: singlePersonObj.button.positive.disable(); break
-//     }
-//     switch (true){
-//       case singlePersonObj.count !== MIN_VALUE: singlePersonObj.button.negative.enable(); break
-//       case singlePersonObj.count === MIN_VALUE: singlePersonObj.button.negative.disable(); break
-//     }
-//   })
-//   if (totalCount<=0){
-//     $(target).find('*[data-action="clear"]').addClass('global--hidden')
-//   }else{
-//     $(target).find('*[data-action="clear"]').removeClass('global--hidden')
-//   }
-// }
 const setDefaultValue = (container)=>{
   const dropdownValuesObj = getSelectedPersonObj(container)
   let totalCount = 0
@@ -150,7 +130,7 @@ const actionsFunc = {
     personObj[itemName]?.counter.reduce()
   },
   toggleDropdown(container){
-    $(container).toggleClass('form-input--dropdown-open')
+    $(container).toggleClass('form-input--dropdown-expanded')
   }
 }
 
@@ -190,6 +170,17 @@ const onClick = (e)=>{
     }
   }
 }
+const onKeydown = (e)=> {
+  const target = e.target // Элемент, по которому произошел клик
+  const key = e.key
+  const container = $(target).closest('.form-input--with-dropdown') // Главный контейнер инпута
+  console.log(key)
+  if ($(target).data("action") === "toggleDropdown"){
+    if(key==="Enter" || key==="Escape"){
+      actionsFunc.toggleDropdown(container)
+    }
+  }
+}
 
 /**
  Точка входа
@@ -197,6 +188,7 @@ const onClick = (e)=>{
 const initializeAllDropdown = ()=>{
   $(DROPDOWN_CLASS).closest('.form-input--with-dropdown').each((index, element)=>{
     $(element).on('click', onClick)
+    $(element).on('keydown', onKeydown)
     setDefaultValue(element)
   })
 }
