@@ -1,0 +1,29 @@
+.room-details{
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  grid-gap: 10px;
+  padding: 20px 0;
+  margin: 0;
+  border-bottom: 1px solid $text-dark-10;
+
+
+  &__text-wrapper{
+    display: inline-flex;
+    flex-direction: column;
+  }
+
+  &__icon{
+    line-height: 48px;
+    font-size: 48px;
+    background: $gradient-primary-default;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  &__title{
+    font-family: $font-Montserrat-Bold;
+  }
+  &__subtitle{
+
+  }
+
+}
