@@ -1,0 +1,45 @@
+include ../card/card
+include ../input/input
+include ../radio-button/radio-button
+include ../form-item-container/form-item-container
+include ../toggle-button/toggle-button
+include ../button/button
+mixin card-register(props={})
+  -
+    const {} = props
+
+  .card-register
+    +card()
+      .card__title
+        h1 Регистрация аккаунта
+      .card__container
+        .card__form-element.card__form-element--with-long-margin
+          +input({placeholder: "Имя"})
+        .card__form-element.card__form-element--with-long-margin
+          +input({placeholder: "Фамилия"})
+        .card__form-element.card__form-element--with-long-margin
+          .card-register__user-sex
+            +radio-button({items: [{title: "Мужчина"}, {title: "Женщина"}]})
+
+      .card__container
+        +form-item-container({title: "дата рождения", shortTitleMargin: true})
+          .card__form-element
+            +input({placeholder: "ДД.ММ.ГГГГ", masked: true})
+
+      .card__container
+        +form-item-container({title: "данные для входа в сервис", shortTitleMargin: true})
+          .card__form-element
+            +input({placeholder: "Email"})
+          .card__form-element.card__form-element--with-long-margin
+            +input({placeholder: "Пароль"})
+          .card__form-element.card__form-element--with-long-margin
+            +toggle-button({title: "Получать спецпредложения"})
+
+      .card__container
+        +button({text: "перейти к оплате", type: "big", icon: "arrow_forward"})
+
+      .card__container--with-long-margin
+        .card-register__already-register
+          span Уже есть аккаунт на Toxin
+          .card-register__login-btn
+            +button({text: "Войти", type: "outlined", href: "/loginpage.kal"})
