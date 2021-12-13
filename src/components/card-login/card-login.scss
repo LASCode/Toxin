@@ -1,0 +1,11 @@
+.card-login{
+
+  &__not-register{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__register-btn{
+    width: 99px;
+  }
+}
