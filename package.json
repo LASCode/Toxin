@@ -37,12 +37,13 @@
   },
   "dependencies": {
     "air-datepicker": "^3.0.1",
-    "jquery": "^3.6.0",
-    "jquery-mask-plugin": "^1.14.16",
     "chart.js": "^3.6.2",
     "chartjs-plugin-doughnutlabel-rebourne": "^3.0.0-beta.4",
+    "jquery": "^3.6.0",
+    "jquery-mask-plugin": "^1.14.16",
     "moment": "^2.29.1",
     "nouislider": "^15.5.0",
+    "owl.carousel": "^2.3.4",
     "paginationjs": "^2.1.5"
   }
 }
