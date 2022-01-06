@@ -12,5 +12,5 @@ container.find(".pagination__wrapper").each((index, el)=>{
     pageRange: 1,
     prevText: "arrow_back",
     nextText: "arrow_forward"
-})
+  })
 })
