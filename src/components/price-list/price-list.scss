@@ -1,0 +1,21 @@
+.price-list{
+  &__item{
+    line-height: 18px;
+    display: grid;
+    grid-template-columns: 68.5% 20px 1fr;
+    &:not(:first-child){
+      margin-top: 15px;
+    }
+  }
+  &__title{
+    text-align: left;
+  }
+  &__info{
+    height: 20px;
+    width: 20px;
+    text-align: center;
+  }
+  &__price{
+    text-align: right;
+  }
+}
