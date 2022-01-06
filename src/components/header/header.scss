@@ -1,0 +1,223 @@
+@import "sections/header-navigation/header-navigation";
+
+$container-max-width: 1160px;
+$container-min-width: 370px;
+$container-default-padding: 20px;
+$z-index--header: 100;
+$z-index--footer: 99;
+
+.header{
+  min-width: $container-min-width;
+  position: relative;
+
+  &__wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 0 $container-default-padding;
+    max-width: $container-max-width;
+  }
+  &__logo{
+    height: 40px;
+    margin: 15px 0;
+  }
+  &__container{
+    display: flex;
+    &--hamburger{
+      height: 30px;
+      width: 30px;
+      display: none;
+    }
+  }
+  &__navigation{
+    height: 70px;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  &__login-container{
+    display: flex;
+    align-items: center;
+  }
+  &__login-button{
+    display: inline-block;
+    height: 34px;
+    width: 87px;
+    margin-left: 20px;
+  }
+  &__register-button{
+    display: inline-block;
+    height: 34px;
+    width: 196px;
+    margin-left: 20px;
+  }
+  &__details{
+    &[open]{
+      .header__nav-arrow{
+        transform: rotate(180deg);
+      }
+    }
+  }
+  &__summary{
+    display: inline-flex;
+    align-items: center;
+  }
+  &__details-hidden{
+    position: absolute;
+    top: 0;
+    z-index: 20;
+    margin-top: 70px;
+    background-color: #FFFFFF;
+    padding: 5px 30px 10px 30px;
+    border-radius: 0 0 4px 4px;
+    transform: translateX(-30px);
+    box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
+  }
+  &__nav-container{
+    display: flex;
+    align-items: center;
+  }
+  &__nav-list{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    &--hidden{
+      display: block;
+    }
+  }
+  &__nav-link{
+    font-size: 14px;
+    line-height: 17.07px;
+    text-decoration: none;
+    color: $text-dark-50;
+    white-space: nowrap;
+    &:hover{
+      text-decoration: underline;
+    }
+    &--with-uppercase{
+      text-transform: uppercase;
+    }
+    &--with-bold-text{
+      font-family: $font-Montserrat-Bold;
+    }
+  }
+  &__nav-item{
+    &:not(:first-child) {
+      margin: 0 0 0 21px;
+    }
+    &--without-margin {
+      &:not(:first-child) {
+        margin: 0;
+      }
+    }
+  }
+  &__nav-arrow{
+    font-family: $font-MaterialIcon-Default;
+    font-size: 24px;
+    line-height: 20.4px;
+    cursor: pointer;
+    user-select: none;
+  }
+  &__nav-user{
+    display: flex;
+    align-items: center;
+  }
+  &__nav-btn{
+    height: 34px;
+    margin: 0 0 0 20px;
+    display: inline-block;
+  }
+  &__br{
+    height: 30px;
+    width: 1px;
+    background-color: $text-dark-10;
+    margin: 0 20px;
+  }
+  &__username{
+    color: $text-dark-50;
+  }
+
+
+  &--default{
+    background-color: #FFFFFF;
+    box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
+  }
+  &--ui-kit{
+    .header__logo{
+      height: 48px;
+      width: 48px;
+      padding: 30px;
+      margin: 0;
+    }
+  }
+}
+
+
+
+@media screen and (max-width: 950px){
+  .header{
+    &__navigation{
+      &--visible{
+        display: block;
+      }
+      &:not(&--visible){
+        display: none;
+      }
+      position: absolute;
+      left: 0;
+      top: 0;
+      margin-top: 70px;
+      width: 100%;
+      height: 100vh;
+      backdrop-filter: blur(2px);
+    }
+    &__nav-container{
+      display: block;
+      max-width: $container-max-width;
+      padding: 20px 10px 20px 10px;
+      margin: 0 auto;
+      border-top: 1px solid $text-dark-10;
+      border-bottom: 1px solid $text-dark-10;;
+      background-color: #FFFFFF;
+      box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
+    }
+    &__nav-list{
+      display: block;
+      padding-left: 10px;
+    }
+    &__nav-item{
+      &:not(:first-child){
+        margin: 10px 0 0 0;
+      }
+    }
+    &__nav-user{
+      margin: 20px 0 0 0;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    &__nav-btn{
+      display: block;
+      width: 196px;
+      height: 34px;
+      margin: 0;
+      &:not(:first-child){
+        margin-top: 5px;
+      }
+    }
+    &__br{
+      display: none;
+    }
+    &__container--hamburger{
+      display: block;
+    }
+    &__details-hidden{
+      transform: none;
+      position: static;
+      margin: 0;
+      padding: 0;
+      box-shadow: none;
+    }
+  }
+}

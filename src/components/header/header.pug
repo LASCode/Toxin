@@ -1,0 +1,57 @@
+include ../button/button
+include ../hamburger/hamburger
+include ./sections/nav-item/nav-item
+mixin header(props={})
+  -
+    const {type="default", login=false, username="Анонимный пользователь"} = props
+    const siteMap = [
+      {title: "О нас", href: "/aboutUs.html", bold: true},
+      {title: "Услуги", href: "/services.html", expandable: true, items:
+        [
+          {title: "Услуги 1", href: "/services1.html"},
+          {title: "Услуги 2", href: "/services2.html"},
+          {title: "Услуги 3", href: "/services3.html"},
+        ]
+      },
+      {title: "Вакансии", href: "/vacancies.html"},
+      {title: "Новости", href: "/news.html"},
+      {title: "Соглашения", href: "/agreements.html", expandable: true, items:
+        [
+          {title: "Соглашение 1", href: "/agreement1.html"},
+          {title: "Соглашение 2", href: "/agreement2.html"},
+          {title: "Соглашение 3", href: "/agreement3.html"},
+        ]
+      },
+    ]
+
+
+  case type
+    when "default"
+      header.header.header--default
+        .header__wrapper
+          .header__logo
+            a(href="#")
+              img(src="img/logo/logo-default.svg")
+          .header__container--hamburger
+            +hamburger()
+          nav.header__navigation
+            .header__nav-container
+              ul.header__nav-list
+                for navItem in siteMap
+                  +nav-item(navItem)
+              .header__nav-user
+                if(login)
+                  .header__br
+                  .header__username
+                    span= username
+                else
+                  .header__nav-btn.header__nav-btn--login
+                    +button({type: "outlined", text: "Войти", href: "/login.html"})
+                  .header__nav-btn.header__nav-btn--register
+                    +button({type: "default", text: "Зарегистрироваться", href: "/register.html"})
+
+    when "ui-kit"
+      header.header.header--ui-kit
+        .header__logo
+          img(src="img/logo/logo-uikit.svg")
+
