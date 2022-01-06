@@ -58,7 +58,8 @@
     font-size: 14px;
     color: $text-dark-50;
     &--bold{
-      font-family: $font-Montserrat-Bold;
+      font-family: $font-Montserrat;
+      font-weight: bold;
       color: $text-dark-75;
     }
   }
