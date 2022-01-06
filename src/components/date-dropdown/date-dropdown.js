@@ -46,6 +46,7 @@ const save = (button)=>{
 
 
 const onClick = (e)=>{
+  e.preventDefault()
   const target = e.target // Элемент, по которому произошел клик
   const container = $(target).closest('.form-input--with-dropdown') // Главный контейнер инпута
   const action = $(target).closest('*[data-action]').data('action') // Дата атрибут элемента, по которому произошел клик

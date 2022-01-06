@@ -155,6 +155,7 @@ const actionsFunc = {
  Основные рабочие функции
  **/
 const onClick = (e)=>{
+  e.preventDefault()
   const target = e.target // Элемент, по которому произошел клик
   const container = $(target).closest('.form-input--with-dropdown') // Главный контейнер инпута
   const action = getDataAttribute(target, 'action') // Дата атрибут элемента, по которому произошел клик
