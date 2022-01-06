@@ -1,3 +1,4 @@
+include ../form-item-container/form-item-container
 mixin input(props)
   -
     const {placeholder, readonly, defaultValue, masked, dropdown, icon, hovered, href, open, double} = props
@@ -20,19 +21,30 @@ mixin input(props)
       "readonly": readonly,
       "data-action": (dropdown?"toggleDropdown":false),
       "placeholder": placeholder,
-      "value": defaultValue
+      "value": defaultValue,
+      ...attributes
     }
 
 
   div(class = wrapperCLassObj)
     for _, index in inputArray
-      .form-input__single-input-wrapper
-        input(class = inputClassObj)&attributes(inputAttributesObj, {"data-index": index})
-        if (icon)
-          if (href)
-            button(type="submit").form-input__button.material-icons= icon
-          else
-            i.form-input__icon.material-icons= icon
+      if (double)
+        +form-item-container({title: (index===0?"прибытие":"выезд"), shortTitleMargin: true})
+          .form-input__single-input-wrapper
+            input(class = inputClassObj)&attributes(inputAttributesObj, {"data-index": index})
+            if (icon)
+              if (href)
+                button(type="submit").form-input__button.material-icons= icon
+              else
+                i.form-input__icon.material-icons= icon
+      else
+        .form-input__single-input-wrapper
+          input(class = inputClassObj)&attributes(inputAttributesObj, {"data-index": index})
+          if (icon)
+            if (href)
+              button(type="submit").form-input__button.material-icons= icon
+            else
+              i.form-input__icon.material-icons= icon
     if (dropdown)
       .form-input__dropdown-wrapper
         block
