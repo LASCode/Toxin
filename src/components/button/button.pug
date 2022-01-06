@@ -1,5 +1,5 @@
 mixin button(props)
-  - const {type='default', text='click me', disabled=false, hover=false, href=false, icon} = props
+  - const {type='default', text='click me', disabled=false, hover=false, href=false, icon, submit=false} = props
   -
     const buttonCLassObj = {
       "button": true,
@@ -10,9 +10,10 @@ mixin button(props)
       "button--hover": hover,
       "button--disabled": disabled
     }
+    const btnType = submit?"submit":"button"
 
   if (!href)
-    button(class=buttonCLassObj disabled=disabled)&attributes(attributes)
+    button(class=buttonCLassObj type=btnType disabled=disabled)&attributes(attributes)
       span.button__wrapper
         span.button__text= text
         if (icon)
