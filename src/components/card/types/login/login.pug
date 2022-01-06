@@ -1,0 +1,26 @@
+include ../../../input/input
+include ../../../radio-button/radio-button
+include ../../../form-item-container/form-item-container
+include ../../../toggle-button/toggle-button
+include ../../../button/button
+
+mixin login(props={})
+  -
+    const {} = props
+
+  .card.card--login
+    .card__title
+      h1 Войти
+    .card__container.card__container--with-20px-margin
+      .card__form-element.card__form-element--with-10px-margin
+        +input({placeholder: "Email"})
+      .card__form-element.card__form-element--with-10px-margin
+        +input({placeholder: "Пароль"})
+    .card__container.card__container--with-20px-margin
+      +button({text: "войти", type: "big", icon: "arrow_forward"})
+
+    .card__container.card__container--with-30px-margin
+      .card__not-register
+        span Нет аккаунта на Toxin?
+        .card__register-btn
+          +button({text: "Создать", type: "outlined", href: "/loginpage.kal"})

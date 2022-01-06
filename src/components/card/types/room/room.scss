@@ -1,0 +1,89 @@
+.card--room{
+  width: 270px;
+  padding: 0;
+  border: none;
+  border-radius: 4px;
+  overflow: hidden;
+  .card {
+
+
+    &__room-info{
+      padding: 0 17px 12px 20px;
+      margin-top: 22px;
+    }
+
+    &__title{
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    &__room-number-container{
+
+    }
+    &__room-price-container{
+
+    }
+    &__room-number{
+      display: inline-block;
+      font-family: $font-Montserrat-Bold;
+      font-size: 20px;
+      line-height: 17.5px;
+
+      &:first-letter{
+        font-size: 14px;
+        line-height: 17.07px;
+        letter-spacing: 4px;
+      }
+    }
+    &__room-type{
+      display: inline-block;
+      font-family: $font-Montserrat-Bold;
+      font-size: 12px;
+      line-height: 14.63px;
+      color: $text-purple;
+      text-transform: uppercase;
+    }
+    &__price-sum{
+      font-family: $font-Montserrat-Bold;
+      font-size: 14px;
+      line-height: 18px;
+      color: $text-dark-50;
+    }
+    &__price-text{
+      font-family: $font-Montserrat-Default;
+      font-size: 12px;
+      line-height: 18px;
+      margin-left: 4px;
+      color: $text-dark-50;
+    }
+
+    &__br{
+      width: 100%;
+      height: 1px;
+      background-color: $text-dark-10;
+      margin-top: 8px;
+    }
+
+    &__rate-wrapper{
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-top: 10px;
+    }
+    &__comments-container{
+      font-size: 14px;
+      line-height: 22px;
+      color: $text-dark-50;
+    }
+    &__comments-count{
+      font-family: $font-Montserrat-Bold;
+    }
+    &__comments-text{
+      margin: 0 3px;
+      font-family: $font-Montserrat-Default;
+    }
+
+
+
+  }
+}

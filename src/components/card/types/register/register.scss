@@ -1,0 +1,15 @@
+.card--register{
+  .card{
+    &__user-sex{
+      height: 24px;
+    }
+    &__already-register{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    &__login-btn{
+      width: 99px;
+    }
+  }
+}

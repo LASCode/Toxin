@@ -1,0 +1,34 @@
+include ../../../input/input
+include ../../../i-button/i-button
+include ../../../date-dropdown/date-dropdown
+include ../../../guests-dropdown/guests-dropdown
+include ../../../price-list/price-list
+include ../../../total-price/total-price
+
+
+mixin selected-room(props={})
+  -
+    const {priceListItems=[], priceTotal=0} = props
+
+
+  .card.card--selected-room
+    .card__title
+      .card__room-number-container
+        span.card__room-number №888
+        span.card__room-type люкс
+      .card__room-price-container
+        span.card__price-sum 9 990₽
+        span.card__price-text в сутки
+    .card__container.card__container--with-20px-margin
+      +input({placeholder: "ДД.ММ.ГГГГ", icon: "expand_more", double: true, readonly: true, dropdown: true,})
+        +date-dropdown()
+    .card__container.card__container--with-20px-margin
+      +form-item-container({title: "гости", shortTitleMargin: true})
+        +input({placeholder: "Сколько гостей", icon: "expand_more", readonly: true, dropdown: true})
+          +guest-dropdown()
+    .card__container.card__container--with-20px-margin
+      +price-list({items: priceListItems, totalPrice: true})
+    .card__container.card__container--with-30px-margin
+      +total-price({value: priceTotal})
+    .card__book-btn
+      +button({type: "big", text: "Забронировать", icon: "arrow_forward"})
