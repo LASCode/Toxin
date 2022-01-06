@@ -1,0 +1,28 @@
+.i-button{
+  position: relative;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 1px solid $text-dark-25;
+  box-sizing: border-box;
+
+
+
+  &__wrapper{
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__text{
+    font-family: $font-Montserrat;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+    user-select: none;
+    color: $text-dark-25;
+  }
+
+}
