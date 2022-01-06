@@ -1,0 +1,31 @@
+include ./sections/about-brand/about-brand
+include ./sections/navigation/navigation
+include ./sections/about-us/about-us
+include ./sections/support/support
+include ./sections/subscribe/subscribe
+include ./sections/copyright/copyright
+
+mixin footer(props={})
+  -
+    const {mobile=false} = props
+    const footerClassObj = {
+      "footer": true,
+      "footer--mobile": mobile
+    }
+  footer(class=footerClassObj)
+    section.footer__section.footer__section--base
+      .footer__section-container
+        .footer__grid-container
+          +about-brand()
+          +navigation()
+          +about-us()
+          +support()
+          +subscribe()
+
+    section.footer__section.footer__section--copyright
+      .footer__section-container
+        +copyright()
+
+
+
+

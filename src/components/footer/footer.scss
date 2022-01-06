@@ -1,0 +1,152 @@
+@import "./sections/about-brand/about-brand.scss";
+@import "./sections/about-us/about-us.scss";
+@import "./sections/navigation/navigation.scss";
+@import "./sections/subscribe/subscribe.scss";
+@import "./sections/support/support.scss";
+@import "./sections/copyright/copyright.scss";
+
+$container-max-width: 1160px;
+@mixin mobile-adaptive{
+  .footer{
+    &__section{
+      &--base{
+        box-shadow: none;
+        padding: 120px 0 0 0;
+      }
+      &--copyright{
+        padding: 0 0 120px 0;
+        margin-top: 0;
+      }
+    }
+    &__grid-container{
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+      grid-template-areas: "brand";
+    }
+    &__grid-item{
+      &--with-nav-info,
+      &--with-aboutUs-info,
+      &--with-support-info,
+      &--with-subscribe-info{
+        display: none;
+      }
+    }
+    &__brand-logo{
+      display: flex;
+      justify-content: center;
+    }
+    &__brand-info{
+      display: none;
+    }
+
+    &__copyright-wrapper{
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      margin-top: 17px;
+    }
+    &__copyright-text{
+      text-align: center;
+    }
+    &__copyright-socials{
+      margin-top: 22px;
+    }
+  }
+}
+
+.footer{
+  width: 100%;
+  min-width: 350px;
+  background-color: #FFFFFF;
+
+  &__section{
+    &--base{
+      padding: 100px 10px;
+      box-shadow: 0 1px 0 rgba(31, 32, 65, 0.1);
+    }
+    &--copyright{
+      margin-top: 1px;
+      padding: 23px 10px;
+      box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
+    }
+  }
+  &__section-container{
+    max-width: $container-max-width;
+    margin: 0 auto;
+  }
+  &__grid-container{
+    display: grid;
+    grid-template-columns: 260px 1fr 1fr 1fr 260px;
+    grid-template-areas: "brand nav aboutus support subscribe";
+    grid-gap: 40px;
+  }
+  &__grid-item{
+    &--with-brand-info{
+      grid-area: brand;
+    }
+    &--with-nav-info{
+      grid-area: nav;
+    }
+    &--with-aboutUs-info{
+      grid-area: aboutus;
+    }
+    &--with-support-info{
+      grid-area: support;
+    }
+    &--with-subscribe-info{
+      grid-area: subscribe;
+    }
+  }
+  &__grid-title{
+    font-family: $font-Montserrat-Bold;
+    font-size: 12px;
+    line-height: 14.63px;
+    white-space: nowrap;
+    text-transform: uppercase;
+    margin-top: 5px;
+  }
+  &__link-list{
+    padding: 0;
+    margin: 21px 0 0 0;
+    list-style: none;
+  }
+  &__link-item{
+    line-height: 17.07px;
+    white-space: nowrap;
+    &:not(:first-child){
+      margin-top: 21px;
+    }
+  }
+
+
+  &--mobile{
+    @include mobile-adaptive
+  }
+}
+@media only screen and (max-width: 1110px){
+  .footer{
+    &__grid-container{
+      display: grid;
+      grid-template-rows: 80px 1fr;
+      grid-template-columns: 1fr 1fr 1fr 260px;
+      grid-template-areas: "brand brand brand brand" "nav aboutus support subscribe";
+      grid-gap: 40px;
+    }
+    &__brand-logo{
+      display: flex;
+      justify-content: center;
+    }
+    &__brand-info{
+      margin-top: 5px;
+      text-align: center;
+    }
+    &__grid-item--with-brand-logo{
+      padding-bottom: 10px;
+      border-bottom: 1px solid $text-dark-25;
+    }
+  }
+}
+@media only screen and (max-width: 810px){
+  @include mobile-adaptive
+}
+
