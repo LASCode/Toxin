@@ -1,5 +1,6 @@
 .card {
-  width: 380px;
+  max-width: 380px;
+  min-width: 330px;
   padding: 29px;
   background: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.12);
@@ -9,17 +10,28 @@
 
   &__title{
     margin-top: 10px;
+    padding-bottom: 3px;
   }
   &__container{
-    margin-top: 20px;
-
-    &--with-long-margin{
+    &--with-10px-margin{
+      margin-top: 10px;
+    }
+    &--with-20px-margin{
+      margin-top: 20px;
+    }
+    &--with-30px-margin{
       margin-top: 30px;
     }
   }
   &__form-element{
-    &--with-long-margin{
+    &--with-10px-margin{
       margin-top: 10px;
     }
   }
 }
+
+@import "./types/register/register.scss";
+@import "./types/login/login.scss";
+@import "./types/find-room/find-room.scss";
+@import "./types/selected-room/selected-room.scss";
+@import "./types/room/room.scss";
