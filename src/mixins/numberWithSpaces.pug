@@ -1,0 +1,4 @@
+mixin numberWithSpaces(props={})
+  -const {num=0} = props
+
+  != num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
