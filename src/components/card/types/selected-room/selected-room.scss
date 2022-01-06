@@ -18,7 +18,8 @@
 
     &__room-number{
       display: inline-block;
-      font-family: $font-Montserrat-Bold;
+      font-family: $font-Montserrat;
+      font-weight: bold;
       font-size: 24px;
       line-height: 29.26px;
 
@@ -31,7 +32,8 @@
     &__room-type{
       display: inline-block;
       margin-left: 8px;
-      font-family: $font-Montserrat-Bold;
+      font-family: $font-Montserrat;
+      font-weight: bold;
       font-size: 12px;
       line-height: 14.63px;
       color: $text-purple;
@@ -39,13 +41,14 @@
     }
 
     &__price-sum{
-      font-family: $font-Montserrat-Bold;
+      font-family: $font-Montserrat;
+      font-weight: bold;
       font-size: 14px;
       line-height: 18px;
       color: $text-dark-50;
     }
     &__price-text{
-      font-family: $font-Montserrat-Default;
+      font-family: $font-Montserrat;
       font-size: 12px;
       line-height: 18px;
       margin-left: 4px;

@@ -31,7 +31,8 @@
     height: 48px;
   }
   &__name{
-    font-family: $font-Montserrat-Bold;
+    font-family: $font-Montserrat;
+    font-weight: bold;
   }
   &__time{}
 }

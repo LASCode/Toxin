@@ -10,7 +10,8 @@
     line-height: 22px;
     align-items: flex-start;
     border-bottom: none;
-    font-family: $font-Montserrat-Bold;
+    font-family: $font-Montserrat;
+    font-weight: bold;
     &--action{
       font-size: 24px;
     }
@@ -35,7 +36,8 @@
     margin: 8px 0 12px 0;
   }
   &-body--day-name{
-    font-family: "Montserrat-Bold";
+    font-family: $font-Montserrat;
+    font-weight: bold;
     color: $text-purple;
     font-size: 12px;
     text-transform: none;
@@ -46,7 +48,7 @@
   .air-datepicker-body--cells{
     .air-datepicker-cell{
       &.-day-{
-        font-family: $font-Montserrat-Default;
+        font-family: $font-Montserrat;
         color: $text-dark-50;
         font-size: 12px;
         position: relative;
@@ -58,7 +60,7 @@
           border: none;
           background-color: transparent;
           border-radius: 0;
-          font-family: $font-Montserrat-Default;
+          font-family: $font-Montserrat;
           color: $text-dark-50;
         }
 
@@ -72,7 +74,8 @@
           border-radius: 50%;
         }
         &.-current-{
-          font-family: $font-Montserrat-Bold;
+          font-family: $font-Montserrat;
+          font-weight: bold;
           border-radius: 20px;
           background: $gradient-secondary-default;
           color: #FFFFFF;
@@ -95,7 +98,8 @@
         &.-selected-{
           border-radius: 50%;
           background: $gradient-primary-default;
-          font-family: $font-Montserrat-Bold;
+          font-family: $font-Montserrat;
+          font-weight: bold;
           color: #FFFFFF;
         }
         &.-selected-.-range-from-{
@@ -206,7 +210,8 @@
   padding: 0;
   width: auto;
   height: auto;
-  font-family: $font-Montserrat-Bold;
+  font-family: $font-Montserrat;
+  font-weight: bold;
   text-transform: uppercase;
   color: $text-purple;
   font-size: 12px;

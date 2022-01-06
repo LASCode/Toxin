@@ -98,7 +98,8 @@ $container-max-width: 1160px;
     }
   }
   &__grid-title{
-    font-family: $font-Montserrat-Bold;
+    font-family: $font-Montserrat;
+    font-weight: bold;
     font-size: 12px;
     line-height: 14.63px;
     white-space: nowrap;

@@ -11,7 +11,8 @@
   border-right: 1px solid $text-dark-50;
   border-left: 1px solid $text-dark-50;
 
-  font-family: "Montserrat-Bold", sans-serif;
+  font-family: $font-Montserrat;
+  font-weight: bold;
   font-size: 12px;
 
   &__type-container{
@@ -46,7 +47,7 @@
     color: $text-dark-50;
 
     cursor: pointer;
-    font-family: "Montserrat-Medium", sans-serif;
+    font-family: $font-Montserrat;
 
     &:hover{
       color: $text-dark-75;
