@@ -1,0 +1,9 @@
+mixin carousel(props={})
+  -
+    const {items=[]} = props
+
+  .carousel
+    for item, index in items
+      -const {src="img/changeMe.jpg", alt="changeMe"} = item
+      .carousel__item
+        img.carousel__img(src=item.src)
