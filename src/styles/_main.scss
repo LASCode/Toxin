@@ -9,19 +9,22 @@
   }
 }
 h1{
-  font-family: $font-Montserrat-Bold;
+  font-family: $font-Montserrat;
+  font-weight: bold;
   font-size: 24px;
   line-height: 29px;
   color: $text-dark-100;
 }
 h2{
-  font-family: $font-Montserrat-Bold;
+  font-family: $font-Montserrat;
+  font-weight: bold;
   font-size: 19px;
   line-height: 23px;
   color: $text-dark-100;
 }
 h3{
-  font-family: $font-Montserrat-Bold;
+  font-family: $font-Montserrat;
+  font-weight: bold;
   font-size: 12px;
   line-height: 15px;
   color: $text-dark-100;
@@ -29,9 +32,21 @@ h3{
   margin: 0;
 
 }
-body{
-  font-family: $font-Montserrat-Default;
+html, body {
+  height: 100%;
+  font-family: $font-Montserrat;
   font-size: 14px;
   line-height: 24px;
-  color: $text-dark-75
+  color: $text-dark-75;
+}
+.page{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &__content{
+    flex: 1 0 auto;
+  }
+  &__header{}
+  &__footer{flex: 0 0 auto;}
 }
