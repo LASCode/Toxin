@@ -5,7 +5,6 @@
 @import "./sections/support/support.scss";
 @import "./sections/copyright/copyright.scss";
 
-$container-max-width: 1160px;
 @mixin mobile-adaptive{
   .footer{
     &__section{
@@ -56,17 +55,17 @@ $container-max-width: 1160px;
 
 .footer{
   width: 100%;
-  min-width: 350px;
+  min-width: $container-min-width;
   background-color: #FFFFFF;
 
   &__section{
     &--base{
-      padding: 100px 10px;
+      padding: 100px $container-default-padding;
       box-shadow: 0 1px 0 rgba(31, 32, 65, 0.1);
     }
     &--copyright{
       margin-top: 1px;
-      padding: 23px 10px;
+      padding: 23px $container-default-padding;
       box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
     }
   }
@@ -118,36 +117,18 @@ $container-max-width: 1160px;
       margin-top: 21px;
     }
   }
+  &__link {
+    color: inherit;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 
 
   &--mobile{
     @include mobile-adaptive
   }
 }
-@media only screen and (max-width: 1110px){
-  .footer{
-    &__grid-container{
-      display: grid;
-      grid-template-rows: 80px 1fr;
-      grid-template-columns: 1fr 1fr 1fr 260px;
-      grid-template-areas: "brand brand brand brand" "nav aboutus support subscribe";
-      grid-gap: 40px;
-    }
-    &__brand-logo{
-      display: flex;
-      justify-content: center;
-    }
-    &__brand-info{
-      margin-top: 5px;
-      text-align: center;
-    }
-    &__grid-item--with-brand-logo{
-      padding-bottom: 10px;
-      border-bottom: 1px solid $text-dark-25;
-    }
-  }
-}
-@media only screen and (max-width: 810px){
-  @include mobile-adaptive
-}
+
 

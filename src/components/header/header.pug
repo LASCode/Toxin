@@ -1,9 +1,11 @@
+include ../logo/logo
 include ../button/button
 include ../hamburger/hamburger
 include ./sections/nav-item/nav-item
+
 mixin header(props={})
   -
-    const {type="default", login=false, username="Анонимный пользователь"} = props
+    const { type = 'default', login = false, username = 'Анонимный пользователь'} = props
     const siteMap = [
       {title: "О нас", href: "/aboutUs.html", bold: true},
       {title: "Услуги", href: "/services.html", expandable: true, items:
@@ -25,33 +27,34 @@ mixin header(props={})
     ]
 
 
-  case type
-    when "default"
-      header.header.header--default
-        .header__wrapper
-          .header__logo
-            a(href="#")
-              img(src="img/logo/logo-default.svg")
-          .header__container--hamburger
-            +hamburger()
-          nav.header__navigation
-            .header__nav-container
-              ul.header__nav-list
-                for navItem in siteMap
-                  +nav-item(navItem)
-              .header__nav-user
-                if(login)
-                  .header__br
-                  .header__username
-                    span= username
-                else
-                  .header__nav-btn.header__nav-btn--login
-                    +button({type: "outlined", text: "Войти", href: "/login.html"})
-                  .header__nav-btn.header__nav-btn--register
-                    +button({type: "default", text: "Зарегистрироваться", href: "/register.html"})
-
-    when "ui-kit"
-      header.header.header--ui-kit
+  if type === 'ui-kit'
+    header.header.header--ui-kit
+      .header__wrapper
         .header__logo
-          img(src="img/logo/logo-uikit.svg")
+          +logo({type: 'ui-kit', href: './'})
 
+  if type === 'default'
+    header.header.header--default.js-header
+      .header__wrapper
+
+        .header__logo
+          +logo({type: 'default', href: './'})
+
+        .header__container--hamburger
+          +hamburger()
+
+        nav.header__navigation.js-headerNavigation
+          .header__nav-container
+            ul.header__nav-list
+              for navItem in siteMap
+                +nav-item(navItem)
+            .header__nav-user
+              if(login)
+                .header__br
+                .header__username
+                  span= username
+              else
+                .header__nav-btn.header__nav-btn--login
+                  +button({type: "outlined", text: "Войти", href: "./sign-in.html"})
+                .header__nav-btn.header__nav-btn--register
+                  +button({type: "default", text: "Зарегистрироваться", href: "./registration.html"})

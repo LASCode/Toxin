@@ -1,25 +1,36 @@
 include ../form-item-container/form-item-container
-mixin input(props)
+mixin input(props = {})
   -
-    const {placeholder, readonly, defaultValue, masked, dropdown, icon, hovered, href, open, double} = props
-    const inputArray = new Array(!double?1:2)
+    const {
+      placeholder,
+      readonly = false,
+      defaultValue,
+      masked,
+      icon,
+      hovered,
+      iconType = 'icon',
+      href
+    } = props
     const wrapperCLassObj = {
-    "form-input": true,
-    "form-input--double": double,
-    "form-input--single": !double,
-    "form-input--with-dropdown": dropdown,
-    "form-input--dropdown-expanded": open,
+    'input': true,
+    'js-input': true,
+    'js-input-withIcon': icon,
+    'js-input-withMask': masked,
+    'js-input-withSubmit': icon && iconType === 'submit',
+    'js-input-withLink': icon && iconType === 'link',
+    'js-input-withBaseIcon': icon && iconType === 'icon',
     }
     const inputClassObj = {
-      "form-input__input": true,
-      "form-input__input--hovered": hovered,
-      "form-input__input--with-icon": icon,
-      "form-input__input--readonly": readonly,
-      "form-input__input--masked": masked
+      "input__input": true,
+      "input__input--hovered": hovered,
+      "input__input--with-icon": icon,
+      "input__input--readonly": readonly,
+      "input__input--masked": masked,
+      "js-maskedInput": masked,
+      'js-inputElement': true,
     }
     const inputAttributesObj = {
       "readonly": readonly,
-      "data-action": (dropdown?"toggleDropdown":false),
       "placeholder": placeholder,
       "value": defaultValue,
       ...attributes
@@ -27,27 +38,48 @@ mixin input(props)
 
 
   div(class = wrapperCLassObj)
-    for _, index in inputArray
-      if (double)
-        +form-item-container({title: (index===0?"прибытие":"выезд"), shortTitleMargin: true})
-          .form-input__single-input-wrapper
-            input(class = inputClassObj)&attributes(inputAttributesObj, {"data-index": index})
-            if (icon)
-              if (href)
-                button(type="submit").form-input__button.material-icons= icon
-              else
-                i.form-input__icon.material-icons= icon
-      else
-        .form-input__single-input-wrapper
-          input(class = inputClassObj)&attributes(inputAttributesObj, {"data-index": index})
-          if (icon)
-            if (href)
-              button(type="submit").form-input__button.material-icons= icon
-            else
-              i.form-input__icon.material-icons= icon
-    if (dropdown)
-      .form-input__dropdown-wrapper
-        block
+    .input__container
+      if (icon && iconType === 'submit')
+        button(type="submit").input__button.material-icons.js-formInput-iconNode= icon
+      if (icon && iconType === 'link')
+        a(href = href).input__icon.material-icons.js-formInput-iconNode= icon
+      if (icon && iconType === 'icon')
+        i.input__icon.material-icons.js-formInput-iconNode= icon
+      input(class = inputClassObj)&attributes(inputAttributesObj)
+
+
+
+
+
+
+
+
+
+
+
+    //
+    //
+    //for _, index in inputArray
+    //  if (double)
+    //    +form-item-container({title: (index===0?"прибытие":"выезд"), shortTitleMargin: true})
+    //      .form-input__single-input-wrapper
+    //        input(class = inputClassObj)&attributes(inputAttributesObj, {"data-index": index})
+    //        if (icon)
+    //          if (href)
+    //            button(type="submit").form-input__button.material-icons= icon
+    //          else
+    //            i.form-input__icon.material-icons= icon
+    //  else
+    //    .form-input__single-input-wrapper
+    //      input(class = inputClassObj)&attributes(inputAttributesObj, {"data-index": index})
+    //      if (icon)
+    //        if (href)
+    //          button(type="submit").form-input__button.material-icons= icon
+    //        else
+    //          i.form-input__icon.material-icons= icon
+    //if (dropdown)
+    //  .form-input__dropdown-wrapper
+    //    block
 
 
 

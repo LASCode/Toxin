@@ -4,7 +4,7 @@
 
   &__label{
     display: inline-flex;
-    align-items: center;
+    //align-items: center;
     margin-right: 16px;
   }
   &__input{
@@ -41,5 +41,8 @@
     border: 1px solid $text-dark-25;
     box-sizing: border-box;
   }
-  &__title{}
+  &__title{
+    min-height: 24px;
+    line-height: 18px;
+  }
 }

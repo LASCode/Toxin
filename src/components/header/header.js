@@ -1,12 +1,60 @@
-// const headerElements = $(".header")
-const onChange = (e)=>{
-  e.preventDefault()
-  const target = e.target
-  const container = $(target).closest('.header')
-  const navbarElem = $(container).find(".header__navigation")
+class Header {
+  constructor(rootNode) {
+    this.navIsOpen = false;
+    this.scrollIsActive = true;
+    this.rootNode = $(rootNode);
+    this.hamburgerCheckbox = this.rootNode.find('.js-hamburgerCheckbox');
+    this.navElement = this.rootNode.find('.js-headerNavigation');
+    this.setListeners();
+  }
 
-  $(navbarElem).toggleClass("header__navigation--visible")
+  setBodyScroll() {
+    if (this.scrollIsActive === false) {
+      this.scrollIsActive = true;
+      document.body.classList.remove('global--no-scroll');
+    }
+  }
 
+  removeBodyScroll() {
+    if (this.scrollIsActive === true) {
+      this.scrollIsActive = false;
+      document.body.classList.add('global--no-scroll');
+    }
+  }
+
+  navOpen() {
+    if (this.navIsOpen === false) {
+      this.navIsOpen = true;
+      this.removeBodyScroll();
+      $(this.navElement).addClass('header__navigation--visible');
+    }
+  }
+
+  navClose() {
+    if (this.navIsOpen === true) {
+      this.navIsOpen = false;
+      this.setBodyScroll();
+      $(this.navElement).removeClass('header__navigation--visible');
+    }
+  }
+
+  setListeners() {
+    this.onChange = this.onChange.bind(this);
+    this.hamburgerCheckbox.on('change', this.onChange);
+  }
+
+  removeListeners() {
+    this.hamburgerCheckbox.off('change');
+  }
+
+  onChange(event) {
+    if (event.target.checked) {
+      this.navOpen();
+    } else {
+      this.navClose();
+    }
+  }
 }
 
-$(".header").find(".hamburger-menu__checkbox").on("change", onChange)
+const headerElements = $('.js-header');
+headerElements.each((index, element) => new Header(element));

@@ -1,16 +1,17 @@
 mixin form-item-container (props={})
   -
-    const {title="default text", subtitle=false, shortTitleMargin=false} = props
+    const { title='default text', subtitle='', titleMargin = false, itemMargin = true} = props
 
-    const headerClassObj = {
-      "form-item-container__header": true,
-      "form-item-container__header--with-short-margin": shortTitleMargin
+    const titleClassObj = {
+      'form-item-container__title--with-margin': titleMargin,
+    }
+    const bodyClassObj = {
+      'form-item-container__body--with-margin': itemMargin,
     }
 
   .form-item-container
-    div(class=headerClassObj)
-      h3.form-item-container__title= title
-      if (subtitle)
-        span.form-item-container__subtitle= subtitle
-    .form-item-container__body
+    .form-item-container__header
+      h3(class=titleClassObj).form-item-container__title= title
+      span.form-item-container__subtitle= subtitle
+    div(class=bodyClassObj).form-item-container__body
       block

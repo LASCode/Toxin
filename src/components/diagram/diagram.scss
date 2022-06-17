@@ -1,32 +1,30 @@
 .diagram {
+  display: flex;
+  align-items: flex-end;
   position: relative;
-  height: inherit;
-  width: inherit;
-
-  &__center-text{
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    left: 25%;
-
+  //height: inherit;
+  //width: inherit;
+  //max-width: inherit;
+  //max-height: inherit;
+  //min-height: inherit;
+  //min-width: inherit;
+  &__pie{
+    max-width: 125px;
+    max-height: 125px;
+  }
+  &__legend{
+    margin-left: 22px;
+  }
+  &__legend-item{
     display: flex;
-    flex-direction: column;
     align-items: center;
   }
-  &__count{
-    font-family: $font-Montserrat;
-    font-weight: bold;
-    font-size: 24px;
-    line-height: 29px;
-    color: $text-purple;
-  }
-  &__subcount{
-    font-family: $font-Montserrat;
-    font-weight: bold;
-    color: $text-purple;
-  }
-
-  &__path{
-    stop-color: #1F2041;
+  &__ellipse{
+    border-radius: 50%;
+    margin: 5px;
+    height: 10px;
+    width: 10px;
+    //background-color: green;
+    //background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
   }
 }

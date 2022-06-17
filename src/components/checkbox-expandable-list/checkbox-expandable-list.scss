@@ -12,6 +12,7 @@
   &__summary{
     display: flex;
     align-items: center;
+    justify-content: space-between;
     text-transform: uppercase;
     font-family: $font-Montserrat;
     font-weight: bold;
@@ -23,7 +24,6 @@
     padding: 10px;
     line-height: 100%;
     font-size: 24px;
-    margin-left: 30px;
   }
   &__checkbox-container{
     padding: 0;

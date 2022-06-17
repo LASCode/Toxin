@@ -1,9 +1,11 @@
 mixin carousel(props={})
   -
-    const {items=[]} = props
+    let {items = []} = props
+    if (items.length === 0) {
+      items.push({src: "img/imageNotFound.jpg", alt: "changeMe"})
+    }
 
-  .carousel
+  .carousel.js-carousel
     for item, index in items
-      -const {src="img/changeMe.jpg", alt="changeMe"} = item
       .carousel__item
-        img.carousel__img(src=item.src)
+        img.carousel__img(src=item.src, alt=item.alt)

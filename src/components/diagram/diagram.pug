@@ -1,9 +1,13 @@
 mixin diagram(props={})
   -
-    const {} = props
+    const {items=[{title: "noValue", value: 0}], legend=true, pie=true} = props
 
-  .diagram
-    canvas.diagram__canvas
-    .diagram__center-text
-      //span.diagram__count 260
-      //span.diagram__subcount голосов
+  .diagram(data-items=items, data-legend=legend, data-pie=pie).js-diagram
+    canvas.diagram__pie.js-pie
+    .diagram__legend
+      for item, index in items
+        div(data-index=index).diagram__legend-item.js-legend
+          .diagram__ellipse.js-ellipse
+          .diagram__item-name= item.title
+
+

@@ -1,14 +1,21 @@
 .form-item-container {
-  &__header{
-    margin-bottom: 16px;
+  &__header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    &--with-short-margin{
-      margin-bottom: 5px;
+    align-items: flex-start;
+  }
+  &__body {
+    line-height: 20px;
+
+    &--with-margin {
+      padding-top: 5px;
     }
   }
-  &__title{}
+  &__title{
+    &--with-margin {
+      margin-top: 3px;
+    }
+  }
   &__subtitle{
     font-size: 12px;
     line-height: 15px;

@@ -2,6 +2,6 @@ mixin slider(props={})
   -
     const {max=100, min=0, start=((max-min)/100*25)+min, stop=((max-min)/100*75)+min} = props
 
-  .slider
-    input.slider__input
-    .slider__body(data-min=min, data-max=max, data-start=start, data-stop=stop)
+  .slider.js-slider
+    input.slider__input.js-sliderInput
+    .slider__body.js-sliderBody(data-min=min, data-max=max, data-start=start, data-stop=stop)

@@ -1,16 +1,15 @@
-import 'paginationjs'
+import 'paginationjs';
 
-const container = $(".pagination")
-container.find(".pagination__wrapper").each((index, el)=>{
-  const totalPages = $(el).closest(".pagination").data('totalpages')
+const container = $('.pagination');
+container.find('.pagination__wrapper').each((index, el) => {
+  const totalPages = $(el).closest('.pagination').data('totalpages');
 
-  const pagesArr = new Array(totalPages).fill(false).map((el, i)=>i+1)
-  console.log(pagesArr)
+  const pagesArr = new Array(totalPages).fill(false).map((element, i) => i + 1);
   $(el).pagination({
     pageSize: 1,
     dataSource: pagesArr,
     pageRange: 1,
-    prevText: "arrow_back",
-    nextText: "arrow_forward"
-  })
-})
+    prevText: 'arrow_back',
+    nextText: 'arrow_forward',
+  });
+});

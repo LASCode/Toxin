@@ -1,10 +1,12 @@
 mixin room-details(props={})
   -
-    const {icon="", title="", subtitle=""} = props
+    const {items=[{icon:"", title:"", subtitle:""}]} = props
+
 
   .room-details
-    //.room-details__icon-wrapper
-    i.room-details__icon.material-icons= icon
-    .room-details__text-wrapper
-      span.room-details__title= title
-      span.room-details__subtitle= subtitle
+    for item in items
+      .room-details__single-item
+        i.room-details__icon.material-icons= item.icon
+        .room-details__text-wrapper
+          span.room-details__title= item.title
+          span.room-details__subtitle= item.subtitle

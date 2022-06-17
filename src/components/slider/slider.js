@@ -1,26 +1,31 @@
-import nouislider from "nouislider";
-import "nouislider/src/nouislider.less"
+import nouislider from 'nouislider';
+import 'nouislider/src/nouislider.less';
 
-$('.slider__body').each((_, el)=>{
-  const start = Number($(el).data('start'))
-  const stop = Number($(el).data('stop'))
-  const min = Number($(el).data('min'))
-  const max = Number($(el).data('max'))
-  const input = $(el).closest(".slider").find(".slider__input")
+$('.js-slider').each((_, el) => {
+  const $element = $(el);
+  const $sliderBody = $element.find('.js-sliderBody');
+  const $sliderInput = $element.find('.js-sliderInput');
+  const {
+    start, stop, max, min,
+  } = $sliderBody.data();
 
-  nouislider.create(el, {
+  const combineTooltipsValue = (e) => `${Math.round(e)} ₽`;
+  const onSlide = (event) => {
+    $sliderInput.val(event.map((elem) => `${Math.round(Number(elem))}`).join('-'));
+  };
+
+  nouislider.create($sliderBody[0], {
     start: [start, stop],
     tooltips: {
-      to: (e)=>`${Math.round(e)} ₽`
+      to: combineTooltipsValue,
+      from: combineTooltipsValue,
     },
     connect: true,
     range: {
-      min: min,
-      max: max
+      min,
+      max,
     },
-  })
-  input.val(el.noUiSlider.get().map(el=>`${Math.round(Number(el))}`).join('-'))
-  el.noUiSlider.on('slide', (e)=>{
-    input.val(e.map(el=>`${Math.round(Number(el))}`).join('-'))
-  })
-})
+  });
+  $sliderInput.val($sliderBody[0].noUiSlider.get().map((element) => `${Math.round(Number(element))}`).join('-'));
+  $sliderBody[0].noUiSlider.on('slide', onSlide);
+});
