@@ -1,23 +1,7 @@
+include ../base-dropdown/base-dropdown
 mixin guest-dropdown(props={})
-  - const {defaultValues=false} = props
-  -
-    const guestItems = [
-      {name: 'Взрослые'},
-      {name: 'Дети'},
-      {name: 'Младенцы'}
-    ]
+  - const { isOpen=false, defaultValue=[], windowListener=true, inputListener=true } = props
 
-  .dropdown-guest
-    for guestItem in guestItems
-      .dropdown-guest__type-container&attributes({"data-name": guestItem.name})
-        .dropdown-guest__type-name= guestItem.name
-        .dropdown-guest__btn-container
-          button.dropdown-guest__change-count-button&attributes({"data-action": "reduce"}) -
-          if (defaultValues[guestItem.name])
-            span.dropdown-guest__guest-count= defaultValues[guestItem.name]
-          else
-            span.dropdown-guest__guest-count 0
-          button.dropdown-guest__change-count-button&attributes({"data-action": "add"}) +
-    .dropdown-guest__actions
-      +button({type: 'borderless', text: 'Очистить'})&attributes({"data-action": "clear", class: 'global--hidden'})
-      +button({type: 'borderless', text: 'Применить'})&attributes({"data-action": "confirm"})
+  div(data-value=defaultValue).guest-dropdown.js-guestDropdown
+    +baseDropdown({ isOpen, windowListener, inputListener })
+      block

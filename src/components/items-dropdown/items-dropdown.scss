@@ -1,0 +1,89 @@
+.items-dropdown {
+  width: 100%;
+  position: absolute;
+  box-sizing: border-box;
+  background-color: white;
+  padding: 6px 6px 8px 14px;
+  border-radius: 0 0 4px 4px;
+  border-top: none;
+  border-bottom: 1px solid $text-dark-50;
+  border-right: 1px solid $text-dark-50;
+  border-left: 1px solid $text-dark-50;
+
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    &:not(:last-child) {
+      margin-bottom: 7px;
+    }
+  }
+  &__item-value {
+    font-family: $font-Montserrat;
+    font-weight: bold;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+  &__item-actions {
+    display: grid;
+    grid-template-columns: 30px 28px 30px;
+    grid-gap: 2px;
+  }
+  &__item-value {
+    font-family: $font-Montserrat;
+    font-weight: bold;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__item-btn {
+    height: 30px;
+    width: 30px;
+    border-radius: 15px;
+    background-color: transparent;
+    border: 1px solid $text-dark-25;
+    color: $text-dark-50;
+    font-family: $font-Montserrat;
+    cursor: pointer;
+
+    &:disabled {
+      //color: $text-dark-10;
+      //border: 1px solid $text-dark-10;
+    }
+    &:hover:not(:disabled) {
+      color: $text-dark-75;
+      border: 1px solid $text-dark-75;
+    }
+  }
+  &__custom-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__custom-button {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    font-family: $font-Montserrat;
+    font-weight: bold;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: $text-purple;
+    padding-bottom: 4px;
+
+    &--hidden {
+      width: 0;
+      height: 0;
+      opacity: 0;
+      overflow: hidden;
+    }
+    &:disabled {
+      //opacity: 50%;
+    }
+    &:hover:not(&:disabled) {
+      text-shadow: 0 0 2px $text-dark-50;
+    }
+  }
+}

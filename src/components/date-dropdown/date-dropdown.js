@@ -1,109 +1,149 @@
-import AirDatepicker from 'air-datepicker'
-import 'air-datepicker/air-datepicker.css'
-import moment from "moment";
-import 'moment/locale/ru'
+import AirDatepicker from 'air-datepicker';
+import moment from 'moment';
+import { BaseDropdown } from '../base-dropdown/base-dropdown';
+import 'air-datepicker/air-datepicker.css';
+import 'moment/locale/ru';
+import 'jquery-mask-plugin';
+
 moment.locale('ru', {
-  monthsShort: ["Янв","Фев","Мар","Апр","Мая","Июн","Июл","Авг","Сен","Окт","Ноя","Дек"]
-})
+  monthsShort: ['Янв', 'Фев', 'Мар', 'Апр', 'Мая', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
+});
 
-const actionsFunc = {
-  toggleDropdown(container){
-    $(container).toggleClass('form-input--dropdown-expanded')
+class DateDropdown extends BaseDropdown {
+  constructor(rootNode) {
+    super($(rootNode).find('.js-baseDropdown'), { customClass: 'customDateDropdownClass' });
+    this.isRange = $(rootNode).data('range') !== undefined;
+    this.settings = {};
+    this.inputInstance = [...this.$inputNode].map((el) => $(el).data('toxin-inputInstance'));
+    this.inputsCount = this.$inputNode.length;
+    this.getDefaultSettings();
+    this.createComponent();
+    this.setInputListeners();
+    this.onInput();
   }
-}
-const clear = (button)=>{
-  const value = $(button.$altField).val()
-  const container = $(button.$el).closest('.form-input--with-dropdown')
-  const input = container.find('.form-input__input')
-  button.clear()
-  input.val('')
-}
-const save = (button)=>{
-  console.log(button)
-  const value = $(button.$altField).val()
-  const container = $(button.$el).closest('.form-input--with-dropdown')
-  const input = container.find('.form-input__input')
-  if (value.split('-').length<=1){return false}
-  if (input.length>1){
-    input.each((i, element)=>{
-      $(element).val(moment(Number(value.split('-')[i])).format("DD.MM.YYYY"))
-    })
-  }else{
-    input.each((i, element)=>{
-      const timeRange = ``+
-        `${moment(Number(value.split('-')[0])).format("D MMM")}`+
-        ` - `+
-        `${moment(Number(value.split('-')[1])).format("D MMM")}`
-      $(element).val(timeRange)
-    })
+
+  getDefaultSettings() {
+    this.onSave = this.onSave.bind(this);
+    this.onClear = this.onClear.bind(this);
+    const saveButton = {
+      content: 'Применить',
+      className: 'dropdown-date__button',
+      onClick: this.onSave,
+    };
+    const clearButton = {
+      content: 'Очистить',
+      className: 'dropdown-date__button',
+      onClick: this.onClear,
+    };
+    this.settings = {
+      range: this.isRange,
+      prevHtml: '<i class="material-icons">arrow_back</i>',
+      nextHtml: '<i class="material-icons">arrow_forward</i>',
+      buttons: [clearButton, saveButton],
+      navTitles: { days: 'MMMM yyyy' },
+    };
   }
-  actionsFunc.toggleDropdown(container)
-}
 
+  createComponent() {
+    if (this.inputsCount === 2) {
+      this.inputInstance.forEach((el, index) => {
+        el.inputNode.data('index', index);
+        el.inputNode.mask('Dd.Mm.THNY', {
+          translation: {
+            D: { pattern: /[0-3]/, recursive: true },
+            d: { pattern: /[0-9]/, recursive: true },
+            M: { pattern: /[0-3]/, recursive: true },
+            m: { pattern: /[0-9]/, recursive: true },
+            T: { pattern: /2/, recursive: true },
+            H: { pattern: /[0-9]/, recursive: true },
+            N: { pattern: /[0-9]/, recursive: true },
+            Y: { pattern: /[0-9]/ },
+          },
+        });
+      });
+    }
+    if (this.inputsCount === 1) {
+      this.inputInstance.forEach((el, index) => {
+        el.inputNode.data('index', index);
+        el.inputNode.mask('00 MMM - 00 MMM', {
+          translation: {
+            M: { pattern: /[а-яА-Я]/, recursive: false },
+          },
+        });
+      });
+    }
+    this.datepickerInstance = new AirDatepicker(this.$dropdownNode[0], this.settings);
+    this.$rootNode.find('.dropdown-date__button').each((index, element) => {
+      $(element).prop('type', 'button');
+    });
+  }
 
-
-
-
-
-const onClick = (e)=>{
-  e.preventDefault()
-  const target = e.target // Элемент, по которому произошел клик
-  const container = $(target).closest('.form-input--with-dropdown') // Главный контейнер инпута
-  const action = $(target).closest('*[data-action]').data('action') // Дата атрибут элемента, по которому произошел клик
-
-  if (action){
-    if (action==='toggleDropdown'){
-      actionsFunc.toggleDropdown(container)
+  onSave() {
+    const selectedDatesCountIsValid = this.datepickerInstance.selectedDates.length === 2;
+    if (selectedDatesCountIsValid) {
+      const [momentFrom, momentTo] = this.datepickerInstance.selectedDates.map((el) => moment(el));
+      const datesIsValid = momentFrom.isValid() && momentTo.isValid();
+      if (this.inputsCount === 2 && datesIsValid) {
+        this.inputInstance[0].setValue(momentFrom.format('DD.MM.YYYY'));
+        this.inputInstance[1].setValue(momentTo.format('DD.MM.YYYY'));
+      }
+      if (this.inputsCount === 1 && datesIsValid) {
+        this.inputInstance[0].setValue(`${momentFrom.format('DD MMM')} - ${momentTo.format('DD MMM')}`);
+      }
+      this.closeDropdown();
+    } else {
+      this.startShacking();
     }
   }
-}
-const onKeydown = (e)=> {
-  const target = e.target // Элемент, по которому произошел клик
-  const key = e.key
-  const container = $(target).closest('.form-input--with-dropdown') // Главный контейнер инпута
-  console.log(key)
-  if ($(target).data("action") === "toggleDropdown"){
-    if(key==="Enter" || key==="Escape"){
-      actionsFunc.toggleDropdown(container)
+
+  onClear() {
+    this.datepickerInstance.clear();
+    this.inputInstance.forEach((el) => el.setValue(''));
+  }
+
+  onInput() {
+    const [selectedFrom, selectedTo] = this.datepickerInstance.selectedDates;
+    if (this.inputsCount === 2) {
+      const [momentFrom, momentTo] = this.inputInstance.map((el) => moment(el.inputNode.val(), 'DD.MM.YYYY'));
+      if (momentTo.isValid() && momentFrom.isValid()) {
+        this.datepickerInstance.selectDate([momentFrom.unix() * 1000, momentTo.unix() * 1000]);
+      } else
+      if (momentFrom.isValid()) {
+        this.datepickerInstance.selectDate([momentFrom.unix() * 1000, selectedTo]);
+      } else
+      if (momentTo.isValid()) {
+        this.datepickerInstance.selectDate([selectedFrom, momentTo.unix() * 1000]);
+      }
+    }
+    if (this.inputsCount === 1) {
+      const value = this.inputInstance[0].inputNode.val();
+      if (value.split(' - ').length < 2) { return; }
+      const [momentFrom, momentTo] = value.split(' - ').map((el) => moment(el, 'DD MMM'));
+      if (momentFrom.isValid()) {
+        this.datepickerInstance.selectDate([momentFrom.unix() * 1000, selectedTo]);
+      }
+      if (momentTo.isValid()) {
+        this.datepickerInstance.selectDate([selectedFrom, momentTo.unix() * 1000]);
+      }
     }
   }
-}
-const setDatepicker = (container)=>{
-  const saveButton = {
-    content: 'Применить',
-    className: 'dropdown-date__button',
-    onClick: save
-  }
-  const clearButton = {
-    content: 'Очистить',
-    className: 'dropdown-date__button',
-    onClick: clear
+
+  setInputListeners() {
+    this.onInput = this.onInput.bind(this);
+    this.$rootNode.on('input', this.onInput);
   }
 
-  new AirDatepicker(container, {
-    range: true,
-    prevHtml: '<i class="material-icons">arrow_back</i>',
-    nextHtml: '<i class="material-icons">arrow_forward</i>',
-    buttons: [clearButton, saveButton],
-    altField: ".dropdown-date__input",
-    multipleDatesSeparator: '-',
-    navTitles: {days: 'MMMM yyyy'}
-  })
+  startShacking() {
+    this.stopShacking = this.stopShacking.bind(this);
+    $(this.$dropdownNode).addClass('dropdown-date__calendar--shacking');
+    setTimeout(this.stopShacking, 200);
+  }
+
+  stopShacking() {
+    $(this.$dropdownNode).removeClass('dropdown-date__calendar--shacking');
+  }
 }
 
-
-
-
-/**
- Точка входа
- **/
-const initializeAllDropdown = ()=>{
-  $('.dropdown-date').closest('.form-input').each((index, element)=>{
-    $(element).on('click', onClick)
-    $(element).on('keydown', onKeydown)
-    setDatepicker([...$(element).find('.dropdown-date')][0])
-  })
-}
-initializeAllDropdown()
-
-
+$('.js-dateDropdown').each((index, element) => {
+  new DateDropdown(element);
+});

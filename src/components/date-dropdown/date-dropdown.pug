@@ -1,3 +1,16 @@
+include ../base-dropdown/base-dropdown
 mixin date-dropdown(props={})
-  .dropdown-date
-    input.dropdown-date__input
+  - const { isOpen=false, isRange = true, defaultValue = {}, windowListener=true, inputListener=true } = props
+  -
+    const dropdownClass = {
+      'js-dateDropdown' : true,
+      'js-dateDropdown-withRange': isRange,
+      'js-dateDropdown-withoutRange': !isRange,
+    };
+
+
+
+  div(data-range=isRange, data-value=defaultValue).date-dropdown.js-dateDropdown
+    +baseDropdown({ isOpen, windowListener, inputListener })
+      block
+

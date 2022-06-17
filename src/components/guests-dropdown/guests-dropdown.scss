@@ -1,18 +1,9 @@
 .dropdown-guest{
-  position: absolute;
-  padding: 6px 6px 14px 14px;
-  box-sizing: border-box;
-  width: 100%;
-  background-color: #FFFFFF;
-  border-radius: 0 0 4px 4px;
-  border-top: none;
-  border-bottom: 1px solid $text-dark-50;
-  border-right: 1px solid $text-dark-50;
-  border-left: 1px solid $text-dark-50;
 
-  font-family: $font-Montserrat;
-  font-weight: bold;
-  font-size: 12px;
+  &__body {
+    width: 100%;
+    position: absolute;
+  }
 
   &__type-container{
     margin-bottom: 7px;

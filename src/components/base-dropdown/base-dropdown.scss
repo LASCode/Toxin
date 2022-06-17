@@ -1,0 +1,11 @@
+.base-dropdown {
+  &__body {
+    position: relative;
+    width: 100%;
+    z-index: 100;
+
+    &--hidden {
+      display: none;
+    }
+  }
+}
