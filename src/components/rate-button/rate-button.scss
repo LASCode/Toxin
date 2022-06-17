@@ -3,11 +3,16 @@
   &__input{
     display: none;
   }
+  &__body {
+    display: flex;
+    flex-direction: row;
+    min-height: 24px;
+  }
   &__star{
     background: $gradient-primary-default;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    line-height: 20.4px;
+    line-height: 24px;
     font-size: 24px;
     cursor: pointer;
   }

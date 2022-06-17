@@ -1,68 +1,90 @@
-const clearAllStar = (container)=>{
-  $(container).find(".rate-button__star").each((index, el)=>{
-    if ($(el).hasClass('active')){
-      $(el).removeClass('active')
-    }
-  })
-}
-const setActiveClassOnStars = (container, count)=>{
-  $(container).find(".rate-button__star").each((index, el)=>{
-    if ($(el).data('index')<=count){
-      $(el).addClass("active", true)
-    }
-  })
-}
-const setStar = (container) =>{
-  $(container).find(".rate-button__star").each((index, el)=>{
-    if ($(el).hasClass("active")){
-      $(el).html("star")
-    }else{
-      $(el).html("star_border")
-    }
-  })
-}
+import { RateButtonStar } from './rate-button-star';
 
-const rateContainer = $(".rate-button")
+class RateButton {
+  constructor(rootNode) {
+    this.$rootNode = $(rootNode);
+    this.$body = this.$rootNode.find('.js-rateButtonBody');
+    this.$input = this.$rootNode.find('.js-rateButtonInput');
+    this.options = this.$rootNode.data();
+    this.state = this.options;
+    this.tempState = {};
+    this.starsArray = [];
+    this.createStars();
+    this.setValue(this.options.value);
+    this.setListeners();
+  }
 
-rateContainer.on("click", (e)=>{
-  const target = $(e.target)
-  const container = target.closest(".rate-button")
-
-  if (target.hasClass("rate-button__star")){
-    const index = target.data("index")
-    const input = $(container).find(".rate-button__input")
-    const isFirstStar = index===1
-    const isAlreadyChecked = Number(input.val())===1
-
-    if (isAlreadyChecked && isFirstStar){
-      input.val(0)
-      clearAllStar(container)
-      setActiveClassOnStars(container, 0)
-      setStar(container)
-    }else{
-      input.val(index)
-      clearAllStar(container)
-      setActiveClassOnStars(container, index)
-      setStar(container)
+  createStars() {
+    for (let i = 0; i < this.options.stars; i += 1) {
+      this.starsArray.push(new RateButtonStar(this.$body, i + 1));
     }
   }
-})
-rateContainer.on("mouseover", (e)=>{
-  const target = $(e.target)
-  const container = target.closest(".rate-button")
 
-  if (target.hasClass("rate-button__star")){
-    const index = target.data("index")
-    clearAllStar(container)
-    setActiveClassOnStars(container, index)
-    setStar(container)
+  setListeners() {
+    this.onMove = this.onMove.bind(this);
+    this.onDrop = this.onDrop.bind(this);
+    this.onClick = this.onClick.bind(this);
+    if (this.options.readonly === undefined) {
+      this.$body.on('click', this.onClick);
+      this.$body.on('mouseover', this.onMove);
+      this.$body.on('mouseleave', this.onDrop);
+    }
   }
-})
-rateContainer.on("mouseleave", (e)=>{
-  const target = $(e.target)
-  const container = target.closest(".rate-button")
-  const starsCount = Number($(container).find(".rate-button__input").val())
-  clearAllStar(container)
-  setActiveClassOnStars(container, starsCount)
-  setStar(container)
-})
+
+  setValue(value) {
+    this.clear();
+    this.starsArray.forEach((el, index) => {
+      if (value - 1 >= index) {
+        el.activate();
+      }
+    });
+  }
+
+  getValue() {
+    return this.state.value;
+  }
+
+  clear() {
+    this.starsArray.forEach((el) => {
+      el.deactivate();
+    });
+  }
+
+  validateState() {
+    this.setValue(this.state.value);
+    this.$input.val(this.state.value);
+  }
+
+  onClick(e) {
+    const $target = $(e.target);
+    const { index } = $target.data();
+    if (this.state.value === 1 && index === 1) {
+      this.state.value = 0;
+    } else {
+      this.state.value = index;
+    }
+    this.validateState();
+  }
+
+  onMove(e) {
+    const $target = $(e.target);
+    const isStar = $target.hasClass('rate-button__star');
+    const { index } = $target.data();
+    if (this.tempState.value !== undefined) {
+      this.tempState.value = this.state.value;
+    }
+    if (isStar) {
+      this.tempState.value = index;
+      this.setValue(this.tempState.value);
+    }
+  }
+
+  onDrop() {
+    this.tempState = {};
+    this.setValue(this.state.value);
+  }
+}
+
+$('.js-rateButton').each((index, el) => {
+  new RateButton(el);
+});

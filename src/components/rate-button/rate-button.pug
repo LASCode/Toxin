@@ -1,14 +1,19 @@
 mixin rate-button(props={})
   -
-    const {stars=5, defaultValue=0} = props
+    const {stars=5, defaultValue=0, readonly=false} = props
     const starsArr = new Array(stars).fill(false)
+    const rateButtonClassObj = {
+      "rate-button": true,
+      "js-rateButton": true,
+      "js-rateButton--readonly": readonly,
+    }
 
-
-  span.rate-button
-    input.rate-button__input(value=defaultValue)
-    for value, index in starsArr
-      -
-        const isActive = (index<defaultValue)
-        const textStar = isActive?"star":"star_border"
-      span.rate-button__star.material-icons(data-index=index+1 class={active: isActive})= textStar
+  span(class=rateButtonClassObj, data-stars=stars, data-value=defaultValue, data-readonly=readonly)
+    input.rate-button__input.js-rateButtonInput(value=defaultValue)
+    span.rate-button__body.js-rateButtonBody
+    // for value, index in starsArr
+    //   -
+    //     const isActive = (index<defaultValue)
+    //     const textStar = isActive?"star":"star_border"
+    //   span.rate-button__star.material-icons(data-index=index+1 class={active: isActive})= textStar
 

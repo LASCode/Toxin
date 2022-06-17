@@ -3,7 +3,6 @@
 
   &__label{
     display: flex;
-    align-items: center;
   }
   &__checkbox{
     position: absolute;
@@ -51,5 +50,8 @@
       transition: transform .3s linear;
     }
   }
-  &__title{}
+  &__title {
+    min-height: 24px;
+    line-height: 18px;
+  }
 }
