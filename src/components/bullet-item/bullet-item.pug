@@ -1,0 +1,6 @@
+mixin bullet-item(props={})
+  - const { title='' } = props
+
+  .bullet-item
+    span.bullet-item__mark
+    span.bullet-item__title= title
