@@ -1,0 +1,9 @@
+mixin logo(props = {})
+  - const { href = './', type = 'default' } = props
+
+  .logo
+    a(href=href).logo__link
+      if type === 'default'
+        img(src="img/logo/logo-default.svg")
+      if type === 'ui-kit'
+        img(src="img/logo/logo-uikit.svg")
