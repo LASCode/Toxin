@@ -1,0 +1,30 @@
+include ../input/input
+include ../radio-button/radio-button
+include ../form-item-container/form-item-container
+include ../toggle-button/toggle-button
+include ../button/button
+
+mixin card-login(props={})
+  -
+    const {} = props
+  .card-login
+    .card-login__title
+      h1 Войти
+    form.card-login__form
+
+      .card-login__form-section.card-login__form-section--with-user-auth-data
+        .card-login__container.card-login__container--with-email
+          +input({placeholder: "Email"})
+        .card-login__container.card-login__container--with-password
+          +input({placeholder: "Пароль"})
+
+      .card-login__form-section.card-login__form-section--with-login-btn
+        .card-login__container.card-login__container--with-login-btn
+          +button({text: "войти", type: "big", icon: "arrow_forward"})
+
+      .card-login__form-section.card-login__form-section--with-not-register
+        .card-login__container.card-login__container--with-not-register
+          .card-login__container.card-login__container--with-no-have-account
+            span Нет аккаунта на Toxin?
+          .card-login__container.card-login__container--with-register-btn
+            +button({text: "Создать", type: "outlined", href: "./registration.html"})

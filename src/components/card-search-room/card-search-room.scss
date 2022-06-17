@@ -1,0 +1,39 @@
+.card-search-room {
+  max-width: 380px;
+  min-width: 300px;
+  padding: 29px;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+
+  &__form{
+    margin-top: 22px;
+  }
+  &__title{
+    margin-top: 10px;
+  }
+  &__form-section {
+    &--with-date-dropdown {
+      margin-top: 20px;
+    }
+    &--with-guest-dropdown {
+      margin-top: 21px;
+    }
+    &--with-find-room-btn {
+      margin-top: 31px;
+    }
+
+  }
+  &__container{
+    &--with-date-dropdown-inputs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: 20px;
+    }
+  }
+}
+.customDateDropdownClass {
+  margin-top: 5px;
+}

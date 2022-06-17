@@ -1,0 +1,47 @@
+include ../input/input
+include ../i-button/i-button
+include ../date-dropdown/date-dropdown
+include ../guests-dropdown/guests-dropdown
+include ../price-list/price-list
+include ../total-price/total-price
+
+mixin card-selected-room(props={})
+  -
+    const { priceListItems=[], priceTotal=0 } = props
+
+
+  .card-selected-room
+    .card-selected-room__title
+      .card-selected-room__room-number-container
+        span.card-selected-room__room-number №888
+        span.card-selected-room__room-type люкс
+      .card-selected-room__room-price-container
+        span.card-selected-room__price-sum 9 990₽
+        span.card-selected-room__price-text в сутки
+    form.card-selected-room__form
+
+      .card-selected-room__form-section.card-selected-room__form-section--with-date-dropdown
+        .card-selected-room__container.card-selected-room__container--with-date-dropdown
+          +date-dropdown({isRange: true})
+            .card-selected-room__container.card-selected-room__container--with-date-dropdown-inputs
+              +form-item-container({title: 'прибытие', shortTitleMargin: true})
+                +input({placeholder: "ДД.ММ.ГГГГ", icon: "expand_more", readonly: true})
+              +form-item-container({title: 'выезд', shortTitleMargin: true})
+                +input({placeholder: "ДД.ММ.ГГГГ", icon: "expand_more", readonly: true})
+
+      .card-selected-room__form-section.card-selected-room__form-section--with-guest-dropdown
+        .card-selected-room__container.card-selected-room__container--with-guest-dropdown
+          +guest-dropdown()
+            .card-selected-room__container.card-selected-room__container--with-guest-dropdown-inputs
+              +form-item-container({title: "гости", shortTitleMargin: true})
+                +input({placeholder: "Сколько гостей", icon: "expand_more", readonly: true, dropdown: true})
+
+      .card-selected-room__form-section.card-selected-room__form-section--with-price
+        .card-selected-room__container.card-selected-room__container--with-price-list
+          +price-list({items: priceListItems, totalPrice: true})
+        .card-selected-room__container.card-selected-room__container--with-total-price
+          +total-price({value: priceTotal})
+
+      .card-selected-room__form-section.card-selected-room__form-section--with-submit-btn
+        .card-selected-room__container.card-selected-room__container--with-submit-btn
+          +button({type: "big", text: "Забронировать", icon: "arrow_forward"})

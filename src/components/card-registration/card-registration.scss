@@ -1,0 +1,66 @@
+.card-registration {
+  max-width: 380px;
+  min-width: 300px;
+  padding: 29px;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+
+  &__form{
+    margin-top: 21px;
+  }
+  &__title{
+    margin-top: 10px;
+  }
+  &__form-section {
+    &--with-user-name {}
+    &--with-user-date {
+      margin-top: 20px;
+    }
+    &--with-user-auth-data {
+      margin-top: 20px;
+    }
+    &--with-register-btn {
+      margin-top: 20px;
+    }
+    &--with-already-registered {
+      margin-top: 30px;
+    }
+  }
+  &__container{
+    &--with-firstname {}
+    &--with-lastname {
+      margin-top: 10px;
+    }
+    &--with-sex {
+      margin-top: 8px;
+    }
+    &--with-date {}
+    &--with-userAuthData {
+      display: grid;
+      grid-row-gap: 5px;
+    }
+    &--with-email {}
+    &--with-password {
+      margin-top: 10px;
+    }
+    &--with-promo {
+      margin-top: 10px;
+    }
+    &--with-register-btn {}
+    &--with-already-registered {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    &--with-already-have-account {}
+    &--with-login-btn {
+      width: 99px;
+    }
+  }
+  &__firstname-container {
+
+  }
+}

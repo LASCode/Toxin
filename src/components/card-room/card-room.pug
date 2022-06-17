@@ -1,0 +1,41 @@
+include ../carousel/carousel
+include ../rate-button/rate-button
+include ../../mixins/numberWithSpaces
+mixin card-room(props={})
+  -
+    let {img=[], rate=0, price=0, amount="в сутки", comments=0, number=0, type=false} = props
+    const arr = [
+      {src: "img/rooms/room-1-thumbnail.jpg", alt: "Фотография комнаты №1"},
+      {src: "img/rooms/room-2-thumbnail.jpg", alt: "Фотография комнаты №2"},
+      {src: "img/rooms/room-3-thumbnail.jpg", alt: "Фотография комнаты №3"},
+      {src: "img/rooms/room-4-thumbnail.jpg", alt: "Фотография комнаты №4"}
+    ]
+    if (img.length===0){img=arr}
+
+
+  .card-room
+
+    .card-room__carousel
+      +carousel({items: arr })
+
+    a(href=`./room-details.html#${number}`).card-room__link
+      .card-room__container
+
+        .card-room__title
+          .card-room__room-number-container
+            span.card-room__room-number= `№${number}`
+            if (type)
+              span.card-room__room-type= type
+          .card-room__room-price-container
+            span.card-room__price-sum
+              +numberWithSpaces({num: price})
+              |₽
+            span.card-room__price-text= amount
+
+        .card-room__br
+        .card-room__rate-wrapper
+          span.card-room__rate-button-container
+            +rate-button({stars: 5, defaultValue: rate, readonly: true})
+          span.card-room__comments-container
+            span.card-room__comments-count= comments
+            span.card-room__comments-text Отзывов

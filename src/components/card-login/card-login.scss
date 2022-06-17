@@ -1,0 +1,65 @@
+.card-login{
+  max-width: 380px;
+  min-width: 300px;
+  padding: 29px 29px 31px 29px;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+
+  &__form{
+    margin-top: 21px;
+  }
+  &__title{
+    margin-top: 10px;
+  }
+  &__form-section {
+    &--with-user-auth-data {
+      margin-top: 20px;
+    }
+    &--with-login-btn {
+      margin-top: 20px;
+    }
+    &--with-not-register {
+      margin-top: 30px;
+    }
+  }
+  &__container{
+    &--with-email {}
+    &--with-password {
+      margin-top: 10px;
+    }
+    &--with-not-register {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    &--with-no-have-account {}
+    &--with-register-btn {
+      width: 99px;
+    }
+
+
+    &--with-grid{
+      display: grid;
+      grid-gap: 10px;
+    }
+    &--with-z-index{
+      position: relative;
+      z-index: 15;
+    }
+    &--with-10px-margin{
+      margin-top: 10px;
+    }
+    &--with-20px-margin{
+      margin-top: 20px;
+    }
+    &--with-25px-margin{
+      margin-top: 21px;
+    }
+    &--with-30px-margin{
+      margin-top: 30px;
+    }
+  }
+}
