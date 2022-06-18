@@ -1,0 +1,20 @@
+extends ../../layouts/base-layout
+include ../../components/card-search-room/card-search-room
+
+
+block head
+  -const title = 'Toxin Landing'
+
+block content
+  .index-page
+    .index-page__container
+      .index-page__content
+        .index-page__flex-container
+          .index-page__flex-item.index-page__flex-item--left
+            +card-search-room()
+          .index-page__flex-item.index-page__flex-item--right.index-page__flex-item--with-margin-top
+            span.index-page__site-desctiption Лучшие номера для вашей работы, отдыха и просто вдохновения
+
+
+
+

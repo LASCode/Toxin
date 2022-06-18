@@ -1,0 +1,42 @@
+@import "../../styles/_main.scss";
+
+
+
+
+html{
+  font-family: $font-Montserrat;
+  line-height: 14.63px;
+  font-size: 14px;
+}
+
+.ui-cards-page{
+  background-color: #E5E5E5;
+  padding-bottom: 80px;
+
+  &__container {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  &__wrapper{
+    margin: 42px 140px 0 140px;
+    display: grid;
+    grid-template-columns: 380px 380px 320px;
+    grid-gap: 40px;
+  }
+  &__collumn{
+    &>*:not(:first-child){
+      margin-top: 40px;
+    }
+  }
+  &__rooms {
+    width: 270px;
+  }
+  &__datepicker {
+    .air-datepicker.-inline- {
+      position: relative;
+    }
+  }
+
+
+}

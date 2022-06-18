@@ -1,0 +1,46 @@
+extends ../../layouts/ui-kit-layout
+include ../../components/header/header
+
+block head
+  -const title = 'Colors & type'
+
+block content
+  .ui-colors-type-page
+    .ui-colors-type-page__header
+      +header({type: "ui-kit"})
+
+    .ui-colors-type-page__container--global
+      .ui-colors-type-page__container--with-grid
+        .ui-colors-type-page__container--with-colors
+          +SingleColor({hex: '#1F2041', name: 'Dark Shade 100%', customClass: 'dark-shade-100'})
+          +SingleColor({hex: '#1F2041', name: 'Dark Shade 75%', customClass: 'dark-shade-75'})
+          +SingleColor({hex: '#1F2041', name: 'Dark Shade 50%', customClass: 'dark-shade-50'})
+          +SingleColor({hex: '#1F2041', name: 'Dark Shade 25%', customClass: 'dark-shade-25'})
+          +SingleColor({hex: '#1F2041', name: 'Dark Shade 5%', customClass: 'dark-shade-5'})
+          +SingleColor({hex: '#BC9CFF', name: 'Purple', customClass: 'purple'})
+          +SingleColor({hex: '#6FCF97', name: 'Green', customClass: 'green'})
+
+        .ui-colors-type-page__container--with-fonts
+          .ui-colors-type-page__font_container.ui-colors-type-page__font_container--with-big-example
+            .ui-colors-type-page__font-name.ui-colors-type-page__font-name--h1 H1
+            h1.ui-colors-type-page__font-example This one is the sub-section or widget title
+          .ui-colors-type-page__font_container
+            .ui-colors-type-page__font-name.ui-colors-type-page__font-name--h2 H2
+            h2.ui-colors-type-page__font-example Next one is the item title inside widgets
+          .ui-colors-type-page__font_container
+            .ui-colors-type-page__font-name.ui-colors-type-page__font-name--h3 H3
+            h3.ui-colors-type-page__font-example This is a label or CTA text
+          .ui-colors-type-page__font_container.ui-colors-type-page__font_container--with-short-margin
+            .ui-colors-type-page__font-name.ui-colors-type-page__font-name--body Body
+            .ui-colors-type-page__font-example This is the body text which is used for most of the design, like paragraphs, lists, etc.
+
+
+
+mixin SingleColor(props={})
+  - const { name = '', hex = '', customClass = '' } = props
+  - const classWithModify = `ui-color__pallete--${customClass}`
+  .ui-color
+    div(class=classWithModify).ui-color__pallete
+    .ui-color__font-box
+      span.ui-color__font-name= name
+      span.ui-color__font-hex= hex

@@ -1,0 +1,13 @@
+extends ../../layouts/base-layout
+include ../../components/card-registration/card-registration
+
+
+block head
+  -const title = 'Registration'
+
+block content
+  .registration-page
+    .registration-page__container
+      .registration-page__content
+        .registration-page__card-container
+          +card-registration()

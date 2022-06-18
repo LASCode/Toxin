@@ -1,0 +1,255 @@
+@import "../../styles/_main.scss";
+
+
+
+.room-details-page{
+  width: 100%;
+  min-width: $container-min-width;
+  border-bottom: 1px solid $text-dark-25;
+  &__wrapper{
+    &--primary{
+      margin: 0 auto;
+      max-width: 1440px;
+    }
+    &--secondary{
+      margin: 0 auto;
+      max-width: $container-max-width;
+      padding: 70px $container-default-padding 62px $container-default-padding;
+    }
+    &--with-details{
+      display: grid;
+      grid-template-columns: 1fr 30% auto;
+      grid-template-areas: "details diagram card" "comments comments card" "rules cancel card";
+      grid-row-gap: 32px;
+      grid-column-gap: 70px;
+      grid-auto-flow: column;
+    }
+  }
+
+  &__room-images{
+    position: relative;
+    max-height: 485px;
+    display: grid;
+    grid-template-columns: 1fr 31.8%;
+    grid-template-rows: repeat(auto-fit, minmax(110px, 1fr));
+    grid-template-areas: "a b" "a c";
+  }
+  &__img-link{
+    &:nth-child(1){
+      grid-area: a;
+    }
+    &:nth-child(2){
+      grid-area: b;
+    }
+    &:nth-child(3){
+      grid-area: c;
+    }
+  }
+  &__room-img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &__details-item{
+    &--room-card{
+      grid-area: card;
+    }
+    &--details{
+      grid-area: details;
+    }
+    &--diagram{
+      grid-area: diagram;
+    }
+    &--comments{
+      grid-area: comments;
+    }
+    &--rules{
+      grid-area: rules;
+      max-width: 260px;
+    }
+    &--cancel{
+      grid-area: cancel;
+      max-width: 340px;
+    }
+  }
+  &__box-title{
+    &--with-ml-20px{
+      margin-left: 20px;
+    }
+    &--with-mb-20px{
+      margin-bottom: 20px;
+    }
+  }
+  &__container{
+    &--global{
+      display: grid;
+      grid-column-gap: 70px;
+      grid-template-columns: 1fr 380px;
+    }
+    &--with-room-details{
+      display: grid;
+      grid-column-gap: 70px;
+      grid-template-columns: 41% 1fr;
+      grid-row-gap: 32px;
+      grid-template-areas: "details impressions" "comments comments" "rules cancel";
+    }
+    &--with-mt-22px{
+      margin-top: 22px;
+    }
+    &--with-comments{
+      margin-top: 21px;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-row-gap: 23px;
+    }
+    &--with-bullet-list{
+      margin-top: 20px;
+    }
+  }
+  &__diagram{
+    margin-top: 21px;
+    max-height: 126px;
+  }
+}
+
+
+
+//default
+@media screen and (max-width: 1110px){
+  .footer{
+    &__grid-container{
+      display: grid;
+      grid-template-rows: 80px 1fr;
+      grid-template-columns: 1fr 1fr 1fr 260px;
+      grid-template-areas: "brand brand brand brand" "nav aboutus support subscribe";
+      grid-gap: 40px;
+    }
+    &__brand-logo{
+      display: flex;
+      justify-content: center;
+    }
+    &__brand-info{
+      margin-top: 5px;
+      text-align: center;
+    }
+    &__grid-item--with-brand-logo{
+      padding-bottom: 10px;
+      border-bottom: 1px solid $text-dark-25;
+    }
+  }
+}
+@media screen and (max-width: 950px){
+  .header{
+    &__navigation{
+      &--visible{
+        display: block;
+      }
+      &:not(&--visible){
+        display: none;
+      }
+      position: absolute;
+      left: 0;
+      top: 0;
+      margin-top: 70px;
+      width: 100%;
+      height: 100vh;
+      backdrop-filter: blur(2px);
+    }
+    &__nav-container{
+      display: block;
+      max-width: $container-max-width;
+      padding: 20px 10px 20px 10px;
+      margin: 0 auto;
+      border-top: 1px solid $text-dark-10;
+      border-bottom: 1px solid $text-dark-10;;
+      background-color: #FFFFFF;
+      box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
+    }
+    &__nav-list{
+      display: block;
+      padding-left: 10px;
+    }
+    &__nav-item{
+      &:not(:first-child){
+        margin: 10px 0 0 0;
+      }
+    }
+    &__nav-user{
+      margin: 20px 0 0 0;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    &__nav-btn{
+      display: block;
+      width: 196px;
+      height: 34px;
+      margin: 0;
+      &:not(:first-child){
+        margin-top: 5px;
+      }
+    }
+    &__br{
+      display: none;
+    }
+    &__container--hamburger{
+      display: block;
+    }
+    &__details-hidden{
+      transform: none;
+      position: static;
+      margin: 0;
+      padding: 0;
+      box-shadow: none;
+    }
+  }
+}
+@media screen and (max-width: 810px){
+  @include mobile-adaptive
+}
+@media screen and (max-width: 420px){
+  .room-details-page__container{
+    padding: 0 $container-padding-mini;
+  }
+  .header__wrapper{
+    padding: 0 $container-padding-mini;
+  }
+}
+
+//this
+@media screen and (max-width: 1024px) {
+  .room-details-page__wrapper--with-details{
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "diagram card" "details card" "comments comments" "rules cancel";
+    grid-column-gap: 40px;
+  }
+}
+@media screen and (max-width: 740px) {
+  .room-details-page__wrapper--secondary{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .room-details-page__wrapper--with-details{
+    grid-template-columns: 1fr;
+    grid-template-areas: "card" "diagram" "details" "rules" "cancel" "comments";
+    grid-row-gap: 40px;
+  }
+  .room-details-page__details-item{
+    display: inline-block;
+    margin: 0 auto;
+  }
+  .room-details-page__box-title{
+    display: flex;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 340px) {
+  .card-selected-room{
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .diagram__legend{
+    margin-left: 10px;
+  }
+}
+

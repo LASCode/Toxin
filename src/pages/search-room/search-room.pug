@@ -1,0 +1,177 @@
+extends ../../layouts/base-layout
+include ../../components/input/input
+include ../../components/date-dropdown/date-dropdown
+include ../../components/guests-dropdown/guests-dropdown
+include ../../components/rooms-dropdown/rooms-dropdown
+include ../../components/form-item-container/form-item-container
+include ../../components/slider/slider
+include ../../components/checkbox/checkbox
+include ../../components/checkbox-expandable-list/checkbox-expandable-list
+include ../../components/card-room/card-room
+include ../../components/pagination/pagination
+
+
+block head
+  -const title = 'Search room'
+
+block content
+  .search-room-page
+    .search-room-page__blur-container.js-blur
+    button.search-room-page__show-filter-button.js-show-filter
+      .search-room-page__bth-flex-container
+        .search-room-page__btn-arrow arrow_forward
+        .search-room-page__btn-text Открыть фильтр
+        .search-room-page__btn-arrow arrow_forward
+
+    .search-room-page__container
+      .search-room-page__content
+        .search-room-page__grid-container
+          .search-room-page__grid-item
+            .search-room-page__filter.js-filter
+
+              .search-room-page__form-section.search-room-page__form-section--with-date-dropdown
+                +date-dropdown({isRange: true})
+                  +form-item-container({title: 'даты пребывания в отеле', shortTitleMargin: true})
+                    +input({placeholder: "ДД МММ - ДД МММ", icon: "expand_more", readonly: false, defaultValue: '19 авг - 23 авг'})
+
+              .search-room-page__form-section.search-room-page__form-section--with-guest-dropdown
+                +guest-dropdown({isRange: true})
+                  +form-item-container({title: 'гости'})
+                    +input({placeholder: "Сколько гостей", icon: "expand_more", readonly: true})
+
+              .search-room-page__form-section.search-room-page__form-section--with-slider
+                +form-item-container({title: "диапазон цены", subtitle: "5 000₽ - 10 000₽", longTitleMargin: true})
+                  .search-room-page__form-element.search-room-page__form-element--slider
+                    +slider({min: 5000, max: 10000})
+                  .search-room-page__form-element.search-room-page__form-element--slider-subtitle
+                    span Стоимость за сутки пребывания в номере
+
+              .search-room-page__form-section.search-room-page__form-section--with-home-rules
+                +form-item-container({title: "правила дома"})
+                  .search-room-page__form-element.search-room-page__form-element--home-rules
+                    +checkbox({title: "Можно курить"})
+                    +checkbox({title: "Можно с питомцами"})
+                    +checkbox({title: "Можно пригласить гостей (до 10 человек)"})
+
+              .search-room-page__form-section.search-room-page__form-section--with-accessibility
+                +form-item-container({title: "доступность"})
+                  .search-room-page__form-element.search-room-page__form-element--accessibility
+                    +checkbox({title: "Широкий коридор", boldTitle: true, description: "Ширина коридоров в номере не менее 91 см."})
+                    +checkbox({title: "Помощник для инвалидов", boldTitle: true, description: "На 1 этаже вас встретит специалист и проводит до номера."})
+
+              .search-room-page__form-section.search-room-page__form-section--with-rooms-dropdown
+                - const defaultRoomsValue = [{name: 'Спальни', value: 2}, {name: 'Кровати', value: 2}]
+                +rooms-dropdown({isOpen: false, defaultValue: defaultRoomsValue})
+                  +form-item-container({title: 'удобства номера'})
+                    +input({placeholder: "Удобства в номере", icon: "expand_more", readonly: true})
+
+              .search-room-page__form-section.search-room-page__form-section--with-additional
+                +checkbox-expandable-list({title: 'дополнительные удобства'})
+                  +checkbox({title: 'Завтрак'})
+                  +checkbox({title: 'Письменный стол'})
+                  +checkbox({title: 'Стул для кормления'})
+                  +checkbox({title: 'Кроватка'})
+                  +checkbox({title: 'Телевизор'})
+                  +checkbox({title: 'Шампунь'})
+                  +checkbox({title: 'Телевизор'})
+                  +checkbox({title: 'Шампунь'})
+          .search-room-page__grid-item
+            .search-room-page__title
+              h1 Номера, которые мы для вас подобрали
+            .search-room-page__rooms-container
+              -
+                const roomsArray = [
+                  {img: [
+                      {src: "img/rooms/room-1-thumbnail.jpg", alt: "Фотография комнаты №1"},
+                      {src: "img/rooms/room-2-thumbnail.jpg", alt: "Фотография комнаты №2"},
+                      {src: "img/rooms/room-3-thumbnail.jpg", alt: "Фотография комнаты №3"},
+                      {src: "img/rooms/room-4-thumbnail.jpg", alt: "Фотография комнаты №4"}
+                    ],
+                    rate: 5, price: 9900, comments: 145, number: 888, type: "Люкс"},
+                  {img: [
+                      {src: "img/rooms/room-2-thumbnail.jpg", alt: "Фотография комнаты №1"},
+                      {src: "img/rooms/room-3-thumbnail.jpg", alt: "Фотография комнаты №2"},
+                      {src: "img/rooms/room-4-thumbnail.jpg", alt: "Фотография комнаты №3"},
+                      {src: "img/rooms/room-5-thumbnail.jpg", alt: "Фотография комнаты №4"}
+                    ],
+                    rate: 4, price: 9900, comments: 65, number: 840},
+                  {img: [
+                      {src: "img/rooms/room-3-thumbnail.jpg", alt: "Фотография комнаты №1"},
+                      {src: "img/rooms/room-4-thumbnail.jpg", alt: "Фотография комнаты №2"},
+                      {src: "img/rooms/room-5-thumbnail.jpg", alt: "Фотография комнаты №3"},
+                      {src: "img/rooms/room-6-thumbnail.jpg", alt: "Фотография комнаты №4"}
+                    ],
+                    rate: 3, price: 8500, comments: 35, number: 980},
+                  {img: [
+                      {src: "img/rooms/room-4-thumbnail.jpg", alt: "Фотография комнаты №1"},
+                      {src: "img/rooms/room-5-thumbnail.jpg", alt: "Фотография комнаты №2"},
+                      {src: "img/rooms/room-6-thumbnail.jpg", alt: "Фотография комнаты №3"},
+                      {src: "img/rooms/room-7-thumbnail.jpg", alt: "Фотография комнаты №4"}
+                    ],
+                    rate: 5, price: 7300, comments: 19, number: 856},
+                  {img: [
+                      {src: "img/rooms/room-5-thumbnail.jpg", alt: "Фотография комнаты №1"},
+                      {src: "img/rooms/room-6-thumbnail.jpg", alt: "Фотография комнаты №2"},
+                      {src: "img/rooms/room-7-thumbnail.jpg", alt: "Фотография комнаты №3"},
+                      {src: "img/rooms/room-8-thumbnail.jpg", alt: "Фотография комнаты №4"}
+                    ],
+                    rate: 4, price: 6000, comments: 44, number: 740},
+                  {img: [
+                      {src: "img/rooms/room-6-thumbnail.jpg", alt: "Фотография комнаты №1"},
+                      {src: "img/rooms/room-7-thumbnail.jpg", alt: "Фотография комнаты №2"},
+                      {src: "img/rooms/room-8-thumbnail.jpg", alt: "Фотография комнаты №3"},
+                      {src: "img/rooms/room-9-thumbnail.jpg", alt: "Фотография комнаты №4"}
+                    ],
+                    rate: 3, price: 5800, comments: 56, number: 982},
+                  {img: [
+                      {src: "img/rooms/room-7-thumbnail.jpg", alt: "Фотография комнаты №1"},
+                      {src: "img/rooms/room-8-thumbnail.jpg", alt: "Фотография комнаты №2"},
+                      {src: "img/rooms/room-9-thumbnail.jpg", alt: "Фотография комнаты №3"},
+                      {src: "img/rooms/room-10-thumbnail.jpg", alt: "Фотография комнаты №4"}
+                    ],
+                    rate: 5, price: 5500, comments: 45, number: 678},
+                  {img: [
+                      {src: "img/rooms/room-8-thumbnail.jpg", alt: "Фотография комнаты №1"},
+                      {src: "img/rooms/room-9-thumbnail.jpg", alt: "Фотография комнаты №2"},
+                      {src: "img/rooms/room-10-thumbnail.jpg", alt: "Фотография комнаты №3"},
+                      {src: "img/rooms/room-11-thumbnail.jpg", alt: "Фотография комнаты №4"}
+                    ],
+                    rate: 4, price: 5300, comments: 39, number: 450},
+                  {img: [
+                      {src: "img/rooms/room-9-thumbnail.jpg", alt: "Фотография комнаты №1"},
+                      {src: "img/rooms/room-10-thumbnail.jpg", alt: "Фотография комнаты №2"},
+                      {src: "img/rooms/room-11-thumbnail.jpg", alt: "Фотография комнаты №3"},
+                      {src: "img/rooms/room-12-thumbnail.jpg", alt: "Фотография комнаты №4"}
+                    ],
+                    rate: 3, price: 5000, comments: 77, number: 350},
+                  {img: [
+                      {src: "img/rooms/room-10-thumbnail.jpg", alt: "Фотография комнаты №1"},
+                      {src: "img/rooms/room-11-thumbnail.jpg", alt: "Фотография комнаты №2"},
+                      {src: "img/rooms/room-12-thumbnail.jpg", alt: "Фотография комнаты №3"},
+                      {src: "img/rooms/room-1-thumbnail.jpg", alt: "Фотография комнаты №4"}
+                    ],
+                    rate: 5, price: 5000, comments: 25, number: 666},
+                  {img: [
+                      {src: "img/rooms/room-11-thumbnail.jpg", alt: "Фотография комнаты №1"},
+                      {src: "img/rooms/room-12-thumbnail.jpg", alt: "Фотография комнаты №2"},
+                      {src: "img/rooms/room-1-thumbnail.jpg", alt: "Фотография комнаты №3"},
+                      {src: "img/rooms/room-2-thumbnail.jpg", alt: "Фотография комнаты №4"}
+                    ],
+                    rate: 3, price: 5000, comments: 15, number: 444},
+                  {img: [
+                      {src: "img/rooms/room-12-thumbnail.jpg", alt: "Фотография комнаты №1"},
+                      {src: "img/rooms/room-1-thumbnail.jpg", alt: "Фотография комнаты №2"},
+                      {src: "img/rooms/room-2-thumbnail.jpg", alt: "Фотография комнаты №3"},
+                      {src: "img/rooms/room-3-thumbnail.jpg", alt: "Фотография комнаты №4"}
+                    ],
+                    rate: 3, price: 5000, comments: 55, number: 352},
+                ]
+              for room in roomsArray
+                .search-room-page__single-room.js-single-room-card
+                  +card-room(room)
+            .search-room-page__pagination
+              +pagination({totalPages: 15, visiblePages: 5, description: "1 – 12 из 100+ вариантов аренды"})
+
+
+
+

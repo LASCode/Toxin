@@ -1,0 +1,227 @@
+extends ../../layouts/ui-kit-layout
+include ../../components/header/header
+include ../../components/date-dropdown/date-dropdown
+include ../../components/guests-dropdown/guests-dropdown
+include ../../components/rooms-dropdown/rooms-dropdown
+include ../../components/form-item-container/form-item-container
+include ../../components/input/input
+include ../../components/checkbox/checkbox
+include ../../components/radio-button/radio-button
+include ../../components/toggle-button/toggle-button
+include ../../components/like-button/like-button
+include ../../components/rate-button/rate-button
+include ../../components/slider/slider
+include ../../components/pagination/pagination
+include ../../components/checkbox-expandable-list/checkbox-expandable-list
+include ../../components/bullet-list/bullet-list
+include ../../components/bullet-item/bullet-item
+include ../../components/room-details/room-details
+include ../../components/comment/comment
+
+block head
+  -const title = 'Form elements'
+
+block content
+  .ui-form-elements-page
+    .ui-form-elements-page__header
+      +header({type: "ui-kit"})
+
+    .ui-form-elements-page__wrapper.ui-form-elements-page__wrapper--with-center-positioning
+      .ui-form-elements-page__wrapper.ui-form-elements-page__wrapper--with-global-padding
+        .ui-form-elements-page__wrapper.ui-form-elements-page__wrapper--with-local-padding
+          .ui-form-elements-page__grid-wrapper.ui-form-elements-page__grid-wrapper--with-base-ui
+
+            .ui-form-elements-page__grid-section.ui-form-elements-page__grid-section--with-inputs
+              .ui-form-elements-page__element-container
+                +form-item-container({title: "text field", subtitle: "default", titleMargin: true})
+                  .ui-form-elements-page__form-item.ui-form-elements-page__form-item--input-email
+                    +input({placeholder: 'Email'})
+
+              .ui-form-elements-page__element-container
+                +form-item-container({title: "text field", subtitle: "Hover / Focus", shortTitleMargin: true})
+                  .ui-form-elements-page__form-item.ui-form-elements-page__form-item--input-focus
+                    +input({defaultValue: 'This is pretty awesome', hovered: true})
+
+              .ui-form-elements-page__element-container
+                +guest-dropdown({isRange: true})
+                  +form-item-container({title: 'dropdown'})
+                    .ui-form-elements-page__form-item.ui-form-elements-page__form-item--input-guest-dropdown
+                      +input({placeholder: "Сколько гостей", icon: "expand_more", readonly: true})
+
+              .ui-form-elements-page__element-container
+                +form-item-container({title: "masked text field", titleMargin: true})
+                  .ui-form-elements-page__form-item.ui-form-elements-page__form-item--input-masked
+                    +input({placeholder: 'ДД.ММ.ГГГГ', masked: true})
+
+              .ui-form-elements-page__element-container.ui-form-elements-page__element-container--with-margin-top
+                +date-dropdown({isRange: true})
+                  .ui-form-elements-page__container.ui-form-elements-page__container--with-date-dropdown
+                    +form-item-container({title: 'date Dropdown', shortTitleMargin: true})
+                      .ui-form-elements-page__form-item.ui-form-elements-page__form-item--input-masked
+                        +input({placeholder: "ДД.ММ.ГГГГ", icon: "expand_more", readonly: false})
+                    +form-item-container({title: 'date Dropdown', shortTitleMargin: true})
+                      .ui-form-elements-page__form-item.ui-form-elements-page__form-item--input-masked
+                        +input({placeholder: "ДД.ММ.ГГГГ", icon: "expand_more", defaultValue: '19.08.2019'})
+
+              .ui-form-elements-page__element-container.ui-form-elements-page__element-container--with-margin-top.ui-form-elements-page__element-container--with-max-width
+                +date-dropdown({isRange: true})
+                  .ui-form-elements-page__container.ui-form-elements-page__container--with-filter-date
+                    +form-item-container({title: 'filter date dropdown', shortTitleMargin: true})
+                      .ui-form-elements-page__form-item.ui-form-elements-page__form-item--input-masked
+                        +input({placeholder: "ДД.ММ.ГГГГ", icon: "expand_more", defaultValue: '19 авг - 23 авг'})
+
+              .ui-form-elements-page__element-container.ui-form-elements-page__element-container--with-margin-top.ui-form-elements-page__element-container--with-max-width
+                +form-item-container({title: "subscription text field", shortTitleMargin: true})
+                  .ui-form-elements-page__form-item.ui-form-elements-page__form-item--input-masked
+                    +input({placeholder: 'Email', icon: "arrow_forward", iconType: 'submit'})
+
+            .ui-form-elements-page__grid-section.ui-form-elements-page__grid-section--with-checkbox
+              .ui-form-elements-page__element-container.ui-form-elements-page__element-container--with-checkbox-btn
+                +form-item-container({title: "Checkbox Buttons", titleMargin: true})
+                  .ui-form-elements-page__form-item.ui-form-elements-page__form-item--checkbox-btn
+                    +checkbox({title: 'Можно курить'})
+                    +checkbox({title: 'Можно с питомцами'})
+                    +checkbox({title: 'Можно пригласить гостей (до 10 человек)'})
+
+              .ui-form-elements-page__element-container.ui-form-elements-page__element-container--with-radio-btn
+                +form-item-container({title: "radio buttons"})
+                  .ui-form-elements-page__form-item.ui-form-elements-page__form-item--radio-btn
+                    +radio-button({name: "test", items: [{title: "Мужчина"}, {title: "Женщина"}], align: "vertical"})
+              .ui-form-elements-page__element-container.ui-form-elements-page__element-container--with-toggle-btn
+
+                +form-item-container({title: "toggle"})
+                  .ui-form-elements-page__form-item.ui-form-elements-page__form-item--toggle-btn
+                    +toggle-button({checked: true, title: "Получать спецпредложения"})
+                    +toggle-button({title: "Получать спецпредложения"})
+
+              .ui-form-elements-page__element-container.ui-form-elements-page__element-container--with-like-btn
+                +form-item-container({title: "like button"})
+                  .ui-form-elements-page__form-item.ui-form-elements-page__form-item--like-btn
+                    +like-button({count: 2})
+                    +like-button({count: 12, liked: true})
+
+              .ui-form-elements-page__element-container.ui-form-elements-page__element-container--with-rate-btn
+                +form-item-container({title: "rate button"})
+                  .ui-form-elements-page__form-item.ui-form-elements-page__form-item--rate-btn
+                    +rate-button({stars: 5, defaultValue: 4})
+                    +rate-button({stars: 5, defaultValue: 5})
+            .ui-form-elements-page__grid-section.ui-form-elements-page__grid-section--with-buttons
+              .ui-form-elements-page__element-container.ui-form-elements-page__element-container--with-slider
+                +form-item-container({title: "Range Slider", subtitle: "5 000₽ - 10 000₽", titleMargin: false})
+                  .ui-form-elements-page__form-item.ui-form-elements-page__form-item--slider
+                    +slider({min: 5000, max: 10000, start: 6615, stop: 8220})
+
+              .ui-form-elements-page__element-container.ui-form-elements-page__element-container--with-buttons
+                +form-item-container({title: "buttons"})
+                  .ui-form-elements-page__form-item.ui-form-elements-page__form-item--base-buttons
+                    +button({text: 'click me', type: 'default'})
+                    +button({text: 'click me', type: 'default', disabled: true})
+                    +button({text: 'click me', type: 'outlined'})
+                    +button({text: 'click me', type: 'outlined', disabled: true})
+                  .ui-form-elements-page__form-item.ui-form-elements-page__form-item--borderless-buttons
+                    +button({text: 'click me', type: 'borderless', href: 'data'})
+                    +button({text: 'click me', type: 'borderless', disabled: true})
+                  .ui-form-elements-page__form-item.ui-form-elements-page__form-item--big-buttons
+                    +button({text: 'Перейти к оплате', type: 'big', icon: 'arrow_forward', href: '1'})
+
+              .ui-form-elements-page__element-container.ui-form-elements-page__element-container--with-paginator
+                +form-item-container({title: "pagination"})
+                  .ui-form-elements-page__form-item.ui-form-elements-page__form-item--paginator
+                    +pagination({description: "1 – 12 из 100+ вариантов аренды"})
+
+          .ui-form-elements-page__grid-wrapper.ui-form-elements-page__grid-wrapper--with-dropdowns
+            .ui-form-elements-page__grid-section.ui-form-elements-page__grid-section--with-dropdowns
+              -
+                const defaultValue = [
+                  {name: 'Спальни', value: 2},
+                  {name: 'Кровати', value: 2},
+                ]
+              .ui-form-elements-page__element-container
+                +rooms-dropdown({isOpen: false, defaultValue: defaultValue})
+                  +form-item-container({title: 'dropdown'})
+                    .ui-form-elements-page__form-item.ui-form-elements-page__form-item--input-rooms-dropdown
+                      +input({placeholder: "Удобства в номере", icon: "expand_more", readonly: true})
+
+              .ui-form-elements-page__element-container.ui-form-elements-page__element-container--with-rooms-dropdown-open
+                +rooms-dropdown({isOpen: true, windowListener: false, defaultValue: defaultValue})
+                  +form-item-container({title: 'dropdown'})
+                    .ui-form-elements-page__form-item.ui-form-elements-page__form-item--input-rooms-dropdown
+                      +input({placeholder: "Удобства в номере", icon: "expand_more", readonly: true})
+
+
+            .ui-form-elements-page__grid-section
+              .ui-form-elements-page__element-container.ui-form-elements-page__element-container--with-guest-dropdown-open
+                +guest-dropdown({ isOpen: true, windowListener: false })
+                  +form-item-container({title: 'dropdown'})
+                    .ui-form-elements-page__form-item.ui-form-elements-page__form-item--input-guest-dropdown
+                      +input({placeholder: "Сколько гостей", icon: "expand_more", readonly: true})
+
+            .ui-form-elements-page__grid-section
+              .ui-form-elements-page__element-container.ui-form-elements-page__element-container--with-guest-dropdown-open
+                -const defaultValu1 = [{name: 'Взрослые', value: 2}, {name: 'Дети', value: 1}]
+                +guest-dropdown({isOpen: true, windowListener: false, defaultValue: defaultValu1})
+                  +form-item-container({title: 'dropdown'})
+                    .ui-form-elements-page__form-item.ui-form-elements-page__form-item--input-guest-dropdown
+                      +input({placeholder: "Сколько гостей", icon: "expand_more", readonly: true})
+
+          .ui-form-elements-page__grid-wrapper.ui-form-elements-page__grid-wrapper--with-other
+            .ui-form-elements-page__grid-section.ui-form-elements-page__grid-section--with-expandable-checkbox
+              .ui-form-elements-page__element-container.ui-form-elements-page__element-container--with-expandable-checkbox
+                +checkbox-expandable-list({title: 'expandable checkbox list'})
+                  +checkbox({title: 'Завтрак'})
+                  +checkbox({title: 'Письменный стол'})
+                  +checkbox({title: 'Стул для кормления'})
+                  +checkbox({title: 'Кроватка'})
+                  +checkbox({title: 'Телевизор'})
+                  +checkbox({title: 'Шампунь'})
+                  +checkbox({title: 'Телевизор'})
+                  +checkbox({title: 'Шампунь'})
+              .ui-form-elements-page__element-container.ui-form-elements-page__element-container--with-expandable-checkbox-open
+                +checkbox-expandable-list({title: 'expandable checkbox list', open: true})
+                  +checkbox({title: 'Завтрак'})
+                  +checkbox({title: 'Письменный стол'})
+                  +checkbox({title: 'Стул для кормления'})
+                  +checkbox({title: 'Кроватка'})
+                  +checkbox({title: 'Телевизор'})
+                  +checkbox({title: 'Шампунь'})
+                  +checkbox({title: 'Телевизор'})
+                  +checkbox({title: 'Шампунь'})
+
+            .ui-form-elements-page__grid-section
+              .ui-form-elements-page__element-container.ui-form-elements-page__element-container--with-checkbox-rich
+                +form-item-container({title: "rich Checkbox Buttons"})
+                  .ui-form-elements-page__form-item.ui-form-elements-page__form-item--checkbox-rich
+                    +checkbox({
+                      title: 'Широкий коридор',
+                      description: "Ширина коридоров в номере не менее 91 см.",
+                      boldTitle: true
+                    })
+                    +checkbox({
+                      title: 'Помощник для инвалидов',
+                      description: "На 1 этаже вас встретит специалист и проводит до номера.",
+                      boldTitle: true
+                    })
+            .ui-form-elements-page__grid-section
+              .ui-form-elements-page__element-container.ui-form-elements-page__element-container--with-bullet-list
+                +form-item-container({title: "bullet list"})
+                  .ui-form-elements-page__form-item.ui-form-elements-page__form-item--bullet-list
+                    +bullet-item({title: 'Нельзя с питомцами'})
+                    +bullet-item({title: 'Без вечеринок и мероприятий'})
+                    +bullet-item({title: 'Время прибытия — после 13:00, а выезд до 12:00'})
+          .ui-form-elements-page__grid-wrapper.ui-form-elements-page__grid-wrapper--with-comment
+            .ui-form-elements-page__grid-section
+              -
+                const defaultValueDetails = [
+                  {icon: "insert_emoticon", title: "Комфорт", subtitle: "Шумопоглощающие стены"},
+                  {icon: "location_city", title: "Удобство", subtitle: "Окно в каждой из спален"}
+                ]
+              +room-details({items: defaultValueDetails})
+            .ui-form-elements-page__grid-section.ui-form-elements-page__grid-section--with-comment
+              +comment({
+                img: "img/avatars/man.jpg",
+                userName: "Мурад Сарафанов",
+                commentDate: "5 дней назад",
+                liked: true,
+                likeCount: 12,
+                commentText: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей."
+              })

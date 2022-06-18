@@ -1,0 +1,231 @@
+@import "../../styles/_main.scss";
+
+.ui-form-elements-page {
+  &__header {}
+
+  &__wrapper {
+    &--with-center-positioning {
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+    &--with-global-padding {
+      padding: 0 20px;
+    }
+    &--with-local-padding {
+      padding: 32px 121px 142px 121px;
+    }
+  }
+  &__grid-wrapper {
+    display: grid;
+    grid-template-columns: 320px 266px 320px;
+    grid-column-gap: 126px;
+    &--with-base-ui {}
+    &--with-dropdowns {
+      margin-top: 98px;
+      grid-column-gap: 72px;
+      grid-template-columns: 1fr 320px 320px;
+    }
+    &--with-other {
+      margin-top: 40px;
+      grid-column-gap: 72px;
+      grid-template-columns: 1fr 320px 320px;
+    }
+    &--with-comment {
+      margin-top: 30px;
+      grid-column-gap: 180px;
+      grid-template-columns: 266px 1fr;
+    }
+  }
+  &__grid-section {
+    &--with-inputs {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-row-gap: 20px;
+    }
+    &--with-checkbox {}
+    &--with-buttons {}
+    &--with-dropdowns {
+      max-width: 266px;
+    }
+    &--with-expandable-checkbox {
+      max-width: 266px;
+    }
+    &--with-comment {
+      margin-top: 10px;
+    }
+
+
+  }
+  &__element-container {
+    &--with-margin-top {
+      margin-top: 21px;
+    }
+    &--with-max-width {
+      width: 266px;
+    }
+    &--with-checkbox-btn {
+      margin-right: 20px;
+    }
+    &--with-radio-btn {
+      margin-top: 40px;
+    }
+    &--with-toggle-btn {
+      margin-top: 34px;
+    }
+    &--with-like-btn {
+      margin-top: 40px;
+    }
+    &--with-rate-btn {
+      margin-top: 40px;
+    }
+    &--with-slider {
+      margin-top: 3px;
+      max-width: 266px;
+    }
+    &--with-buttons {
+      margin-top: 44px;
+    }
+    &--with-paginator {
+      margin-top: 40px;
+    }
+    &--with-rooms-dropdown-open {
+      margin-top: 20px;
+      padding-bottom: 119px;
+    }
+    &--with-expandable-checkbox {
+    }
+    &--with-expandable-checkbox-open {
+      margin-top: 20px;
+    }
+    &--with-checkbox-rich {
+      margin-top: 15px;
+    }
+    &--with-bullet-list {
+      margin-top: 15px;
+    }
+  }
+  &__form-item {
+    &--input-focus,
+    &--input-email,
+    &--input-masked,
+    &--input-guest-dropdown {
+      //margin-top: 5px;
+    }
+
+    &--checkbox-btn,
+    &--radio-btn {
+      margin-top: 12px;
+    }
+    &--toggle-btn {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-row-gap: 10px;
+      margin-top: 12px;
+    }
+    &--like-btn {
+      display: grid;
+      grid-template-columns: min-content min-content;
+      grid-column-gap: 10px;
+      margin-top: 12px;
+    }
+    &--rate-btn {
+      display: grid;
+      grid-template-columns: min-content min-content;
+      grid-column-gap: 20px;
+      margin-top: 12px;
+    }
+
+    &--slider {
+      margin-top: 18px;
+    }
+    &--base-buttons {
+      margin-top: 12px;
+      display: grid;
+      grid-template-columns: 99px 99px;
+      grid-column-gap: 20px;
+      grid-row-gap: 30px;
+    }
+    &--borderless-buttons {
+      margin-top: 31px;
+      display: grid;
+      grid-template-columns: min-content min-content;
+      grid-column-gap: 20px;
+    }
+    &--big-buttons {
+      margin-top: 31px;
+    }
+    &--paginator {
+      margin-top: 12px;
+    }
+    &--checkbox-rich {
+      margin-top: 15px;
+      &>*:nth-child(1) {
+        width: 220px;
+      }
+      &>*:nth-child(2) {
+        width: 260px;
+      }
+    }
+    &--bullet-list {
+      display: grid;
+      grid-row-gap: 10px;
+      margin-top: 11px;
+      width: 260px;
+    }
+  }
+
+
+  &__container {
+    &--with-inputs {}
+    &--with-checkbox {}
+    &--with-date-dropdown {
+      display: grid;
+      grid-template-columns: 150px 150px;
+      grid-column-gap: 20px;
+    }
+    &--with-toggle-btn {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-row-gap: 10px;
+    }
+    &--with-like-btn {
+      display: grid;
+      grid-template-columns: min-content min-content;
+      grid-column-gap: 10px;
+    }
+    &--with-rate-btn {
+      display: grid;
+      grid-template-columns: min-content min-content;
+      grid-column-gap: 20px;
+    }
+  }
+  &__form-item {
+    &--with-margin-top {
+      margin-top: 20px;
+    }
+    &--with-max-width {
+      max-width: 266px;
+    }
+    &--with-checkbox-btn {
+      max-width: 230px;
+    }
+    &--with-radio-btn {
+      margin-top: 41px;
+    }
+    &--with-toggle-btn {
+      margin-top: 35px;
+    }
+    &--with-like-btn {
+      margin-top: 41px;
+    }
+    &--with-rate-btn {
+      margin-top: 41px;
+    }
+    &--with-slider {
+      max-width: 266px;
+    }
+    &--checkbox-rich {
+      margin-top: 10px;
+    }
+  }
+}

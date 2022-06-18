@@ -1,0 +1,34 @@
+@import "../../styles/_main.scss";
+
+html{
+  font-family: $font-Montserrat;
+  line-height: 14.63px;
+  font-size: 14px;
+}
+
+.ui-headers-footers-page {
+  background-color: #E5E5E5;
+  padding-bottom: 1000px;
+
+  &__container{
+    margin-top: 32px;
+
+    &--mini{
+      max-width: 768px;
+      margin: 20px auto 0 auto;
+    }
+  }
+  &__section {
+    &--with-default-header {}
+    &--with-login-header {
+      margin-top: 40px;
+    }
+    &--with-default-footer {
+      margin-top: 40px;
+    }
+    &--with-mobile-footer {
+      max-width: 768px;
+      margin: 40px auto 0 auto;
+    }
+  }
+}

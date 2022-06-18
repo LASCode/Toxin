@@ -1,0 +1,23 @@
+extends ../../layouts/ui-kit-layout
+
+include ../../components/header/header
+include ../../components/footer/footer
+
+block head
+  -const title = '111111'
+
+block content
+  .ui-headers-footers-page
+    .ui-headers-footers-page__header
+      +header({type: "ui-kit"})
+
+
+    .ui-headers-footers-page__container
+      .ui-headers-footers-page__section.ui-headers-footers-page__section--with-default-header
+        +header({type: "default", login: false})
+      .ui-headers-footers-page__section.ui-headers-footers-page__section--with-login-header
+        +header({type: "default", login: true, username: "Юлий Цезарь"})
+      .ui-headers-footers-page__section.ui-headers-footers-page__section--with-default-footer
+        +footer()
+      .ui-headers-footers-page__section.ui-headers-footers-page__section--with-mobile-footer
+        +footer({mobile: true})

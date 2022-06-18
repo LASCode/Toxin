@@ -1,0 +1,23 @@
+@import "../../styles/_main.scss";
+
+.page-wrapper {
+  margin: 0 auto;
+}
+
+.test {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 320px;
+
+  &__dropdown {
+    max-width: 320px;
+    display: flex;
+  }
+}
+.testDropdown {
+  &__dropdown {
+    &--hidden {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,83 @@
+@import "../../styles/_main.scss";
+
+
+
+.index-page{
+  width: 100%;
+  min-width: $container-min-width;
+  background-size: cover;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-image: url("../../assets/img/rooms/room1-fullscreen.jpg");
+
+
+
+  &__container{
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 $container-default-padding;
+    max-width: $container-max-width;
+  }
+  &__content{
+    padding: 70px 0 20px 0;
+    box-sizing: border-box;
+  }
+
+  &__flex-container{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &__flex-item{
+    display: flex;
+    &--left{
+      justify-content: flex-start;
+    }
+    &--right{
+      justify-content: flex-end;
+    }
+    &--with-margin-top{
+      margin-top: 318px;
+    }
+  }
+  &__site-desctiption{
+    text-align: right;
+    max-width: 300px;
+  }
+}
+
+@media screen and (max-width: 420px){
+  .index-page__container{
+    padding: 0 $container-padding-mini;
+  }
+  .header__wrapper{
+    padding: 0 $container-padding-mini;
+  }
+}
+@media screen and (max-width: 1110px){
+  .footer{
+    &__grid-container{
+      display: grid;
+      grid-template-rows: 80px 1fr;
+      grid-template-columns: 1fr 1fr 1fr 260px;
+      grid-template-areas: "brand brand brand brand" "nav aboutus support subscribe";
+      grid-gap: 40px;
+    }
+    &__brand-logo{
+      display: flex;
+      justify-content: center;
+    }
+    &__brand-info{
+      margin-top: 5px;
+      text-align: center;
+    }
+    &__grid-item--with-brand-logo{
+      padding-bottom: 10px;
+      border-bottom: 1px solid $text-dark-25;
+    }
+  }
+}
+@media screen and (max-width: 810px){
+  @include mobile-adaptive
+}

@@ -1,0 +1,41 @@
+extends ../../layouts/ui-kit-layout
+include ../../components/header/header
+include ../../../trash/card/card
+include ../../components/card-search-room/card-search-room
+include ../../components/card-selected-room/card-selected-room
+include ../../components/card-registration/card-registration
+include ../../components/card-login/card-login
+include ../../components/card-room/card-room
+include ../../components/date-dropdown/date-dropdown
+
+block head
+  -const title = '111111'
+
+block content
+  -
+    const itemsArr = [
+      {price: 39960, info: false, title: "9 990₽ х 4 суток"},
+      {price: 0, info: true, title: "Сбор за услуги: скидка 2 179₽"},
+      {price: 300, info: true, title: "Сбор за дополнительные услуги"},
+    ]
+
+  .ui-cards-page
+    .ui-cards-page__container
+      .ui-cards-page__header
+        +header({type: "ui-kit"})
+      .ui-cards-page__wrapper
+        .ui-cards-page__collumn
+          +card-search-room()
+          +card-registration()
+        .ui-cards-page__collumn
+          +card-selected-room({ priceListItems: itemsArr, priceTotal: 38081 })
+          +card-login()
+        .ui-cards-page__collumn
+          .ui-cards-page__datepicker.js-datepicker
+          .ui-cards-page__rooms
+            +card-room({ img: [], rate: 5, price: 9900, comments: 145, number: 888, type: "Люкс" })
+          .ui-cards-page__rooms
+            +card-room({ img: [], rate: 4, price: 9900, comments: 65, number: 840 })
+
+
+

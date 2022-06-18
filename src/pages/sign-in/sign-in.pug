@@ -1,0 +1,14 @@
+extends ../../layouts/base-layout
+include ../../../trash/card/card
+include ../../components/card-login/card-login
+
+
+block head
+  -const title = 'Sign-in'
+
+block content
+  .sign-in-page
+    .sign-in-page__container
+      .sign-in-page__content
+        .sign-in-page__card-container
+          +card-login()
