@@ -16,7 +16,7 @@
 @import '../components/diagram/diagram.scss';
 @import '../components/slider/slider.scss';
 @import '../components/pagination/pagination.scss';
-@import '../components/card/card.scss';
+@import '../../trash/card/card.scss';
 @import '../components/i-button/i-button.scss';
 @import '../components/price-list/price-list.scss';
 @import '../components/total-price/total-price.scss';
@@ -24,3 +24,12 @@
 @import "../components/header/header.scss";
 @import "../components/footer/footer.scss";
 @import '../components/hamburger/hamburger.scss';
+@import '../components/card-login/card-login.scss';
+@import '../components/card-registration/card-registration.scss';
+@import '../components/card-search-room/card-search-room.scss';
+@import '../components/card-room/card-room.scss';
+@import '../components/card-selected-room/card-selected-room.scss';
+@import '../components/logo/logo.scss';
+@import '../components/base-dropdown/base-dropdown.scss';
+@import '../components/items-dropdown/items-dropdown.scss';
+@import '../components/bullet-item/bullet-item.scss';
