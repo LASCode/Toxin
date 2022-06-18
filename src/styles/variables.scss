@@ -1,14 +1,13 @@
 //Colors
 $text-white: #fff;
 $text-purple: #BC9CFF;
+$text-green: #6FCF97;
 $text-dark-100: #1F2041;
 $text-dark-75: rgba($text-dark-100, 0.75);
 $text-dark-50: rgba($text-dark-100, 0.50);
 $text-dark-25: rgba($text-dark-100, 0.25);
 $text-dark-10: rgba($text-dark-100, 0.1);
 $text-dark-5: rgba($text-dark-100, 0.05);
-
-
 $Green: #6FCF97;
 $Purple: #BC9CFF;
 
@@ -23,3 +22,14 @@ $font-Quicksand: "Quicksand", Arial, sans-serif;
 .material-icons{
   font-family: $font-MaterialIcon;
 }
+
+//containers
+$container-max-width: 1160px;
+$container-min-width: 320px;
+$container-default-padding: 20px;
+$container-padding-mini: 10px;
+$container-default-margin: 9.72%;
+$page-max-width: 1440px;
+$z-index--header: 100;
+$z-index--footer: 99;
+
