@@ -1,6 +1,5 @@
 const defaultOptions = {
   open: false,
-  closable: true,
   windowListener: true,
   inputListener: true,
   customClass: '',
@@ -28,18 +27,19 @@ class BaseDropdown {
   }
 
   init() {
+    this.closeDropdown();
+    this.setBaseListeners();
     this.$dropdownNode.addClass(this.baseOptions.customClass);
     if (this.baseOptions.open) { this.openDropdown(); }
-    this.setBaseListeners();
   }
 
   setBaseListeners() {
     this.onWindowClick = this.onWindowClick.bind(this);
     this.onInputClick = this.onInputClick.bind(this);
-    if (this.baseOptions.inputListener && this.baseOptions.closable) {
+    if (this.baseOptions.inputListener) {
       this.$inputNode.on('pointerdown', this.onInputClick);
     }
-    if (this.baseOptions.windowListener && this.baseOptions.closable) {
+    if (this.baseOptions.windowListener) {
       this.$window.on('pointerdown', this.onWindowClick);
     }
   }
@@ -58,10 +58,18 @@ class BaseDropdown {
   }
 
   onInputClick() {
+    const checkFocus = () => {
+      let result = false;
+      if (this.inputInstance.length >= 2) {
+        result = this.inputInstance.some((el) => el.inputNode.is(':focus'));
+      }
+      return result;
+    }
+
     if (this.isOpen === false) {
       this.openDropdown();
     } else
-    if (this.isOpen === true) {
+    if (this.isOpen === true && !checkFocus()) {
       this.closeDropdown();
     }
   }
