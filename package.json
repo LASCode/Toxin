@@ -7,7 +7,8 @@
     "prod": "cross-env NODE_ENV=production webpack",
     "serve": "cross-env NODE_ENV=development webpack serve --hot",
     "lint": "eslint **/*.js",
-    "lintFix": "eslint **/*.js --fix"
+    "lintFix": "eslint **/*.js --fix",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-fsd": "^1.0.1",
     "eslint-plugin-import": "^2.25.4",
+    "gh-pages": "^4.0.0",
     "html-webpack-plugin": "^5.5.0",
     "less": "^4.1.2",
     "less-loader": "^10.2.0",
