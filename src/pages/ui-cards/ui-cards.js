@@ -1,3 +1,4 @@
+import AirDatepicker from 'air-datepicker';
 import './ui-cards.pug';
 import './ui-cards.scss';
 import '../../components/carousel/carousel';
@@ -5,7 +6,6 @@ import '../../components/input/input';
 import '../../components/rooms-dropdown/rooms-dropdown';
 import '../../components/guests-dropdown/guests-dropdown';
 import '../../components/date-dropdown/date-dropdown';
-import AirDatepicker from 'air-datepicker';
 
 $(document).ready(() => {
   $('.js-datepicker').each((index, el) => {

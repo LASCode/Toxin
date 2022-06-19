@@ -16,9 +16,9 @@ mixin card-search-room(props={})
         .card-search-room__container.card-search-room__container--with-date-dropdown
           +date-dropdown({isRange: true})
             .card-search-room__container.card-search-room__container--with-date-dropdown-inputs
-              +form-item-container({title: 'прибытие', shortTitleMargin: true})
+              +form-item-container({title: 'прибытие'})
                 +input({placeholder: "ДД.ММ.ГГГГ", icon: "expand_more", readonly: false})
-              +form-item-container({title: 'выезд', shortTitleMargin: true})
+              +form-item-container({title: 'выезд'})
                 +input({placeholder: "ДД.ММ.ГГГГ", icon: "expand_more", readonly: false})
 
       .card-search-room__form-section.card-search-room__form-section--with-guest-dropdown

@@ -1,9 +1,12 @@
 import AirDatepicker from 'air-datepicker';
-import moment from 'moment';
-import { BaseDropdown } from '../base-dropdown/base-dropdown';
 import 'air-datepicker/air-datepicker.css';
-import 'moment/locale/ru';
 import 'jquery-mask-plugin';
+import moment from 'moment';
+import 'moment/locale/ru';
+
+import { BaseDropdown } from '../base-dropdown/base-dropdown';
+
+
 
 moment.locale('ru', {
   monthsShort: ['Янв', 'Фев', 'Мар', 'Апр', 'Мая', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
