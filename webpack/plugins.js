@@ -23,6 +23,7 @@ const getPlugins = (rootDir) => {
         result.push(new HtmlWebpackPlugin({
           filename: `${page}.html`,
           template: path.resolve(pageDir, `${page}.pug`),
+          inject: 'body',
           chunks: [page],
         }));
       }
