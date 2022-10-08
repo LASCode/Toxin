@@ -1,47 +1,47 @@
 include ../input/input
+include ../title/title
 include ../radio-button/radio-button
 include ../form-item-container/form-item-container
 include ../toggle-button/toggle-button
 include ../button/button
 
 mixin card-registration(props={})
-  -
-    const {} = props
+  -const {} = props
 
   .card-registration
     .card-registration__title
-      h1 Регистрация аккаунта
+      +title({text: 'Регистрация аккаунта', level: 1})
     form.card-registration__form
 
-      .card-registration__form-section.card-registration__form-section--with-user-name
-        .card-registration__container.card-registration__container--with-firstname
+      .card-registration__form-section.card-registration__form-section--with-user-data
+        .card-registration__firstname-wrapper
           +input({placeholder: "Имя"})
-        .card-registration__container.card-registration__container--with-lastname
+        .card-registration__lastname-wrapper
           +input({placeholder: "Фамилия"})
-        .card-registration__container.card-registration__container--with-sex
-          +radio-button({items: [{title: "Мужчина"}, {title: "Женщина"}]})
+        .card-registration__sex-wrapper
+          +radio-button({group: 'user-sex', value: 'Мужчина', title: 'Мужчина', checked: true})
+          +radio-button({group: 'user-sex', value: 'Женщина', title: 'Женщина'})
 
-      .card-registration__form-section.card-registration__form-section--with-user-date
-        .card-registration__container.card-registration__container--with-date
+      .card-registration__form-section.card-registration__form-section--with-birthday-data
+        .card-registration__birthday-wrapper
           +form-item-container({title: "дата рождения", shortTitleMargin: true})
               +input({placeholder: "ДД.ММ.ГГГГ", masked: true})
 
-      .card-registration__form-section.card-registration__form-section--with-user-auth-data
+      .card-registration__form-section.card-registration__form-section--with-acccount-data
         +form-item-container({title: "данные для входа в сервис", shortTitleMargin: true})
-          .card-registration__container.card-registration__container--with-email
-            +input({placeholder: "Email"})
-          .card-registration__container.card-registration__container--with-password
-            +input({placeholder: "Пароль"})
-          .card-registration__container.card-registration__container--with-promo
-            +toggle-button({title: "Получать спецпредложения"})
+          .card-registration__grid-container.card-registration__grid-container--with-account-data
+            .card-registration__email-wrapper
+              +input({placeholder: "Email"})
+            .card-registration__password-wrapper
+              +input({placeholder: "Пароль"})
+            .card-registration__promo-wrapper
+              +toggle-button({title: "Получать спецпредложения"})
 
-      .card-registration__form-section.card-registration__form-section--with-register-btn
-        .card-registration__container.card-registration__container--with-register-btn
+      .card-registration__form-section
+        .card-registration__submit-wrapper
           +button({text: "Зарегистрироваться", type: "big", icon: "arrow_forward"})
 
-      .card-registration__form-section.card-registration__form-section--with-already-registered
-        .card-registration__container.card-registration__container--with-already-registered
-          .card-registration__container.card-registration__container--with-already-have-account
-            span Уже есть аккаунт на Toxin
-          .card-registration__container.card-registration__container--with-login-btn
-            +button({text: "Войти", type: "outlined", href: "./sign-in.html"})
+    .card-registration__already-register-container
+      span Уже есть аккаунт на Toxin
+      .card-registration__login-btn
+        +button({text: "Войти", type: "outlined", href: "./sign-in.html"})

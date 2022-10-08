@@ -1,4 +1,5 @@
-import { RateButtonStar } from './rate-button-star';
+import { RateButtonStar } from './RateButtonStar';
+import './rate-button.scss';
 
 class RateButton {
   constructor(rootNode) {

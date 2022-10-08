@@ -1,5 +1,6 @@
-import { BaseDropdown } from '../base-dropdown/base-dropdown';
-import { Item } from './single-item';
+import { Item } from './Item';
+import { BaseDropdown } from '../base-dropdown/BaseDropdown';
+import './items-dropdown.scss';
 
 class ItemsDropdown extends BaseDropdown {
   constructor({ rootNode, options, callback }) {

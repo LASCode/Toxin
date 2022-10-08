@@ -8,8 +8,6 @@ mixin date-dropdown(props={})
       'js-dateDropdown-withoutRange': !isRange,
     };
 
-
-
   div(data-range=isRange, data-value=defaultValue).date-dropdown.js-dateDropdown
     +baseDropdown({ isOpen, windowListener, inputListener })
       block

@@ -1,6 +1,5 @@
 mixin diagram(props={})
-  -
-    const {items=[{title: "noValue", value: 0}], legend=true, pie=true} = props
+  - const {items=[], legend=true, pie=true} = props
 
   .diagram(data-items=items, data-legend=legend, data-pie=pie).js-diagram
     canvas.diagram__pie.js-pie

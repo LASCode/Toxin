@@ -1,9 +1,9 @@
 mixin checkbox-expandable-list(props={})
-  - const {title="default text", open=false} = props
+  - const {title='', open=false} = props
 
   .checkbox-expandable-list
     details.checkbox-expandable-list__details(open=open)
       summary.checkbox-expandable-list__summary= title
-        i.checkbox-expandable-list__icon.material-icons expand_more
+        span.checkbox-expandable-list__icon expand_more
       .checkbox-expandable-list__body
         block

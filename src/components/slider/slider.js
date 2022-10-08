@@ -1,5 +1,6 @@
 import nouislider from 'nouislider';
 import 'nouislider/src/nouislider.less';
+import './slider.scss';
 
 $('.js-slider').each((_, el) => {
   const $element = $(el);

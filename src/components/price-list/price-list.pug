@@ -1,18 +1,17 @@
 include ../i-button/i-button
-include ../../mixins/numberWithSpaces
+
 mixin price-list(props={})
-  -
-    const {items=[]} = props
+  - const {items=[]} = props
+  - const {numberWithSpaces} = require('../../utils/number-with-spaces');
 
   .price-list
     .price-list__items
       for item in items
         - let {title="owo", info=false, price=0} = item
+        - const validPrice = numberWithSpaces(item.price);
         .price-list__item
           span.price-list__title= item.title
           span.price-list__info
             if (item.info)
                 +i-button({title: item.info})
-          span.price-list__price
-            +numberWithSpaces({num: item.price})
-            |₽
+          span.price-list__price= `${validPrice} ₽`

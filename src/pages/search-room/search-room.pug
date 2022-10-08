@@ -1,4 +1,5 @@
 extends ../../layouts/base-layout
+include ../../components/title/title
 include ../../components/input/input
 include ../../components/date-dropdown/date-dropdown
 include ../../components/guests-dropdown/guests-dropdown
@@ -15,6 +16,7 @@ block head
   -const title = 'Search room'
 
 block content
+  - const { roomsArray } = require('../../utils/props');
   .search-room-page
     .search-room-page__blur-container.js-blur
     button.search-room-page__show-filter-button.js-show-filter
@@ -77,95 +79,8 @@ block content
                   +checkbox({title: 'Шампунь'})
           .search-room-page__grid-item
             .search-room-page__title
-              h1 Номера, которые мы для вас подобрали
+              +title({text: 'Номера, которые мы для вас подобрали', level: 1})
             .search-room-page__rooms-container
-              -
-                const roomsArray = [
-                  {img: [
-                      {src: "img/rooms/room-1-thumbnail.jpg", alt: "Фотография комнаты №1"},
-                      {src: "img/rooms/room-2-thumbnail.jpg", alt: "Фотография комнаты №2"},
-                      {src: "img/rooms/room-3-thumbnail.jpg", alt: "Фотография комнаты №3"},
-                      {src: "img/rooms/room-4-thumbnail.jpg", alt: "Фотография комнаты №4"}
-                    ],
-                    rate: 5, price: 9900, comments: 145, number: 888, type: "Люкс"},
-                  {img: [
-                      {src: "img/rooms/room-2-thumbnail.jpg", alt: "Фотография комнаты №1"},
-                      {src: "img/rooms/room-3-thumbnail.jpg", alt: "Фотография комнаты №2"},
-                      {src: "img/rooms/room-4-thumbnail.jpg", alt: "Фотография комнаты №3"},
-                      {src: "img/rooms/room-5-thumbnail.jpg", alt: "Фотография комнаты №4"}
-                    ],
-                    rate: 4, price: 9900, comments: 65, number: 840},
-                  {img: [
-                      {src: "img/rooms/room-3-thumbnail.jpg", alt: "Фотография комнаты №1"},
-                      {src: "img/rooms/room-4-thumbnail.jpg", alt: "Фотография комнаты №2"},
-                      {src: "img/rooms/room-5-thumbnail.jpg", alt: "Фотография комнаты №3"},
-                      {src: "img/rooms/room-6-thumbnail.jpg", alt: "Фотография комнаты №4"}
-                    ],
-                    rate: 3, price: 8500, comments: 35, number: 980},
-                  {img: [
-                      {src: "img/rooms/room-4-thumbnail.jpg", alt: "Фотография комнаты №1"},
-                      {src: "img/rooms/room-5-thumbnail.jpg", alt: "Фотография комнаты №2"},
-                      {src: "img/rooms/room-6-thumbnail.jpg", alt: "Фотография комнаты №3"},
-                      {src: "img/rooms/room-7-thumbnail.jpg", alt: "Фотография комнаты №4"}
-                    ],
-                    rate: 5, price: 7300, comments: 19, number: 856},
-                  {img: [
-                      {src: "img/rooms/room-5-thumbnail.jpg", alt: "Фотография комнаты №1"},
-                      {src: "img/rooms/room-6-thumbnail.jpg", alt: "Фотография комнаты №2"},
-                      {src: "img/rooms/room-7-thumbnail.jpg", alt: "Фотография комнаты №3"},
-                      {src: "img/rooms/room-8-thumbnail.jpg", alt: "Фотография комнаты №4"}
-                    ],
-                    rate: 4, price: 6000, comments: 44, number: 740},
-                  {img: [
-                      {src: "img/rooms/room-6-thumbnail.jpg", alt: "Фотография комнаты №1"},
-                      {src: "img/rooms/room-7-thumbnail.jpg", alt: "Фотография комнаты №2"},
-                      {src: "img/rooms/room-8-thumbnail.jpg", alt: "Фотография комнаты №3"},
-                      {src: "img/rooms/room-9-thumbnail.jpg", alt: "Фотография комнаты №4"}
-                    ],
-                    rate: 3, price: 5800, comments: 56, number: 982},
-                  {img: [
-                      {src: "img/rooms/room-7-thumbnail.jpg", alt: "Фотография комнаты №1"},
-                      {src: "img/rooms/room-8-thumbnail.jpg", alt: "Фотография комнаты №2"},
-                      {src: "img/rooms/room-9-thumbnail.jpg", alt: "Фотография комнаты №3"},
-                      {src: "img/rooms/room-10-thumbnail.jpg", alt: "Фотография комнаты №4"}
-                    ],
-                    rate: 5, price: 5500, comments: 45, number: 678},
-                  {img: [
-                      {src: "img/rooms/room-8-thumbnail.jpg", alt: "Фотография комнаты №1"},
-                      {src: "img/rooms/room-9-thumbnail.jpg", alt: "Фотография комнаты №2"},
-                      {src: "img/rooms/room-10-thumbnail.jpg", alt: "Фотография комнаты №3"},
-                      {src: "img/rooms/room-11-thumbnail.jpg", alt: "Фотография комнаты №4"}
-                    ],
-                    rate: 4, price: 5300, comments: 39, number: 450},
-                  {img: [
-                      {src: "img/rooms/room-9-thumbnail.jpg", alt: "Фотография комнаты №1"},
-                      {src: "img/rooms/room-10-thumbnail.jpg", alt: "Фотография комнаты №2"},
-                      {src: "img/rooms/room-11-thumbnail.jpg", alt: "Фотография комнаты №3"},
-                      {src: "img/rooms/room-12-thumbnail.jpg", alt: "Фотография комнаты №4"}
-                    ],
-                    rate: 3, price: 5000, comments: 77, number: 350},
-                  {img: [
-                      {src: "img/rooms/room-10-thumbnail.jpg", alt: "Фотография комнаты №1"},
-                      {src: "img/rooms/room-11-thumbnail.jpg", alt: "Фотография комнаты №2"},
-                      {src: "img/rooms/room-12-thumbnail.jpg", alt: "Фотография комнаты №3"},
-                      {src: "img/rooms/room-1-thumbnail.jpg", alt: "Фотография комнаты №4"}
-                    ],
-                    rate: 5, price: 5000, comments: 25, number: 666},
-                  {img: [
-                      {src: "img/rooms/room-11-thumbnail.jpg", alt: "Фотография комнаты №1"},
-                      {src: "img/rooms/room-12-thumbnail.jpg", alt: "Фотография комнаты №2"},
-                      {src: "img/rooms/room-1-thumbnail.jpg", alt: "Фотография комнаты №3"},
-                      {src: "img/rooms/room-2-thumbnail.jpg", alt: "Фотография комнаты №4"}
-                    ],
-                    rate: 3, price: 5000, comments: 15, number: 444},
-                  {img: [
-                      {src: "img/rooms/room-12-thumbnail.jpg", alt: "Фотография комнаты №1"},
-                      {src: "img/rooms/room-1-thumbnail.jpg", alt: "Фотография комнаты №2"},
-                      {src: "img/rooms/room-2-thumbnail.jpg", alt: "Фотография комнаты №3"},
-                      {src: "img/rooms/room-3-thumbnail.jpg", alt: "Фотография комнаты №4"}
-                    ],
-                    rate: 3, price: 5000, comments: 55, number: 352},
-                ]
               for room in roomsArray
                 .search-room-page__single-room.js-single-room-card
                   +card-room(room)

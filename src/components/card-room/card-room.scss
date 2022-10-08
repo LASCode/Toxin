@@ -1,3 +1,5 @@
+@import '../../styles/variables.scss';
+
 .card-room {
   position: relative;
   background-color: #FFFFFF;
@@ -13,10 +15,12 @@
 
   &:hover {
     transform: scale(1.05);
+
     .owl-nav:before,
     .owl-nav:after {
       transform: translateX(0px);
     }
+
     .owl-prev,
     .owl-next {
       opacity: 1;
@@ -36,23 +40,20 @@
   &__container {
     padding: 22px 17px 17px 20px;
   }
+
   &__link {
     color: inherit;
     display: block;
     padding-top: 151px;
     text-decoration: none;
   }
+
   &__title{
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
   }
-  &__room-number-container{
 
-  }
-  &__room-price-container{
-
-  }
   &__room-number{
     display: inline-block;
     font-family: $font-Montserrat;
@@ -66,6 +67,7 @@
       letter-spacing: 4px;
     }
   }
+
   &__room-type{
     display: inline-block;
     margin-left: 8px;
@@ -76,6 +78,7 @@
     color: $text-purple;
     text-transform: uppercase;
   }
+
   &__price-sum{
     font-family: $font-Montserrat;
     font-weight: bold;
@@ -83,6 +86,7 @@
     line-height: 18px;
     color: $text-dark-50;
   }
+
   &__price-text{
     font-family: $font-Montserrat;
     font-size: 12px;
@@ -90,27 +94,32 @@
     margin-left: 4px;
     color: $text-dark-50;
   }
+
   &__br{
     width: 100%;
     height: 1px;
     background-color: $text-dark-10;
     margin-top: 8px;
   }
+
   &__rate-wrapper{
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     margin-top: 10px;
   }
+
   &__comments-container{
     font-size: 14px;
     line-height: 22px;
     color: $text-dark-50;
   }
+
   &__comments-count{
     font-family: $font-Montserrat;
     font-weight: bold;
   }
+
   &__comments-text{
     margin: 0 3px;
     font-family: $font-Montserrat;

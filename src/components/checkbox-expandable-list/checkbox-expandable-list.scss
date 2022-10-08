@@ -1,15 +1,16 @@
-.checkbox-expandable-list{
-  &__body{
+@import '../../styles/variables.scss';
+
+.checkbox-expandable-list {
+
+  &__body {
     margin-top: 3px;
   }
-  &__details{
-    &[open]{
-      .checkbox-expandable-list__icon{
-        transform: rotate(180deg);
-      }
-    }
+
+  &__details[open] &__icon {
+    transform: rotate(180deg);
   }
-  &__summary{
+
+  &__summary {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -20,12 +21,16 @@
     user-select: none;
     cursor: pointer;
   }
-  &__icon{
+
+  &__icon {
+    text-transform: none;
     padding: 10px;
     line-height: 100%;
     font-size: 24px;
+    font-family: $font-MaterialIcon;
   }
-  &__checkbox-container{
+
+  &__checkbox-container {
     padding: 0;
     margin-top: 4px;
     text-decoration: none;

@@ -1,4 +1,5 @@
-import { ItemsDropdown } from '../items-dropdown/items-dropdown';
+import { ItemsDropdown } from '../items-dropdown/ItemsDropdown';
+import './rooms-dropdown.scss';
 
 class RoomsDropdown {
   constructor(rootNode) {

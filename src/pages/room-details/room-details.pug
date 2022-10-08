@@ -9,66 +9,11 @@ block head
   -const title = 'Room details'
 
 block content
-  -
-    const roomData = {
-      roomNumber: 888,
-      roomType: "default",
-      roomPriceData: {
-        pricePerDay: 9990,
-        discount: 2179,
-        additionalServicePrice: 300
-      },
-      guestDropdownStartValue: false,
-      dateDropdownStartValue: false,
-      sale: 2179,
-      additionalServicesPrice: 300,
-      comments: [
-        {
-          img: "img/avatars/man.jpg",
-          userName: "Мурад Сарафанов",
-          commentDate: "5 дней назад",
-          liked: true,
-          likeCount: 12,
-          commentText: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей."
-        },
-        {
-          img: "img/avatars/woman.jpg",
-          userName: "Патрисия Стёклышкова",
-          commentDate: "Неделю назад",
-          likeCount: 2,
-          commentText: "Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент"
-        }
-      ],
-      votes: [
-        {title: "Великолепно", value: 130},
-        {title: "Хорошо", value: 65},
-        {title: "Удовлетворительно", value: 65},
-        {title: "Разочарован", value: 0}
-      ],
-      rules: [
-        {title: "Нельзя с питомцами"},
-        {title: "Без вечеринок и мероприятий"},
-        {title: "Время прибытия — после 13:00, а выезд до 12:00"}
-      ],
-      details: [
-        {icon: "insert_emoticon", title: "Комфорт", subtitle: "Шумопоглощающие стены"},
-        {icon: "location_city", title: "Удобство", subtitle: "Окно в каждой из спален"},
-        {icon: "whatshot", title: "Уют", subtitle: "Номер оснащён камином"}
-      ]
-    }
-    const cardData = {
-      priceListItems: [
-        {price: 39960, info: false, title: "9 990₽ х 4 суток"},
-        {price: 0, info: true, title: "Сбор за услуги: скидка 2 179₽"},
-        {price: 300, info: true, title: "Сбор за дополнительные услуги"},
-      ],
-      priceTotal: 38081
-    }
-
+  - const { selectedRoomCardData, selectedRoomData } = require('../../utils/props');
 
   .room-details-page
 
-    .room-details-page__wrapper.room-details-page__wrapper--primary
+    .room-details-page__wrapper.room-details-page__wrapper--with-gallery
       .room-details-page__room-images
         a(href="img/rooms/room-2-fullscreen.jpg" data-fancybox="gallery" data-caption="Optional caption").room-details-page__img-link
           img(src="img/rooms/room-2-fullscreen.jpg").room-details-page__room-img
@@ -77,54 +22,33 @@ block content
         a(href="img/rooms/room-2-details-1.jpg" data-fancybox="gallery" data-caption="Optional caption").room-details-page__img-link
           img(src="img/rooms/room-2-details-1.jpg").room-details-page__room-img
 
-    .room-details-page__wrapper.room-details-page__wrapper--secondary
+    .room-details-page__wrapper.room-details-page__wrapper--with-room-info
       .room-details-page__wrapper.room-details-page__wrapper--with-details
 
-        .room-details-page__details-item.room-details-page__details-item--room-card
-          +card-selected-room(cardData)
+        .room-details-page__details-item.room-details-page__details-item--with-room-card
+          +card-selected-room(selectedRoomCardData)
 
-        .room-details-page__details-item.room-details-page__details-item--details
-          h2.room-details-page__box-title Сведения о номере
-          .room-details-page__container--with-mt-22px
-            +room-details({items: [
-                {icon:"insert_emoticon", title:"Комфорт", subtitle:"Шумопоглощающие стены"},
-                {icon:"location_city", title:"Удобство", subtitle:"Окно в каждой из спален"},
-                {icon:"whatshot", title:"Уют", subtitle:"Номер оснащён камином"}
-              ]})
-        .room-details-page__details-item.room-details-page__details-item--diagram
-          h2.room-details-page__box-title Впечатления от номера
+        .room-details-page__details-item.room-details-page__details-item--with-details
+          +title({text: 'Сведения о номере', level: 2})
+          .room-details-page__room-details
+            +room-details({items: selectedRoomData.details})
+        .room-details-page__details-item.room-details-page__details-item--with-diagram
+          +title({text: 'Впечатления от номера', level: 2})
           .room-details-page__diagram
-            +diagram({items: [
-                {title: "Великолепно", value: 130},
-                {title: "Хорошо", value: 65},
-                {title: "Удовлетворительно", value: 65},
-                {title: "Разочарован", value: 0}
-              ]})
-        .room-details-page__details-item.room-details-page__details-item--comments
-          h2.room-details-page__box-title Отзывы посетителей номера
-          .room-details-page__container--with-comments
-            +comment({
-              img: "img/avatars/man.jpg",
-              userName: "Мурад Сарафанов",
-              commentDate: "5 дней назад",
-              liked: true,
-              likeCount: 12,
-              commentText: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей."
-            })
-            +comment({
-              img: "img/avatars/woman.jpg",
-              userName: "Патрисия Стёклышкова",
-              commentDate: "Неделю назад",
-              likeCount: 2,
-              commentText: "Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент"
-            })
-        .room-details-page__details-item.room-details-page__details-item--rules
-          h2.room-details-page__box-title.room-details-page__box-title--with-ml-20px Правила
-          .room-details-page__container--with-bullet-list
-            +bullet-list({items: [{title: "Нельзя с питомцами"},{title: "Без вечеринок и мероприятий"},{title: "Время прибытия — после 13:00, а выезд до 12:00"}]})
-        .room-details-page__details-item.room-details-page__details-item--cancel
-          h2.room-details-page__box-title.room-details-page__box-title--with-mb-20px Отмена
-          span Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.
+            +diagram({items: selectedRoomData.votes})
+        .room-details-page__details-item.room-details-page__details-item--with-comments
+          +title({text: 'Отзывы посетителей номера', level: 2})
+          .room-details-page__comments
+            for comment in selectedRoomData.comments
+              +comment(comment)
+        .room-details-page__details-item.room-details-page__details-item--with-rules
+          .room-details-page__rules-title-wrapper
+            +title({text: 'Правила', level: 2})
+          .room-details-page__bullet-list
+            +bullet-list({items: selectedRoomData.rules})
+        .room-details-page__details-item.room-details-page__details-item--with-cancel
+          +title({text: 'Отмена', level: 2})
+          .room-details-page__cancel-text= selectedRoomData.cancelRule
 
 
 

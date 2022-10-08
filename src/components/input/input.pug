@@ -1,16 +1,7 @@
 include ../form-item-container/form-item-container
 mixin input(props = {})
+  - const { placeholder, readonly = false, defaultValue, masked, icon, hovered, iconType = 'icon', href} = props
   -
-    const {
-      placeholder,
-      readonly = false,
-      defaultValue,
-      masked,
-      icon,
-      hovered,
-      iconType = 'icon',
-      href
-    } = props
     const wrapperCLassObj = {
     'input': true,
     'js-input': true,
@@ -36,50 +27,16 @@ mixin input(props = {})
       ...attributes
     }
 
-
   div(class = wrapperCLassObj)
     .input__container
       if (icon && iconType === 'submit')
-        button(type="submit").input__button.material-icons.js-formInput-iconNode= icon
+        button(type="submit").input__button.js-formInput-iconNode= icon
       if (icon && iconType === 'link')
-        a(href = href).input__icon.material-icons.js-formInput-iconNode= icon
+        a(href = href).input__icon.js-formInput-iconNode= icon
       if (icon && iconType === 'icon')
-        i.input__icon.material-icons.js-formInput-iconNode= icon
+        span.input__icon.js-formInput-iconNode= icon
       input(class = inputClassObj)&attributes(inputAttributesObj)
 
-
-
-
-
-
-
-
-
-
-
-    //
-    //
-    //for _, index in inputArray
-    //  if (double)
-    //    +form-item-container({title: (index===0?"прибытие":"выезд"), shortTitleMargin: true})
-    //      .form-input__single-input-wrapper
-    //        input(class = inputClassObj)&attributes(inputAttributesObj, {"data-index": index})
-    //        if (icon)
-    //          if (href)
-    //            button(type="submit").form-input__button.material-icons= icon
-    //          else
-    //            i.form-input__icon.material-icons= icon
-    //  else
-    //    .form-input__single-input-wrapper
-    //      input(class = inputClassObj)&attributes(inputAttributesObj, {"data-index": index})
-    //      if (icon)
-    //        if (href)
-    //          button(type="submit").form-input__button.material-icons= icon
-    //        else
-    //          i.form-input__icon.material-icons= icon
-    //if (dropdown)
-    //  .form-input__dropdown-wrapper
-    //    block
 
 
 

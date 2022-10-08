@@ -4,28 +4,8 @@ include ../hamburger/hamburger
 include ./sections/nav-item/nav-item
 
 mixin header(props={})
-  -
-    const { type = 'default', login = false, username = 'Анонимный пользователь'} = props
-    const siteMap = [
-      {title: "О нас", href: "/aboutUs.html", bold: true},
-      {title: "Услуги", href: "/services.html", expandable: true, items:
-        [
-          {title: "Услуги 1", href: "/services1.html"},
-          {title: "Услуги 2", href: "/services2.html"},
-          {title: "Услуги 3", href: "/services3.html"},
-        ]
-      },
-      {title: "Вакансии", href: "/vacancies.html"},
-      {title: "Новости", href: "/news.html"},
-      {title: "Соглашения", href: "/agreements.html", expandable: true, items:
-        [
-          {title: "Соглашение 1", href: "/agreement1.html"},
-          {title: "Соглашение 2", href: "/agreement2.html"},
-          {title: "Соглашение 3", href: "/agreement3.html"},
-        ]
-      },
-    ]
-
+  - const { type = 'default', login = false, username = 'Анонимный пользователь'} = props
+  - const { headerLinks } = require('../../utils/props')
 
   if type === 'ui-kit'
     header.header.header--ui-kit
@@ -46,7 +26,7 @@ mixin header(props={})
         nav.header__navigation.js-headerNavigation
           .header__nav-container
             ul.header__nav-list
-              for navItem in siteMap
+              for navItem in headerLinks
                 +nav-item(navItem)
             .header__nav-user
               if(login)
@@ -54,7 +34,7 @@ mixin header(props={})
                 .header__username
                   span= username
               else
-                .header__nav-btn.header__nav-btn--login
+                .header__nav-btn.header__nav-btn--with-login
                   +button({type: "outlined", text: "Войти", href: "./sign-in.html"})
-                .header__nav-btn.header__nav-btn--register
+                .header__nav-btn.header__nav-btn--with-register
                   +button({type: "default", text: "Зарегистрироваться", href: "./registration.html"})

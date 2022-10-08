@@ -2,33 +2,7 @@
 @import "./variables.scss";
 @import "./components.scss";
 @import "./normalize.scss";
-@import "./page-base.scss";
 
-h1{
-  font-family: $font-Montserrat;
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 29px;
-  color: $text-dark-100;
-  margin: 0;
-}
-h2{
-  font-family: $font-Montserrat;
-  font-weight: bold;
-  font-size: 19px;
-  line-height: 23px;
-  color: $text-dark-100;
-  margin: 0;
-}
-h3{
-  font-family: $font-Montserrat;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 15px;
-  color: $text-dark-100;
-  text-transform: uppercase;
-  margin: 0;
-}
 html, body {
   height: 100%;
   font-family: $font-Montserrat;
@@ -47,7 +21,6 @@ body .air-datepicker {
   &.-inline- {
     position: absolute;
   }
-
 
   &-nav{
     padding: 0;

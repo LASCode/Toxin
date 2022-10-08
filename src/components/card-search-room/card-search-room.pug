@@ -2,14 +2,14 @@ include ../input/input
 include ../date-dropdown/date-dropdown
 include ../guests-dropdown/guests-dropdown
 include ../rooms-dropdown/rooms-dropdown
+include ../title/title
 
 mixin card-search-room(props={})
-  -
-    const {} = props
+  - const {} = props
 
   .card-search-room
     .card-search-room__title
-      h1 Найдём номера под ваши пожелания
+      +title({text: 'Найдём номера под ваши пожелания', level: 1})
     form.card-search-room__form
 
       .card-search-room__form-section.card-search-room__form-section--with-date-dropdown

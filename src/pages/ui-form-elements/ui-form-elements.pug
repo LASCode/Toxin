@@ -86,7 +86,8 @@ block content
               .ui-form-elements-page__element-container.ui-form-elements-page__element-container--with-radio-btn
                 +form-item-container({title: "radio buttons"})
                   .ui-form-elements-page__form-item.ui-form-elements-page__form-item--radio-btn
-                    +radio-button({name: "test", items: [{title: "Мужчина"}, {title: "Женщина"}], align: "vertical"})
+                    +radio-button({group: 'user-sex', value: 'Мужчина', title: 'Мужчина', checked: true})
+                    +radio-button({group: 'user-sex', value: 'Женщина', title: 'Женщина'})
               .ui-form-elements-page__element-container.ui-form-elements-page__element-container--with-toggle-btn
 
                 +form-item-container({title: "toggle"})

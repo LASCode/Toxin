@@ -1,3 +1,5 @@
+@import '../../styles/variables.scss';
+
 .card-selected-room{
   max-width: 380px;
   min-width: 300px;
@@ -8,83 +10,47 @@
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
 
-  &__form{
-    //margin-top: 24px;
-  }
   &__title{
     margin-top: 10px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
   }
+
   &__form-section {
+
     &--with-date-dropdown {
       margin-top: 20px;
     }
+
     &--with-guest-dropdown {
       margin-top: 21px;
     }
+
     &--with-price {
       margin-top: 20px;
     }
+
     &--with-submit-btn {
       margin-top: 22px;
     }
   }
+
   &__container{
-    &--with-date-dropdown {}
+
     &--with-date-dropdown-inputs {
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-column-gap: 20px;
     }
+
     &--with-total-price {
-      margin-top: 30px;
-    }
-
-
-    &--with-grid{
-      display: grid;
-      grid-gap: 10px;
-    }
-    &--with-z-index{
-      position: relative;
-      z-index: 15;
-    }
-    &--with-23px-margin{
-      margin-top: 23px;
-    }
-    &--with-25px-margin{
-      margin-top: 21px;
-    }
-    &--with-10px-margin{
-      margin-top: 10px;
-    }
-    &--with-20px-margin{
-      margin-top: 20px;
-    }
-    &--with-30px-margin{
-      margin-top: 30px;
+      margin-top: 26px;
     }
   }
 
-
-
-
-  &__form-element{
-    &--with-10px-margin{
-      margin-top: 10px;
-    }
-  }
   &__room-info{
     padding: 20px;
-  }
-
-  &__room-number-container{
-
-  }
-  &__room-price-container{
-
   }
 
   &__date-dropdown {
@@ -106,6 +72,7 @@
       letter-spacing: 4px;
     }
   }
+
   &__room-type{
     display: inline-block;
     margin-left: 8px;
@@ -124,6 +91,7 @@
     line-height: 18px;
     color: $text-dark-50;
   }
+
   &__price-text{
     font-family: $font-Montserrat;
     font-size: 12px;
@@ -135,5 +103,4 @@
   &__book-btn{
     margin-top: 22px;
   }
-
 }

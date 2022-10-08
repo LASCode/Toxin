@@ -1,4 +1,7 @@
+@import '../../styles/variables.scss';
+
 .bullet-list{
+
   &__item{
     display: grid;
     grid-template-columns: 10px 1fr;
@@ -6,6 +9,7 @@
     vertical-align: center;
     margin-bottom: 10px;
   }
+
   &__marker{
     display: inline-block;
     margin-top: 6px;

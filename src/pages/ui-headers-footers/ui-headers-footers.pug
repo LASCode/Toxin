@@ -1,17 +1,14 @@
 extends ../../layouts/ui-kit-layout
-
 include ../../components/header/header
 include ../../components/footer/footer
 
 block head
-  -const title = '111111'
+  -const title = 'Headers - Footers'
 
 block content
   .ui-headers-footers-page
     .ui-headers-footers-page__header
       +header({type: "ui-kit"})
-
-
     .ui-headers-footers-page__container
       .ui-headers-footers-page__section.ui-headers-footers-page__section--with-default-header
         +header({type: "default", login: false})

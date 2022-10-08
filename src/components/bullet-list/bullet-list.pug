@@ -1,6 +1,5 @@
-mixin bullet-list(props = {})
-  -
-    const { items=[] } = props
+mixin bullet-list(props={})
+  - const { items=[] } = props
 
   .bullet-list
     for item in items

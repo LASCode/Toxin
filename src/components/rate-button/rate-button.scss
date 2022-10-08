@@ -1,14 +1,20 @@
-.rate-button{
+@import '../../styles/variables.scss';
 
-  &__input{
+.rate-button {
+
+  &__input {
     display: none;
   }
+
   &__body {
     display: flex;
     flex-direction: row;
     min-height: 24px;
   }
-  &__star{
+
+  &__star {
+
+    font-family: $font-MaterialIcon;
     background: $gradient-primary-default;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

@@ -1,101 +1,117 @@
-@import "./sections/about-brand/about-brand.scss";
-@import "./sections/about-us/about-us.scss";
-@import "./sections/navigation/navigation.scss";
-@import "./sections/subscribe/subscribe.scss";
-@import "./sections/support/support.scss";
-@import "./sections/copyright/copyright.scss";
+@import '../../styles/variables.scss';
 
 @mixin mobile-adaptive{
-  .footer{
-    &__section{
-      &--base{
+  .footer {
+
+    &__section {
+
+      &--with-base-info {
         box-shadow: none;
         padding: 120px 0 0 0;
       }
-      &--copyright{
+
+      &--with-copyright {
         padding: 0 0 120px 0;
         margin-top: 0;
       }
     }
-    &__grid-container{
+
+    &__grid-container {
       grid-template-columns: 1fr;
       grid-template-rows: 1fr;
       grid-template-areas: "brand";
     }
-    &__grid-item{
+
+    &__grid-item {
+
       &--with-nav-info,
       &--with-aboutUs-info,
       &--with-support-info,
-      &--with-subscribe-info{
+      &--with-subscribe-info {
         display: none;
       }
     }
-    &__brand-logo{
+
+    &__brand-logo {
       display: flex;
       justify-content: center;
     }
-    &__brand-info{
+
+    &__brand-info {
       display: none;
     }
 
-    &__copyright-wrapper{
+    &__copyright-wrapper {
       display: flex;
       justify-content: center;
       flex-direction: column;
       margin-top: 17px;
     }
-    &__copyright-text{
+
+    &__copyright-text {
       text-align: center;
     }
-    &__copyright-socials{
+
+    &__copyright-socials {
       margin-top: 22px;
     }
   }
 }
 
-.footer{
+.footer {
   width: 100%;
   min-width: $container-min-width;
   background-color: #FFFFFF;
 
-  &__section{
-    &--base{
+  &__section {
+
+    &--with-base-info {
       padding: 100px $container-default-padding;
       box-shadow: 0 1px 0 rgba(31, 32, 65, 0.1);
     }
-    &--copyright{
+
+    &--with-copyright {
       margin-top: 1px;
       padding: 23px $container-default-padding;
       box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
     }
   }
+
   &__section-container{
     max-width: $container-max-width;
     margin: 0 auto;
   }
+
   &__grid-container{
     display: grid;
     grid-template-columns: 260px 1fr 1fr 1fr 260px;
     grid-template-areas: "brand nav aboutus support subscribe";
     grid-gap: 40px;
   }
+
   &__grid-item{
+
     &--with-brand-info{
       grid-area: brand;
     }
+
     &--with-nav-info{
       grid-area: nav;
     }
+
     &--with-aboutUs-info{
       grid-area: aboutus;
     }
+
     &--with-support-info{
       grid-area: support;
     }
+
     &--with-subscribe-info{
       grid-area: subscribe;
     }
   }
+
   &__grid-title{
     font-family: $font-Montserrat;
     font-weight: bold;
@@ -105,29 +121,105 @@
     text-transform: uppercase;
     margin-top: 5px;
   }
+
   &__link-list{
     padding: 0;
     margin: 21px 0 0 0;
     list-style: none;
   }
+
   &__link-item{
     line-height: 17.07px;
     white-space: nowrap;
+
     &:not(:first-child){
       margin-top: 21px;
     }
   }
+
   &__link {
     color: inherit;
     text-decoration: none;
+
     &:hover {
       text-decoration: underline;
     }
   }
 
+  &__brand-logo {
+    height: 40px;
+  }
 
-  &--mobile{
+  &__brand-info {
+    margin-top: 18px;
+  }
+
+  &__copyright-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__copyright-socials {
+    height: 24px;
+  }
+
+  &__social-link {
+    text-decoration: none;
+
+    &:not(:first-child) {
+      margin-left: 23px;
+    }
+  }
+
+  &__social-icon {
+    font-family: $font-Awesome;
+    font-size: 24px;
+    line-height: 23.46px;
+    background: $gradient-primary-default;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &__subscribe-text {
+    margin-top: 18px;
+    line-height: 24px;
+  }
+
+  &__subscribe-input {
+    margin-top: 21px;
+  }
+
+  &--mobile {
     @include mobile-adaptive
+  }
+}
+
+@media screen and (max-width: 810px){
+  @include mobile-adaptive
+}
+
+@media screen and (max-width: 1110px){
+  .footer{
+    &__grid-container{
+      display: grid;
+      grid-template-rows: 80px 1fr;
+      grid-template-columns: 1fr 1fr 1fr 260px;
+      grid-template-areas: "brand brand brand brand" "nav aboutus support subscribe";
+      grid-gap: 40px;
+    }
+    &__brand-logo{
+      display: flex;
+      justify-content: center;
+    }
+    &__brand-info{
+      margin-top: 5px;
+      text-align: center;
+    }
+    &__grid-item--with-brand-logo{
+      padding-bottom: 10px;
+      border-bottom: 1px solid $text-dark-25;
+    }
   }
 }
 

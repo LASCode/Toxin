@@ -1,11 +1,8 @@
 mixin radio-button(props={})
-  -
-    const {items=[], checked=0, name="changeMe"} = props
+  - const {group=null, value=null, checked=false, title=null} = props;
 
-  .radio-button
-    for item, index in items
-      label.radio-button__label
-        input.radio-button__input(type="radio" name=name, checked=checked===index)
-        span.radio-button__fake-input
-        if (item.title)
-          span.radio-button__title= item.title
+  label.radio-button__label
+    input.radio-button__real-input(type="radio" name=group, checked=checked, value=value)
+    span.radio-button__fake-input
+    if (title)
+      span.radio-button__title=title

@@ -1,3 +1,5 @@
+@import '../../styles/variables.scss';
+
 .input {
   z-index: 10;
   position: relative;
@@ -12,25 +14,30 @@
 
   &__input {
     width: 100%;
-    padding: 13px 15px;
+    padding: 12px 15px;
     background: #FFFFFF;
     border: 1px solid $text-dark-25;
     box-sizing: border-box;
     border-radius: 4px;
     font-size: 14px;
+    line-height: 18px;
     color: $text-dark-75;
     outline: none;
     text-overflow: ellipsis;
-    &::placeholder{
+
+    &::placeholder {
       color: $text-dark-25;
     }
-    &:hover, &:focus{
+
+    &:hover, &:focus {
       border: 1px solid $text-dark-50;
     }
+
     &--without-border-b {
       border-radius: 4px 4px 0 0;
     }
   }
+
   &__icon {
     position: absolute;
     font-size: 24px;
@@ -42,32 +49,36 @@
     background-color: transparent;
     cursor: pointer;
     user-select: none;
+    font-family: $font-MaterialIcon;
+
+    &--with-gradient {
+      background: $gradient-primary-default;
+      font-family: $font-MaterialIcon;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
     &--rotated {
       transform: rotate(180deg);
     }
+
     &:hover ~ input {
       border: 1px solid $text-dark-50;
     }
   }
 
-
-
-
-
-  //&--without-border-b &__input {
-  //  border-radius: 4px 4px 0 0;
-  //}
-  &--single{
+  &--single {
     display: grid;
     grid-template-columns: 1fr;
   }
-  &--double{
+
+  &--double {
     display: grid;
     grid-gap: 20px;
     grid-template-columns: 1fr 1fr;
   }
-  &__single-input-wrapper{
+
+  &__single-input-wrapper {
     width: 100%;
     display: flex;
     justify-content: flex-end;
@@ -75,17 +86,19 @@
     position: relative;
   }
 
-  &__input--with-icon{
+  &__input--with-icon {
     padding: 13px 44px 13px 15px;
   }
-  &__input--hovered{
+
+  &__input--hovered {
     border: 1px solid $text-dark-50;
   }
-  &__input--readonly{
+
+  &__input--readonly {
     cursor: pointer;
   }
 
-  &__button{
+  &__button {
     position: absolute;
     font-size: 24px;
     line-height: 24px;
@@ -94,11 +107,9 @@
     padding: 0;
     border: none;
     cursor: pointer;
+    font-family: $font-MaterialIcon;
     background: $gradient-primary-default;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    &:hover{}
   }
-
-
 }

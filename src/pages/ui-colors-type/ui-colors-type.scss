@@ -1,9 +1,4 @@
 @import "../../styles/_main.scss";
-html{
-  font-family: $font-Montserrat;
-  line-height: 14.63px;
-  font-size: 14px;
-}
 .ui-colors-type-page {
   &__header {
 
@@ -16,7 +11,7 @@ html{
     &--with-grid {
       display: flex;
       justify-content: space-between;
-      padding: 37px 130px 145px 130px;
+      padding: 37px 133px 145px 130px;
     }
     &--with-colors {
       width: 300px;
@@ -25,23 +20,16 @@ html{
       grid-row-gap: 20px;
     }
     &--with-fonts {
+      display: grid;
+      grid-auto-rows: min-content;
+      grid-row-gap: 51px;
       width: 444px;
     }
   }
-  &__font_container {
-    margin-right: 35px;
-    margin-top: 52px;
-    display: flex;
-    &--with-short-margin {
-      margin-top: 46px;
-      margin-right: 60px;
-    }
-    &:first-child {
-      margin-top: 0;
-    }
-    &--with-big-example {
-      margin-right: 0;
-    }
+  &__font-container {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    grid-column-gap: 30px;
   }
   &__font-name {
     min-width: 37px;
@@ -65,57 +53,7 @@ html{
     }
   }
   &__font-example {
-    margin-left: 30px;
+    line-height: 24px;
+    max-width: 312px;
   }
-
-}
-.ui-color {
-  display: grid;
-  grid-template-columns: 70px 1fr;
-  grid-column-gap: 40px;
-  &__pallete {
-    width: 70px;
-    height: 70px;
-    border-radius: 6px;
-
-    &--dark-shade-100 {
-      background-color: $text-dark-100;
-    }
-    &--dark-shade-75 {
-      background-color: $text-dark-75;
-    }
-    &--dark-shade-50 {
-      background-color: $text-dark-50;
-    }
-    &--dark-shade-25 {
-      background-color: $text-dark-25;
-    }
-    &--dark-shade-5 {
-      background-color: $text-dark-5;
-    }
-    &--purple {
-      background-color: $text-purple;
-    }
-    &--green {
-      background-color: $text-green;
-    }
-  }
-  &__font-box {
-    padding-top: 7px;
-    display: inline-flex;
-    flex-direction: column;
-  }
-  &__font-name {
-    font-family: $font-Montserrat;
-    line-height: 28.5px;
-    font-size: 19px;
-    font-weight: 700;
-  }
-  &__font-hex {
-    font-family: $font-Montserrat;
-    line-height: 27.79px;
-    font-size: 19px;
-  }
-
-
 }

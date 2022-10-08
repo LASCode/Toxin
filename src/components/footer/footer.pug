@@ -1,30 +1,67 @@
-include ./sections/about-brand/about-brand
-include ./sections/navigation/navigation
-include ./sections/about-us/about-us
-include ./sections/support/support
-include ./sections/subscribe/subscribe
-include ./sections/copyright/copyright
+include ../input/input
 
 mixin footer(props={})
+  - const { mobile=false } = props
   -
-    const {mobile=false} = props
     const footerClassObj = {
       "footer": true,
       "footer--mobile": mobile
     }
+    const { socials, footerLinks } = require('../../utils/props');
+
   footer(class=footerClassObj)
-    section.footer__section.footer__section--base
+    section.footer__section.footer__section--with-base-info
       .footer__section-container
         .footer__grid-container
-          +about-brand()
-          +navigation()
-          +about-us()
-          +support()
-          +subscribe()
 
-    section.footer__section.footer__section--copyright
+          .footer__grid-item.footer__grid-item--with-brand-info
+            .footer__brand-logo
+              img(src="img/logo/logo-default.svg")
+            .footer__brand-info
+              span Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
+
+          .footer__grid-item.footer__grid-item--with-nav-info
+            .footer__grid-title
+              span Навигация
+            ul.footer__link-list
+              for item in footerLinks.navigation
+                li.footer__link-item
+                  a(href=item.href).footer__link= item.title
+
+          .footer__grid-item.footer__grid-item--with-aboutUs-info
+            .footer__grid-title
+              span О нас
+            ul.footer__link-list
+              for item in footerLinks.aboutUs
+                li.footer__link-item
+                  a(href=item.href).footer__link= item.title
+
+          .footer__grid-item.footer__grid-item--with-support-info
+            .footer__grid-title
+              span Служба поддержки
+            ul.footer__link-list
+              for item in footerLinks.support
+                li.footer__link-item
+                  a(href=item.href).footer__link= item.title
+
+          .footer__grid-item.footer__grid-item--with-subscribe-info
+            .footer__grid-title
+              span Подписка
+            .footer__subscribe-text
+              span Получайте специальные предложения и новости сервиса
+            .footer__subscribe-input
+              form(action="https://echo.htmlacademy.ru" method="post" name="subscribe")
+                +input({placeholder: "Email", icon: "arrow_forward", iconType: "submit"})&attributes({name: "Email"})
+
+    section.footer__section.footer__section--with-copyright
       .footer__section-container
-        +copyright()
+        .footer__copyright-wrapper
+          .footer__copyright-text
+            span Copyright © 2018 Toxin отель. Все права защищены.
+          .footer__copyright-socials
+            for item in socials
+              a(href=item.href target="_blank" rel="noopener noreferrer" title=item.title).footer__social-link
+                span.footer__social-icon=item.icon
 
 
 

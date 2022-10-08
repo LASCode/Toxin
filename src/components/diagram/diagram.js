@@ -1,5 +1,6 @@
 import Chart from 'chart.js/auto';
 import DoughnutLabel from 'chartjs-plugin-doughnutlabel-rebourne';
+import './diagram.scss';
 
 Chart.register(DoughnutLabel);
 

@@ -1,9 +1,13 @@
+@import '../../styles/variables.scss';
+
 .form-item-container {
+
   &__header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
   }
+
   &__body {
     line-height: 20px;
 
@@ -11,11 +15,14 @@
       padding-top: 5px;
     }
   }
+
   &__title{
+
     &--with-margin {
       margin-top: 3px;
     }
   }
+
   &__subtitle{
     font-size: 12px;
     line-height: 15px;

@@ -1,4 +1,6 @@
-.like-button{
+@import '../../styles/variables.scss';
+
+.like-button {
   padding: 0;
   height: 20px;
   background-color: transparent;
@@ -7,39 +9,45 @@
   box-sizing: border-box;
   cursor: pointer;
 
-  &--liked{
+  &--liked {
     border: 1px solid $text-purple;
-    .like-button__icon, .like-button__count{
+
+    .like-button__icon, .like-button__count {
       color: $text-purple;
     }
-    .like-button__icon:before{
+
+    .like-button__icon:before {
       content: 'favorite';
       color: $text-purple;
     }
   }
+
   &--hovered,
-  &:hover{
+  &:hover {
     border: 1px solid $text-purple;
-    .like-button__icon, .like-button__count{
+
+    .like-button__icon, .like-button__count {
       color: $text-purple;
     }
-    .like-button__icon:before{
+
+    .like-button__icon:before {
       color: $text-purple;
     }
   }
 
-  &__container{
+  &__container {
     display: grid;
     grid-gap: 3px;
     grid-template-columns: 18px 1fr;
   }
-  &__icon{
+
+  &__icon {
     width: 18px;
     display: flex;
     justify-content: center;
     align-items: center;
 
-    &:before{
+    &:before {
       content: 'favorite_border';
       font-size: 10px;
       line-height: 8.5px;
@@ -48,12 +56,10 @@
     }
   }
 
-  &__count{
+  &__count {
     min-width: 17px;
     display: flex;
     align-items: center;
-
-
     font-family: $font-Montserrat;
     font-size: 10px;
     line-height: 12.19px;

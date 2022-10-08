@@ -1,4 +1,5 @@
 import 'jquery-mask-plugin';
+import './input.scss';
 
 class Input {
   constructor(rootNode) {

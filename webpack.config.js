@@ -1,6 +1,6 @@
 const path = require('path');
 const { getLoaders } = require('./webpack/loaders');
-const { fileManager } = require('./webpack/fileManager');
+const { fileManager } = require('./webpack/file-manager');
 const { getPlugins } = require('./webpack/plugins');
 
 const {

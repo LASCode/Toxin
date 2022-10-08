@@ -1,4 +1,5 @@
 import 'owl.carousel';
+import './carousel.scss';
 import '../rate-button/rate-button';
 
 $('.js-carousel').owlCarousel({

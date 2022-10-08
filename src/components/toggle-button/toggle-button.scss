@@ -1,30 +1,38 @@
+@import '../../styles/variables.scss';
+
 .toggle-button {
   width: 100%;
 
-  &__label{
+  &__label {
     display: flex;
   }
-  &__checkbox{
+
+  &__checkbox {
     position: absolute;
     height: 0;
     width: 0;
     opacity: 0;
 
-    &:checked{
-      &~.toggle-button__toggle:before{
+    &:checked {
+
+      &~.toggle-button__toggle:before {
         transform: translateX(calc(100% + 8px));
         background: $gradient-primary-default;
       }
-      &~.toggle-button__toggle{
+
+      &~.toggle-button__toggle {
         border: 1px solid $text-purple;
       }
     }
-    &:focus{
-      &+.toggle-button__toggle{
+
+    &:focus {
+
+      &+.toggle-button__toggle {
         border: 1px solid black;
       }
     }
   }
+
   &__toggle{
     position: relative;
     display: inline-block;
@@ -35,10 +43,9 @@
     margin-right: 10px;
     box-sizing: border-box;
     cursor: pointer;
-
     transition: background .3s linear, border .3s linear;
 
-    &:before{
+    &:before {
       content: '';
       position: absolute;
       height: 12px;
@@ -50,6 +57,7 @@
       transition: transform .3s linear;
     }
   }
+
   &__title {
     min-height: 24px;
     line-height: 18px;

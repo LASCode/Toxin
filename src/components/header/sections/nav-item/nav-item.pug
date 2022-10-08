@@ -1,5 +1,5 @@
 mixin nav-item(props={})
-  -const {title="changeMe", bold=false, expandable=false, items=[], href=false} = props
+  - const {title="", bold=false, expandable=false, items=[], href=false} = props
   -
     const linkClassObj = {
       "header__nav-link": true,
@@ -17,7 +17,6 @@ mixin nav-item(props={})
             for item in items
               li.header__nav-item.header__nav-item--without-margin.header__nav-item--with-padding
                 a(href=item.href).header__nav-link= item.title
-
     else
       a(href=href class=linkClassObj)= title
 

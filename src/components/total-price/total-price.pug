@@ -1,11 +1,10 @@
-include ../../mixins/numberWithSpaces
 mixin total-price(props={})
+  - const {value=0, title=''} = props
   -
-    const {value=0, title="Итого"} = props
+    const {numberWithSpaces} = require('../../utils/number-with-spaces');
+    const validPrice = numberWithSpaces(value);
 
   .total-price
     span.total-price__title= title
     span.total-price__dots
-    span.total-price__value
-      +numberWithSpaces({num: value})
-      |₽
+    span.total-price__value= `${validPrice} ₽`

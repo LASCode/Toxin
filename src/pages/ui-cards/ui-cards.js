@@ -1,11 +1,20 @@
 import AirDatepicker from 'air-datepicker';
 import './ui-cards.pug';
 import './ui-cards.scss';
+import '../../layouts/page-layouts';
+import '../../components/title/title';
 import '../../components/carousel/carousel';
 import '../../components/input/input';
 import '../../components/rooms-dropdown/rooms-dropdown';
 import '../../components/guests-dropdown/guests-dropdown';
 import '../../components/date-dropdown/date-dropdown';
+
+import '../../components/card-room/card-room';
+import '../../components/card-login/card-login';
+import '../../components/card-registration/card-registration';
+import '../../components/card-search-room/card-search-room';
+import '../../components/card-selected-room/card-selected-room';
+
 
 $(document).ready(() => {
   $('.js-datepicker').each((index, el) => {

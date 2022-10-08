@@ -1,3 +1,5 @@
+@import '../../styles/variables.scss';
+
 .bullet-item {
   display: grid;
   grid-column-gap: 10px;
@@ -11,6 +13,7 @@
     border-radius: 7px;
     background-color: $text-dark-25;
   }
+
   &__title {
     display: inline-block;
     height: 24px;

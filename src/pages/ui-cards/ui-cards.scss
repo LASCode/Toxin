@@ -9,7 +9,7 @@ html{
   font-size: 14px;
 }
 
-.ui-cards-page{
+.ui-cards-page {
   background-color: #E5E5E5;
   padding-bottom: 80px;
 
@@ -18,17 +18,19 @@ html{
     margin: 0 auto;
   }
 
-  &__wrapper{
+  &__wrapper {
     margin: 42px 140px 0 140px;
     display: grid;
     grid-template-columns: 380px 380px 320px;
     grid-gap: 40px;
   }
-  &__collumn{
-    &>*:not(:first-child){
+
+  &__collumn {
+    &>*:not(:first-child) {
       margin-top: 40px;
     }
   }
+
   &__rooms {
     width: 270px;
   }
@@ -37,6 +39,4 @@ html{
       position: relative;
     }
   }
-
-
 }

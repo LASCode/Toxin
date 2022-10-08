@@ -1,16 +1,21 @@
+@import '../../styles/variables.scss';
+
 body .dropdown-date {
 
   &__calendar {
     width: 100%;
     position: absolute;
     margin-top: 5px;
+
     &--hidden {
       display: none;
     }
+
     &--shacking {
       animation: shake 0.5s;
     }
   }
+
   &__button {
     margin: 0;
     padding: 0;
@@ -21,6 +26,7 @@ body .dropdown-date {
     text-transform: uppercase;
     color: $text-purple;
     font-size: 12px;
+
     &:hover{
       color: $text-purple;
       background-color: transparent;

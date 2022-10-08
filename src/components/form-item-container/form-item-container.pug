@@ -1,7 +1,7 @@
+include ../title/title
 mixin form-item-container (props={})
+  - const { title='', subtitle='', titleMargin = false, itemMargin = true} = props
   -
-    const { title='default text', subtitle='', titleMargin = false, itemMargin = true} = props
-
     const titleClassObj = {
       'form-item-container__title--with-margin': titleMargin,
     }
@@ -11,7 +11,8 @@ mixin form-item-container (props={})
 
   .form-item-container
     .form-item-container__header
-      h3(class=titleClassObj).form-item-container__title= title
+      span(class=titleClassObj).form-item-container__title
+        +title({text: title, level: 3})
       span.form-item-container__subtitle= subtitle
     div(class=bodyClassObj).form-item-container__body
       block

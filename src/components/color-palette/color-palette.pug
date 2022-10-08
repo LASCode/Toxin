@@ -1,0 +1,9 @@
+mixin color-palette(props={})
+  - const { name = '', hex = '', customClass = '' } = props
+  - const classWithModify = `color-palette__pallete--${customClass}`
+
+  .color-palette
+    div(class=classWithModify).color-palette__pallete
+    .color-palette__font-box
+      span.color-palette__font-name= name
+      span.color-palette__font-hex= hex

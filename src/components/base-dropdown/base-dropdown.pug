@@ -1,5 +1,6 @@
 mixin baseDropdown(props = {})
   - const { isOpen = false, windowListener = true, inputListener = true } = props
+
   div(data-open=isOpen, data-window=windowListener, data-input=inputListener).base-dropdown.js-baseDropdown
     block
     .base-dropdown__body.base-dropdown__body--hidden.js-baseDropdownExpandable

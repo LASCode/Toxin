@@ -1,3 +1,5 @@
+import './base-dropdown.scss';
+
 const defaultOptions = {
   open: false,
   windowListener: true,
@@ -64,7 +66,7 @@ class BaseDropdown {
         result = this.inputInstance.some((el) => el.inputNode.is(':focus'));
       }
       return result;
-    }
+    };
 
     if (this.isOpen === false) {
       this.openDropdown();

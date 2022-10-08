@@ -3,10 +3,8 @@ import 'air-datepicker/air-datepicker.css';
 import 'jquery-mask-plugin';
 import moment from 'moment';
 import 'moment/locale/ru';
-
-import { BaseDropdown } from '../base-dropdown/base-dropdown';
-
-
+import './date-dropdown.scss';
+import { BaseDropdown } from '../base-dropdown/BaseDropdown';
 
 moment.locale('ru', {
   monthsShort: ['Янв', 'Фев', 'Мар', 'Апр', 'Мая', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
@@ -14,7 +12,7 @@ moment.locale('ru', {
 
 class DateDropdown extends BaseDropdown {
   constructor(rootNode) {
-    super($(rootNode).find('.js-baseDropdown'), { customClass: 'customDateDropdownClass' });
+    super($(rootNode).find('.js-baseDropdown'), { customClass: 'base-dropdown__body--with-margin' });
     this.isRange = $(rootNode).data('range') !== undefined;
     this.settings = {};
     this.inputInstance = [...this.$inputNode].map((el) => $(el).data('toxin-inputInstance'));
@@ -40,8 +38,8 @@ class DateDropdown extends BaseDropdown {
     };
     this.settings = {
       range: this.isRange,
-      prevHtml: '<i class="material-icons">arrow_back</i>',
-      nextHtml: '<i class="material-icons">arrow_forward</i>',
+      prevHtml: 'arrow_back',
+      nextHtml: 'arrow_forward',
       buttons: [clearButton, saveButton],
       navTitles: { days: 'MMMM yyyy' },
     };

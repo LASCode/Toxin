@@ -1,6 +1,8 @@
+import './like-button.scss';
+
 const onClick = (e) => {
-  const { target } = e; // Элемент, по которому произошел клик
-  const action = $(target).closest('*[data-action]').data('action'); // Дата атрибут элемента, по которому произошел клик
+  const { target } = e;
+  const action = $(target).closest('*[data-action]').data('action');
 
   if (action) {
     if (action === 'like-it') {

@@ -1,9 +1,7 @@
 mixin carousel(props={})
   -
     let {items = []} = props
-    if (items.length === 0) {
-      items.push({src: "img/imageNotFound.jpg", alt: "changeMe"})
-    }
+    if (items.length === 0) { items.push({src: "img/image-not-found.jpg", alt: "changeMe"}) }
 
   .carousel.js-carousel
     for item, index in items

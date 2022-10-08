@@ -1,22 +1,17 @@
+@import '../../styles/variables.scss';
+
 .total-price{
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-
   font-family: $font-Montserrat;
   font-weight: bold;
   line-height: 20px;
   font-size: 19px;
   white-space: nowrap;
 
-  &__title{
-
-  }
   &__dots{
     width: 100%;
     border-bottom: 1px dotted $text-dark-25;
-  }
-  &__value{
-
   }
 }

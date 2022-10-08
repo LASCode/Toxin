@@ -1,14 +1,8 @@
 @import "../../styles/_main.scss";
 
-html{
-  font-family: $font-Montserrat;
-  line-height: 14.63px;
-  font-size: 14px;
-}
-
 .ui-headers-footers-page {
   background-color: #E5E5E5;
-  padding-bottom: 1000px;
+  padding-bottom: 140px;
 
   &__container{
     margin-top: 32px;
@@ -18,6 +12,7 @@ html{
       margin: 20px auto 0 auto;
     }
   }
+
   &__section {
     &--with-default-header {}
     &--with-login-header {

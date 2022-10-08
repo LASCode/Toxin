@@ -1,0 +1,1 @@
+import './bullet-item.scss';

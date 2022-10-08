@@ -1,0 +1,12 @@
+mixin title(props={})
+  - const {text='', level=3} = props;
+
+  case level
+    when 1
+      h1.title.title--h1=text
+    when 2
+      h2.title.title--h2=text
+    when 3
+      h3.title.title--h3=text
+    default
+      h3.title.title--h3=text

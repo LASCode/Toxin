@@ -1,3 +1,4 @@
 import './sign-in.pug';
 import './sign-in.scss';
-import '../../components/header/header';
+import '../../layouts/page-layouts';
+import '../../components/card-login/card-login';

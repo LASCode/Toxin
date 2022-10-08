@@ -1,0 +1,52 @@
+@import '../../styles/variables.scss';
+
+.color-palette {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  grid-column-gap: 40px;
+  &__pallete {
+    width: 70px;
+    height: 70px;
+    border-radius: 6px;
+
+    &--dark-shade-100 {
+      background-color: $text-dark-100;
+    }
+    &--dark-shade-75 {
+      background-color: $text-dark-75;
+    }
+    &--dark-shade-50 {
+      background-color: $text-dark-50;
+    }
+    &--dark-shade-25 {
+      background-color: $text-dark-25;
+    }
+    &--dark-shade-5 {
+      background-color: $text-dark-5;
+    }
+    &--purple {
+      background-color: $text-purple;
+    }
+    &--green {
+      background-color: $text-green;
+    }
+  }
+  &__font-box {
+    padding-top: 7px;
+    display: inline-flex;
+    flex-direction: column;
+  }
+  &__font-name {
+    font-family: $font-Montserrat;
+    line-height: 28.5px;
+    font-size: 19px;
+    font-weight: 700;
+  }
+  &__font-hex {
+    font-family: $font-Montserrat;
+    line-height: 27.79px;
+    font-size: 19px;
+  }
+
+
+}

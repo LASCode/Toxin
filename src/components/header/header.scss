@@ -1,9 +1,11 @@
+@import '../../styles/variables.scss';
+
 .header {
   min-width: $container-min-width;
   position: relative;
   z-index: 100;
 
-  &__wrapper{
+  &__wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -11,52 +13,58 @@
     padding: 0 $container-default-padding;
     max-width: $container-max-width;
   }
-  &__logo{
+
+  &__logo {
     height: 40px;
     margin: 15px 0;
   }
-  &__container{
+
+  &__container {
     display: flex;
-    &--hamburger{
+
+    &--hamburger {
       height: 30px;
       width: 30px;
       display: none;
     }
   }
-  &__navigation{
+
+  &__navigation {
     height: 70px;
     position: relative;
     display: flex;
     align-items: center;
   }
-  &__login-container{
+
+  &__login-container {
     display: flex;
     align-items: center;
   }
-  &__login-button{
+
+  &__login-button {
     display: inline-block;
     height: 34px;
     width: 87px;
     margin-left: 20px;
   }
-  &__register-button{
+
+  &__register-button {
     display: inline-block;
     height: 34px;
     width: 196px;
     margin-left: 20px;
   }
-  &__details{
-    &[open]{
-      .header__nav-arrow{
-        transform: rotate(180deg);
-      }
-    }
+
+  &__details[open] .header__nav-arrow {
+    transform: rotate(180deg);
   }
-  &__summary{
+
+  &__summary {
     display: inline-flex;
     align-items: center;
   }
-  &__details-hidden{
+
+  &__details-hidden {
     position: absolute;
     top: 0;
     z-index: 20;
@@ -67,87 +75,107 @@
     transform: translateX(-30px);
     box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
   }
-  &__nav-container{
+
+  &__nav-container {
     display: flex;
     align-items: center;
   }
-  &__nav-list{
+
+  &__nav-list {
     padding: 0;
     margin: 0;
     list-style: none;
     display: flex;
-    &--hidden{
+
+    &--hidden {
       display: block;
     }
   }
-  &__nav-link{
+
+  &__nav-link {
     font-size: 14px;
     line-height: 17.07px;
     text-decoration: none;
     color: $text-dark-50;
     white-space: nowrap;
-    &:hover{
+
+    &:hover {
       text-decoration: underline;
     }
-    &--with-uppercase{
+
+    &--with-uppercase {
       text-transform: uppercase;
     }
-    &--with-bold-text{
+
+    &--with-bold-text {
       font-family: $font-Montserrat;
       font-weight: bold;
     }
   }
-  &__nav-item{
+
+  &__nav-item
+  {
     &:not(:first-child) {
       margin: 0 0 0 21px;
     }
+
     &--without-margin {
+
       &:not(:first-child) {
         margin: 0;
       }
     }
   }
-  &__nav-arrow{
+
+  &__nav-arrow {
     font-family: $font-MaterialIcon;
     font-size: 24px;
     line-height: 20.4px;
     cursor: pointer;
     user-select: none;
   }
-  &__nav-user{
+
+  &__nav-user {
     display: flex;
     align-items: center;
   }
-  &__nav-btn{
+
+  &__nav-btn {
     height: 34px;
     margin: 0 0 0 20px;
     display: inline-block;
-    &--register{
+
+    &--with-register {
       width: 196px;
     }
-    &--login{
+
+    &--with-login {
       width: 87px;
     }
   }
-  &__br{
+
+  &__br {
     height: 30px;
     width: 1px;
     background-color: $text-dark-10;
     margin: 0 20px;
   }
-  &__username{
+
+  &__username {
     color: $text-dark-50;
   }
-
 
   &--default{
     background-color: #FFFFFF;
     box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
   }
+
   &--ui-kit{
+
     .header__wrapper {
       max-width: 1380px;
     }
+
     .header__logo{
       height: 48px;
       width: 48px;
@@ -159,15 +187,10 @@
 
 
 
-@media screen and (max-width: 950px){
-  .header{
-    &__navigation{
-      &--visible{
-        display: block;
-      }
-      &:not(&--visible){
-        display: none;
-      }
+@media screen and (max-width: 950px) {
+  .header {
+
+    &__navigation {
       position: absolute;
       left: 0;
       top: 0;
@@ -175,8 +198,17 @@
       width: 100%;
       height: 100vh;
       backdrop-filter: blur(2px);
+
+      &--visible {
+        display: block;
+      }
+
+      &:not(&--visible) {
+        display: none;
+      }
     }
-    &__nav-container{
+
+    &__nav-container {
       display: block;
       max-width: $container-max-width;
       padding: 20px 10px 20px 10px;
@@ -186,36 +218,45 @@
       background-color: #FFFFFF;
       box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
     }
-    &__nav-list{
+
+    &__nav-list {
       display: block;
       padding-left: 10px;
     }
-    &__nav-item{
-      &:not(:first-child){
+
+    &__nav-item {
+
+      &:not(:first-child) {
         margin: 10px 0 0 0;
       }
     }
-    &__nav-user{
+
+    &__nav-user {
       margin: 20px 0 0 0;
       flex-direction: column;
       align-items: flex-start;
     }
-    &__nav-btn{
+
+    &__nav-btn {
       display: block;
       width: 196px;
       height: 34px;
       margin: 0;
-      &:not(:first-child){
+
+      &:not(:first-child) {
         margin-top: 5px;
       }
     }
-    &__br{
+
+    &__br {
       display: none;
     }
-    &__container--hamburger{
+
+    &__container--hamburger {
       display: block;
     }
-    &__details-hidden{
+
+    &__details-hidden {
       transform: none;
       position: static;
       margin: 0;

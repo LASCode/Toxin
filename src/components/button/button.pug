@@ -1,5 +1,5 @@
 mixin button(props)
-  - const {type='default', text='click me', disabled=false, hover=false, href=false, icon, submit=false} = props
+  - const {type='default', text='', disabled=false, hover=false, href=false, icon, submit=false} = props
   -
     const buttonCLassObj = {
       "button": true,
@@ -17,7 +17,7 @@ mixin button(props)
       span.button__wrapper
         span.button__text= text
         if (icon)
-          i.button__icon.material-icons= icon
+          span.button__icon= icon
 
   else
     a(class=buttonCLassObj href= href)&attributes(attributes)

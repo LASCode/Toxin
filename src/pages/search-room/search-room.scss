@@ -1,79 +1,84 @@
 @import "../../styles/_main.scss";
 
-
-
 .search-room-page{
   position: relative;
   width: 100%;
   min-width: $container-min-width;
   border-bottom: 1px solid $text-dark-25;
 
-
-
   &__form-section {
-    &--with-date-dropdown {}
+
     &--with-guest-dropdown {
       margin-top: 21px;
     }
+
     &--with-rooms-dropdown {
       margin-top: 30px;
     }
+
     &--with-slider {
-      margin-top: 30px;
+      margin-top: 26px;
     }
+
     &--with-home-rules {
       margin-top: 30px;
     }
+
     &--with-accessibility {
       margin-top: 30px;
     }
+
     &--with-additional {
       margin-top: 15px;
     }
   }
+
   &__form-element {
+
     &--slider {
       margin-top: 18px;
     }
+
     &--slider-subtitle {
       margin-top: 15px;
       font-size: 12px;
       line-height: 14px;
       color: $text-dark-50;
     }
+
     &--home-rules {
       margin-top: 10px;
       width: 225px;
     }
+
     &--accessibility {
       margin-top: 10px;
     }
   }
 
-
-
-  &__container{
+  &__container {
     height: 100%;
     margin: 0 auto;
     padding: 0 $container-default-padding;
     max-width: $container-max-width;
   }
-  &__content{
+
+  &__content {
     padding: 30px 0 70px 0;
     box-sizing: border-box;
   }
-  &__grid-container{
+
+  &__grid-container {
     display: grid;
     grid-gap: 60px;
     grid-template-columns: 266px 1fr;
   }
-  &__grid-item{
+
+  &__grid-item {
     width: 100%;
   }
 
-
-
-  &__rooms-container{
+  &__rooms-container {
     position: relative;
     width: 100%;
     box-sizing: border-box;
@@ -84,21 +89,24 @@
     grid-column-gap: 12px;
     grid-row-gap: 21px;
   }
-  &__single-room{
+
+  &__single-room {
     width: 100%;
     transition: transform .3s linear;
-    &--hovered{
+
+    &--hovered {
       transform: scale(1.025);
     }
   }
-  &__pagination{
+
+  &__pagination {
     margin-right: 14px;
     margin-top: 40px;
     display: flex;
     justify-content: center;
   }
 
-  &__show-filter-button{
+  &__show-filter-button {
     display: none;
     position: sticky;
     z-index: 25;
@@ -113,23 +121,25 @@
     user-select: none;
     cursor: pointer;
   }
-  &__bth-flex-container{
+
+  &__bth-flex-container {
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  &__btn-arrow{
+
+  &__btn-arrow {
     display: block;
     font-family: $font-MaterialIcon;
     transform: rotate(90deg);
     margin: 0 10px;
 
-    &--revert{
+    &--revert {
       transform: rotate(-90deg);
     }
   }
 
-  &__blur-container{
+  &__blur-container {
     display: none;
     position: absolute;
     z-index: 10;
@@ -139,66 +149,36 @@
     bottom: 0;
     backdrop-filter: blur(2px);
 
-    &--open{
+    &--open {
       display: block;
     }
   }
-
 }
 
 
 
 
-@media screen and (max-width: 1150px){
-  .search-room-page__rooms-container{
+@media screen and (max-width: 1150px) {
+  .search-room-page__rooms-container {
     grid-template-columns: repeat(2, minmax(120px, 1fr));
   }
 }
-@media screen and (max-width: 1110px){
-  .footer{
-    &__grid-container{
-      display: grid;
-      grid-template-rows: 80px 1fr;
-      grid-template-columns: 1fr 1fr 1fr 260px;
-      grid-template-areas: "brand brand brand brand" "nav aboutus support subscribe";
-      grid-gap: 40px;
-    }
-    &__brand-logo{
-      display: flex;
-      justify-content: center;
-    }
-    &__brand-info{
-      margin-top: 5px;
-      text-align: center;
-    }
-    &__grid-item--with-brand-logo{
-      padding-bottom: 10px;
-      border-bottom: 1px solid $text-dark-25;
-    }
-  }
-}
-@media screen and (max-width: 900px){
-  .search-room-page__grid-container{
+@media screen and (max-width: 900px) {
+  .search-room-page__grid-container {
     grid-gap: 20px;
   }
-  .search-room-page__container{
+  .search-room-page__container {
     padding: 0 $container-padding-mini;
   }
-  .header__wrapper{
+  .header__wrapper {
     padding: 0 $container-padding-mini;
   }
 }
-@media screen and (max-width: 810px){
-  @include mobile-adaptive
-}
-@media screen and (max-width: 840px){
-  .search-room-page__show-filter-button{
+@media screen and (max-width: 840px) {
+  .search-room-page__show-filter-button {
     display: block;
   }
-  .search-room-page__filter{
-    &--open{
-      display: block;
-    }
+  .search-room-page__filter {
     display: none;
     position: absolute;
     top: 20px;
@@ -211,31 +191,41 @@
     border-bottom: 1px solid $text-dark-10;
     box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
     backdrop-filter: blur(3px);
+
+    &--open {
+      display: block;
+    }
   }
-  .search-room-page__filter-item{
+
+  .search-room-page__filter-item {
     max-width: 320px;
     margin-left: auto;
     margin-right: auto;
   }
-  .search-room-page__grid-container{
+
+  .search-room-page__grid-container {
     grid-gap: 0;
     grid-template-columns: 0 1fr;
   }
 }
-@media screen and (max-width: 550px){
-  .search-room-page__rooms-container{
+
+@media screen and (max-width: 550px) {
+  .search-room-page__rooms-container {
     grid-template-columns: repeat(1, minmax(120px, 1fr));
   }
-  .search-room-page__single-room{
+
+  .search-room-page__single-room {
     display: flex;
     justify-content: center;
   }
-  .search-room-page__pagination{
+
+  .search-room-page__pagination {
     margin-right: 0;
   }
 }
-@media screen and (max-width: 400px){
-  .search-room-page__pagination .paginationjs .paginationjs-pages a{
+
+@media screen and (max-width: 400px) {
+  .search-room-page__pagination .paginationjs .paginationjs-pages a {
     height: 33px;
     width: 33px;
   }

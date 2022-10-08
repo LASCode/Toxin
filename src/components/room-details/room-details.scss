@@ -1,36 +1,39 @@
-.room-details{
+@import '../../styles/variables.scss';
+
+.room-details {
   margin: 0;
 
-  &__single-item{
+  &__single-item {
     display: grid;
     grid-template-columns: 48px 1fr;
     grid-gap: 10px;
-    &:not(:last-child){
+
+    &:not(:last-child) {
       padding-bottom: 20px;
     }
-    &:not(:first-child){
+
+    &:not(:first-child) {
       padding-top: 20px;
       border-top: 1px solid $text-dark-10;
     }
   }
-  &__text-wrapper{
+
+  &__text-wrapper {
     display: inline-flex;
     flex-direction: column;
   }
 
-  &__icon{
+  &__icon {
     line-height: 48px;
     font-size: 48px;
     background: $gradient-primary-default;
+    font-family: $font-MaterialIcon;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-  &__title{
+
+  &__title {
     font-family: $font-Montserrat;
     font-weight: bold;
   }
-  &__subtitle{
-
-  }
-
 }

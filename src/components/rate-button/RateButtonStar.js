@@ -9,7 +9,6 @@ class RateButtonStar {
   createComponent() {
     const element = document.createElement('span');
     element.classList.add('rate-button__star');
-    element.classList.add('material-icons');
     element.setAttribute('data-index', this.index);
     element.textContent = 'star_border';
     this.button = element;

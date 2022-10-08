@@ -1,4 +1,6 @@
-.dropdown-rooms{
+@import '../../styles/variables.scss';
+
+.dropdown-rooms {
   position: absolute;
   z-index: 10;
   padding: 6px 6px 14px 14px;
@@ -10,55 +12,60 @@
   border-bottom: 1px solid $text-dark-50;
   border-right: 1px solid $text-dark-50;
   border-left: 1px solid $text-dark-50;
-
   font-family: $font-Montserrat;
   font-weight: bold;
   font-size: 12px;
 
-  &__type-container{
+  &__type-container {
     margin-bottom: 7px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     &--with-quake{
       animation: quake 0.5s linear;
     }
   }
-  &__type-name{
+
+  &__type-name {
     font-size: 12px;
     text-transform: uppercase;
   }
-  &__btn-container{
+
+  &__btn-container {
     display: grid;
     grid-template-columns: 30px 28px 30px;
     grid-gap: 2px;
   }
-  &__rooms-count{
+
+  &__rooms-count {
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  &__change-count-button{
+
+  &__change-count-button {
     height: 30px;
     width: 30px;
     border-radius: 15px;
     background-color: transparent;
     border: 1px solid $text-dark-50;
     color: $text-dark-50;
-
     cursor: pointer;
     font-family: $font-Montserrat;
 
-    &:hover{
+    &:hover {
       color: $text-dark-75;
       border: 1px solid $text-dark-75;
     }
-    &:disabled{
+
+    &:disabled {
       color: $text-dark-25;
       border: 1px solid $text-dark-25;
     }
   }
-  &__actions{
+
+  &__actions {
     margin-top: 20px;
     display: flex;
     justify-content: space-between;

@@ -1,13 +1,17 @@
 import './search-room.scss';
 import './search-room.pug';
-import '../../components/input/input';
-import '../../components/header/header';
-import '../../components/guests-dropdown/guests-dropdown';
-import '../../components/date-dropdown/date-dropdown';
-import '../../components/rooms-dropdown/rooms-dropdown';
-import '../../components/slider/slider';
-import '../../components/carousel/carousel';
+import '../../layouts/page-layouts';
+import '../../components/card-room/card-room';
 import '../../components/pagination/pagination';
+import '../../components/slider/slider';
+import '../../components/input/input';
+import '../../components/title/title';
+import '../../components/checkbox/checkbox';
+import '../../components/checkbox-expandable-list/checkbox-expandable-list';
+import '../../components/form-item-container/form-item-container';
+import '../../components/date-dropdown/date-dropdown';
+import '../../components/guests-dropdown/guests-dropdown';
+import '../../components/rooms-dropdown/rooms-dropdown';
 
 const onClick = (e) => {
   e.stopPropagation();

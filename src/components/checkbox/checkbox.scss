@@ -1,29 +1,38 @@
-.checkbox{
+@import '../../styles/variables.scss';
+
+.checkbox {
   position: relative;
   margin-bottom: 10px;
   display: grid;
   grid-template-columns: 20px 1fr;
   grid-gap: 10px;
-  &__true-checkbox{
+
+  &__true-checkbox {
     position: absolute;
     height: 0;
     width: 0;
     opacity: 0;
-    &:checked{
-      &+.checkbox__fake-checkbox{
+
+    &:checked {
+
+      &+.checkbox__fake-checkbox {
         border: 1px solid $text-purple;
-        &:after{
+
+        &:after {
           display: block;
         }
       }
     }
-    &:focus{
-      &+.checkbox__fake-checkbox{
+
+    &:focus {
+
+      &+.checkbox__fake-checkbox {
         border: 1px solid black;
       }
     }
   }
-  &__fake-checkbox{
+
+  &__fake-checkbox {
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -36,7 +45,7 @@
     background-color: transparent;
     cursor: pointer;
 
-    &:after{
+    &:after {
       content: '';
       display: none;
       position: absolute;
@@ -45,25 +54,30 @@
       background-image: url("../../assets/img/checkbox-arrow.svg");
       background-size: cover;
     }
-    &:hover{
+
+    &:hover {
       border: 1px solid $text-purple;
     }
   }
-  &__info{
+
+  &__info {
     display: inline-flex;
     flex-direction: column;
   }
-  &__title{
+
+  &__title {
     line-height: 19px;
     font-size: 14px;
     color: $text-dark-50;
-    &--bold{
+
+    &--bold {
       font-family: $font-Montserrat;
       font-weight: bold;
       color: $text-dark-75;
     }
   }
-  &__description{
+
+  &__description {
     margin-top: 6px;
     line-height: 14px;
     font-size: 12px;

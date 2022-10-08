@@ -1,15 +1,16 @@
 include ../input/input
+include ../title/title
 include ../radio-button/radio-button
 include ../form-item-container/form-item-container
 include ../toggle-button/toggle-button
 include ../button/button
 
 mixin card-login(props={})
-  -
-    const {} = props
+  -const {} = props
+
   .card-login
     .card-login__title
-      h1 Войти
+      +title({text: 'Войти', level: 1})
     form.card-login__form
 
       .card-login__form-section.card-login__form-section--with-user-auth-data

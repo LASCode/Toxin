@@ -42,6 +42,7 @@ const getPlugins = (rootDir) => {
     result.push(new CopyWebpackPlugin({
       patterns: [
         { from: path.resolve(srcDis, 'assets/img'), to: path.resolve(distDir, 'img') },
+        { from: path.resolve(srcDis, 'assets/favicon'), to: path.resolve(distDir, 'img/favicon') },
       ],
     }));
     return result;

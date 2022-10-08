@@ -1,4 +1,7 @@
+@import '../../styles/variables.scss';
+
 .base-dropdown {
+
   &__body {
     position: relative;
     width: 100%;
@@ -6,6 +9,10 @@
 
     &--hidden {
       display: none;
+    }
+
+    &--with-margin {
+      margin-top: 5px;
     }
   }
 }

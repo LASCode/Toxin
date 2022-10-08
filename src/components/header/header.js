@@ -1,3 +1,7 @@
+import './header.scss';
+import './sections/nav-item/nav-item.scss';
+import '../button/button';
+
 class Header {
   constructor(rootNode) {
     this.navIsOpen = false;
@@ -11,14 +15,14 @@ class Header {
   setBodyScroll() {
     if (this.scrollIsActive === false) {
       this.scrollIsActive = true;
-      document.body.classList.remove('global--no-scroll');
+      document.body.classList.remove('page--without-scroll');
     }
   }
 
   removeBodyScroll() {
     if (this.scrollIsActive === true) {
       this.scrollIsActive = false;
-      document.body.classList.add('global--no-scroll');
+      document.body.classList.add('page--without-scroll');
     }
   }
 
@@ -56,5 +60,4 @@ class Header {
   }
 }
 
-const headerElements = $('.js-header');
-headerElements.each((index, element) => new Header(element));
+$('.js-header').each((index, element) => new Header(element));

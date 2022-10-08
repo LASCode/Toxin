@@ -1,3 +1,5 @@
+@import '../../styles/variables.scss';
+
 .button {
   display: inline-flex;
   justify-content: center;
@@ -8,8 +10,6 @@
   box-sizing: border-box;
   border-radius: 22px;
   padding: 15px 20px;
-
-  text-transform: uppercase;
   white-space: nowrap;
   border: none;
   outline: none;
@@ -21,19 +21,24 @@
   &--default{
     background: $gradient-primary-default;
     color: $text-white;
+
     &:hover,.button--hover{
       opacity: 50%;
     }
+
     &:disabled,.button--disabled{
       opacity: 50%;
     }
+
     &:focus{
       box-shadow: 0 0 2px 2px $text-dark-50;
     }
   }
+
   &--outlined {
     color: $text-purple;
     background: $gradient-primary-default;
+
     &:before {
       content: '';
       position: absolute;
@@ -46,53 +51,64 @@
       margin: 2px;
       z-index: -1;
     }
+
       &:hover,.button--hover{
         opacity: 50%;
       }
+
       &:disabled,.button--disabled{
         opacity: 50%;
       }
+
       &:focus{
         box-shadow: 0 0 2px 2px $text-dark-50;
       }
   }
+
   &--borderless{
     color: $text-purple;
     padding: 0;
     border-radius: 0;
     width: auto;
     background-color: transparent;
+
     &:hover,.button--hover{
       color: $text-dark-50;
     }
+
     &:disabled,.button--disabled{
       color: $text-dark-50;
     }
+
     &:focus{
       text-shadow: 0 0 2px $text-dark-50;
     }
   }
+
   &--big{
     padding: 15px 24px 15px 20px;
     background: $gradient-primary-default;
     color: $text-white;
+
     &:hover,.button--hover{
       opacity: 50%;
     }
+
     &:disabled,.button--disabled{
       opacity: 50%;
     }
+
     &:focus{
       box-shadow: 0 0 2px 2px $text-dark-50;
     }
   }
-
 
   &__wrapper{
     display: flex;
     justify-content: center;
     align-items: center;
   }
+
   &__text{
     letter-spacing: 0.15px;
     font-family: $font-Montserrat;
@@ -100,18 +116,21 @@
     font-size: 0.8400rem;
     line-height: 14px;
     box-sizing: border-box;
+    text-transform: uppercase;
   }
+
   &__icon{
-      position: absolute;
-      right: 0;
-      top: 0;
-      height: 44px;
-      width: 44px;
-      font-weight: normal;
-      font-size: 24px;
-      line-height: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    position: absolute;
+    font-family: $font-MaterialIcon;
+    right: 0;
+    top: 0;
+    height: 44px;
+    width: 44px;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
