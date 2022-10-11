@@ -38,15 +38,15 @@ npm install
 ```
 - Запуск сервера разработки
 ```
-npm serve
+npm run serve
 ```
 - Development сборка
 ```
-npm dev
+npm run dev
 ```
 - Production сборка
 ```
-npm prod
+npm run prod
 ```
 ___ 
 ### Зависимости проекта ###
