@@ -27,7 +27,7 @@ ___
 - [Макет проекта](https://www.figma.com/file/xorjGw6bbI9mK7fZAMebJu/MetaLamp-(former-FSD)-frontend-education-program.-The-2nd-task-(Copy))
 ___
 
-### Развёртывание ###
+### Развёртывание (Node v14.17.1) ###
 - Клонирование репозитория
 ```
 git clone https://github.com/LASCode/toxin.git
