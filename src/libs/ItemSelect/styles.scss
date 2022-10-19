@@ -1,8 +1,6 @@
 @import '../../styles/variables.scss';
 
-.items-dropdown {
-  width: 100%;
-  position: absolute;
+.item-select {
   box-sizing: border-box;
   background-color: white;
   padding: 6px 6px 8px 14px;
@@ -21,20 +19,17 @@
       margin-bottom: 7px;
     }
   }
-
-  &__item-value {
+  &__item-title {
     font-family: $font-Montserrat;
     font-weight: bold;
     font-size: 12px;
     text-transform: uppercase;
   }
-
   &__item-actions {
     display: grid;
     grid-template-columns: 30px 28px 30px;
     grid-gap: 2px;
   }
-
   &__item-value {
     font-family: $font-Montserrat;
     font-weight: bold;
@@ -43,7 +38,6 @@
     justify-content: center;
     align-items: center;
   }
-
   &__item-btn {
     height: 30px;
     width: 30px;
@@ -64,8 +58,8 @@
     margin-top: 20px;
     display: flex;
     justify-content: space-between;
+    flex-direction: row-reverse;
   }
-
   &__custom-button {
     background-color: transparent;
     border: 0;
@@ -75,7 +69,7 @@
     font-size: 12px;
     text-transform: uppercase;
     color: $text-purple;
-    padding-bottom: 4px;
+    padding: 0 0 4px 0;
 
     &--hidden {
       width: 0;

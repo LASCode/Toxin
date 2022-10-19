@@ -4,7 +4,7 @@ const defaultOptions = {
   open: false,
   windowListener: true,
   inputListener: true,
-  customClass: '',
+  margin: false,
 };
 
 class BaseDropdown {
@@ -12,7 +12,8 @@ class BaseDropdown {
     this.$window = $(window);
     this.$rootNode = $(rootNode);
     this.$inputNode = this.$rootNode.find('.js-input');
-    this.$dropdownNode = this.$rootNode.find('.js-baseDropdownExpandable');
+    this.$dropdownExpandableNode = this.$rootNode.find('.js-baseDropdownExpandable');
+    this.$dropdownContentNode = this.$rootNode.find('.js-baseDropdownContent');
     this.inputInstance = [...this.$inputNode].map((el) => $(el).data('toxin-inputInstance'));
     this.baseOptions = { ...defaultOptions, ...options };
     this.getOptions();
@@ -31,7 +32,7 @@ class BaseDropdown {
   init() {
     this.closeDropdown();
     this.setBaseListeners();
-    this.$dropdownNode.addClass(this.baseOptions.customClass);
+    if (this.baseOptions.margin) { this.$dropdownContentNode.addClass('base-dropdown__content--with-margin'); }
     if (this.baseOptions.open) { this.openDropdown(); }
   }
 
@@ -82,7 +83,7 @@ class BaseDropdown {
       el.rotateIcon(true);
       el.removeBorderRadius(true);
     });
-    this.$dropdownNode.removeClass('base-dropdown__body--hidden');
+    this.$dropdownExpandableNode.removeClass('base-dropdown__body--hidden');
   }
 
   closeDropdown() {
@@ -91,7 +92,7 @@ class BaseDropdown {
       el.rotateIcon(false);
       el.removeBorderRadius(false);
     });
-    this.$dropdownNode.addClass('base-dropdown__body--hidden');
+    this.$dropdownExpandableNode.addClass('base-dropdown__body--hidden');
   }
 }
 

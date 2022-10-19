@@ -1,72 +1,47 @@
-import { ItemsDropdown } from '../items-dropdown/ItemsDropdown';
 import './guests-dropdown.scss';
+import { BaseDropdown } from '../base-dropdown/BaseDropdown';
+import { ItemSelect } from '../../libs/ItemSelect';
 
-class GuestsDropdown {
+class GuestsDropdown extends BaseDropdown {
   constructor(rootNode) {
-    this.$rootNode = $(rootNode);
-    this.$inputNode = this.$rootNode.find('.js-input');
-    this.baseDropbownNode = this.$rootNode.find('.js-baseDropdown')[0];
-    this.inputInstance = [...this.$inputNode].map((el) => $(el).data('toxin-inputInstance'));
-    this.settings = {};
-    this.htmlSettings = this.$rootNode.data('value');
-    this.getDefaultSettings();
-    this.combineSettings();
-    this.createDropdown();
+    super($(rootNode).find('.js-baseDropdown')[0], {});
+    this.initial();
   }
 
-  getDefaultSettings() {
+  initial() {
     this.onSubmit = this.onSubmit.bind(this);
+    this.onChange = this.onChange.bind(this);
     this.onClear = this.onClear.bind(this);
-    this.settings = {
+    new ItemSelect(this.$dropdownContentNode[0], {
       items: [
         {
-          name: 'Взрослые', value: 0, maxValue: 5, minValue: 0,
+          title: 'Взрослые', value: 0, max: 5, min: 0,
         },
         {
-          name: 'Дети', value: 0, maxValue: 5, minValue: 0,
+          title: 'Дети', value: 0, max: 5, min: 0,
         },
         {
-          name: 'Младенцы', value: 0, maxValue: 5, minValue: 0,
+          title: 'Младенцы', value: 0, max: 5, min: 0,
         },
       ],
-      buttons: [
-        { name: 'Очистить', cssModifier: 'clear', onClick: this.onClear },
-        { name: 'Применить', cssModifier: 'submit', onClick: this.onSubmit },
-      ],
-      windowListener: true,
-      inputListener: true,
-      open: false,
-    };
-  }
-
-  createDropdown() {
-    this.dropdownCallback = this.dropdownCallback.bind(this);
-    this.dropdownInstance = new ItemsDropdown({
-      rootNode: this.baseDropbownNode,
-      options: this.settings,
-      callback: this.dropdownCallback,
+      clearButton: this.$rootNode.data('clearBtn'),
+      submitButton: true,
+      onChange: this.onChange,
+      onClear: this.onClear,
+      onSubmit: this.onSubmit,
     });
   }
 
-  combineSettings() {
-    const combine = (el) => {
-      const result = el;
-      if (this.htmlSettings.some((element) => element.name === el.name)) {
-        result.value = this.htmlSettings.find((element) => element.name === el.name).value;
-      }
-      return result;
-    };
-    this.settings = {
-      ...this.settings,
-      items: this.settings.items.map(combine),
-    };
+  toggleClearBtn(state) {
+    const value = state.reduce((prev, el) => prev + el.value, 0);
+    if (value > 0) {
+      this.$rootNode.find('.js-clear').removeClass('items-dropdown__custom-button--hidden');
+    } else {
+      this.$rootNode.find('.js-clear').addClass('items-dropdown__custom-button--hidden');
+    }
   }
 
-  dropdownCallback(state) {
-    const normalizedState = {};
-    state.forEach((el) => {
-      normalizedState[el.name] = el.value;
-    });
+  onChange(state) {
     const getItemDeclensionObj = (value, declension) => {
       const declensionOfNum = (number, titles) => {
         const numArray = [2, 0, 1, 1, 1, 2];
@@ -96,21 +71,12 @@ class GuestsDropdown {
     this.toggleClearBtn(state);
   }
 
-  toggleClearBtn(state) {
-    const value = state.reduce((prev, el) => prev + el.value, 0);
-    if (value > 0) {
-      this.$rootNode.find('.js-clear').removeClass('items-dropdown__custom-button--hidden');
-    } else {
-      this.$rootNode.find('.js-clear').addClass('items-dropdown__custom-button--hidden');
-    }
-  }
-
   onSubmit() {
-    this.dropdownInstance.closeDropdown();
+    this.closeDropdown();
   }
 
-  onClear() {
-    this.dropdownInstance.clear();
+  onClear(state) {
+    this.onChange(state);
   }
 }
 

@@ -1,0 +1,27 @@
+.pie-diagram {
+  display: grid;
+  grid-template-columns: min-content min-content;
+  grid-column-gap: 20px;
+  align-items: end;
+
+  &__canvas {
+    max-width: 125px;
+    max-height: 125px;
+  }
+
+  &__legend {
+    display: grid;
+    grid-auto-rows: min-content;
+  }
+
+  &__legend-item {
+    display: flex;
+  }
+
+  &__ellipse {
+    border-radius: 50%;
+    margin: 7px 5px 5px 5px;
+    height: 10px;
+    width: 10px;
+  }
+}

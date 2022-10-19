@@ -1,13 +1,8 @@
-import 'owl.carousel';
 import './carousel.scss';
-import '../rate-button/rate-button';
+import { Carousel } from '../../libs/Carousel';
 
-$('.js-carousel').owlCarousel({
-  items: 1,
-  nav: true,
-  rewind: true,
-  navText: [
-    '<span class="owl-arrow-img owl-arrow-img--left">expand_more</span>',
-    '<span class="owl-arrow-img owl-arrow-img--right">expand_more</span>',
-  ],
+$('.js-carousel').each((index, el) => {
+  const $element = $(el);
+  const carouselInstance = new Carousel($element);
+  $element.data('toxin-carouselInstance', carouselInstance);
 });

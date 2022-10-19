@@ -1,7 +1,7 @@
 mixin pagination(props={})
   - const {totalPages=25, visiblePages=5, description=false} = props
 
-  .pagination(data-totalPages=totalPages)
+  .pagination(data-totalPages=totalPages).js-pagination
     .pagination__wrapper
     if (description)
       .pagination__description= description

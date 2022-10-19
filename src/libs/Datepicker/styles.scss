@@ -1,0 +1,307 @@
+@import "../../styles/variables.scss";
+
+body .air-datepicker {
+  width: 100%;
+  border: 1px solid $text-dark-25;
+  border-radius: 0 0 4px 4px;
+  padding: 20px;
+  box-sizing: border-box;
+
+  &.-inline- {
+    position: absolute;
+  }
+
+  &-nav {
+    padding: 0;
+    line-height: 22px;
+    align-items: flex-start;
+    border-bottom: none;
+    font-family: $font-Montserrat;
+    font-weight: bold;
+    white-space: nowrap;
+
+    &--action{
+      font-size: 24px;
+      font-family: $font-MaterialIcon;
+    }
+    &--title{
+      font-size: 19px;
+    }
+  }
+
+  &--buttons {
+    margin-top: 21px;
+    border-top: none;
+    padding: 0;
+  }
+
+  &-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &--content {
+    padding: 0;
+    margin-top: 26px;
+  }
+
+  &-body--day-names {
+    margin: 3px 0 9px 0;
+  }
+  &-body--day-name {
+    font-family: $font-Montserrat;
+    font-weight: bold;
+    color: $text-purple;
+    font-size: 12px;
+    text-transform: none;
+  }
+  &-body--cells {
+    &.-days- {
+      position: relative;
+      width: 100%;
+      grid-template-columns: repeat(7, 1fr);
+      grid-auto-rows: auto;
+    }
+    &.-months- {
+      position: relative;
+      width: 100%;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: auto;
+    }
+    &.-years- {
+      position: relative;
+      width: 100%;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: auto;
+    }
+  }
+  &-cell {
+    &.-day- {
+      font-family: $font-Montserrat;
+      color: $text-dark-50;
+      font-size: 12px;
+      position: relative;
+      //max-width: 40px;
+      height: 0;
+      padding-top: 50%;
+      padding-bottom: 50%;
+
+      // Обнуляем предустановленные стили для модификаторов
+      &.-range-to-, &.-range-from-, &.-in-range-, &.-focus-, &.-current-, &.-selected-, &.-other-month-, & div {
+        border: none;
+        background-color: transparent;
+        border-radius: 0;
+        font-family: $font-Montserrat;
+        color: $text-dark-50;
+      }
+
+      &.-other-month- {
+        background-color: transparent;;
+        color: $text-dark-25;
+      }
+
+      &.-disabled- {}
+
+      &.-focus-:not(.-in-range-) {
+        background-color: rgba(31, 32, 65, 0.05);
+        border-radius: 50%;
+      }
+
+      &.-current- {
+        font-family: $font-Montserrat;
+        font-weight: bold;
+        border-radius: 20px;
+        background: $gradient-secondary-default;
+        color: #FFFFFF;
+
+        &.-in-range- {
+          &:before{
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background: radial-gradient(at center, transparent 70%, rgba(188, 156, 255, 0.25) 50%);
+          }
+        }
+      }
+
+      &.-in-range- {
+        &:not(.-current-) {
+          background: $gradient-primary-25;
+        }
+
+      }
+
+      &.-selected- {
+        border-radius: 50%;
+        background: $gradient-primary-default;
+        font-family: $font-Montserrat;
+        font-weight: bold;
+        color: #FFFFFF;
+      }
+
+      &.-selected-.-range-from- {
+        &:before {
+          content: '';
+          position: absolute;
+          height: 50%;
+          width: 50%;
+          top: 0;
+          right: 0;
+          background: radial-gradient(at left bottom, transparent 70%, rgba(188, 156, 255, 0.25) 50%);
+        }
+
+        &:after {
+          content: '';
+          position: absolute;
+          height: 50%;
+          width: 50%;
+          bottom: 0;
+          right: 0;
+          background: radial-gradient(at left top, transparent 70%, rgba(188, 156, 255, 0.25) 50%);
+        }
+      }
+
+      &.-selected-.-range-to-:not(.-range-from-) {
+        &:before {
+          content: '';
+          position: absolute;
+          height: 50%;
+          width: 50%;
+          top: 0;
+          left: 0;
+          background: radial-gradient(at right bottom, transparent 70%, rgba(188, 156, 255, 0.25) 50%);
+        }
+
+        &:after {
+          content: '';
+          position: absolute;
+          height: 50%;
+          width: 50%;
+          bottom: 0;
+          left: 0;
+          background: radial-gradient(at right top, transparent 70%, rgba(188, 156, 255, 0.25) 50%);
+        }
+      }
+
+      &.-range-to-:not(.-range-from-):not(.-selected-) {
+        &:not(.-current-) {
+          border-radius: 20px;
+          background: $gradient-primary-25;
+        }
+
+        &:before {
+          content: '';
+          position: absolute;
+          height: 50%;
+          width: 50%;
+          top: 0;
+          left: 0;
+          background: radial-gradient(at right bottom, transparent 70%, rgba(188, 156, 255, 0.25) 50%);
+        }
+
+        &:after {
+          content: '';
+          position: absolute;
+          height: 50%;
+          width: 50%;
+          bottom: 0;
+          left: 0;
+          background: radial-gradient(at right top, transparent 70%, rgba(188, 156, 255, 0.25) 50%);
+        }
+      }
+
+      &.-range-from-:not(.-range-to-):not(.-selected-) {
+        &:not(.-current-) {
+          border-radius: 20px;
+          background: $gradient-primary-25;
+        }
+
+        &:before {
+          content: '';
+          position: absolute;
+          height: 50%;
+          width: 50%;
+          top: 0;
+          right: 0;
+          background: radial-gradient(at left bottom, transparent 70%, rgba(188, 156, 255, 0.25) 50%);
+        }
+
+        &:after {
+          content: '';
+          position: absolute;
+          height: 50%;
+          width: 50%;
+          bottom: 0;
+          right: 0;
+          background: radial-gradient(at left top, transparent 70%, rgba(188, 156, 255, 0.25) 50%);
+        }
+      }
+    }
+
+    &.-month- {
+      font-family: $font-Montserrat;
+      color: $text-dark-50;
+      font-size: 14px;
+      position: relative;
+      padding: 5px 0;
+
+      &.-range-to-, &.-range-from-, &.-in-range-, &.-focus-, &.-current-, &.-selected-, &.-other-month-, & div {
+        border: none;
+        background-color: transparent;
+        border-radius: 0;
+        font-family: $font-Montserrat;
+        color: $text-dark-50;
+      }
+
+      &.-focus- {
+        background-color: rgba(31, 32, 65, 0.05);
+      }
+
+      &.-selected- {
+        border-radius: 5px;
+        background: $gradient-primary-default;
+        font-family: $font-Montserrat;
+        font-weight: bold;
+        color: #FFFFFF;
+      }
+      &.-current-:not(.-selected-) {
+        font-family: $font-Montserrat;
+        color: $text-purple;
+      }
+    }
+
+    &.-year- {
+      font-family: $font-Montserrat;
+      color: $text-dark-50;
+      font-size: 14px;
+      position: relative;
+      padding: 9px 0;
+
+      &.-range-to-, &.-range-from-, &.-in-range-, &.-focus-, &.-current-, &.-selected-, &.-other-month-, & div {
+        border: none;
+        background-color: transparent;
+        border-radius: 0;
+        font-family: $font-Montserrat;
+        color: $text-dark-50;
+      }
+
+      &.-focus- {
+        background-color: rgba(31, 32, 65, 0.05);
+      }
+
+      &.-selected- {
+        border-radius: 5px;
+        background: $gradient-primary-default;
+        font-family: $font-Montserrat;
+        font-weight: bold;
+        color: #FFFFFF;
+      }
+
+      &.-current-:not(.-selected-) {
+        font-family: $font-Montserrat;
+        color: $text-purple;
+      }
+    }
+  }
+}

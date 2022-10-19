@@ -1,67 +1,34 @@
-import { ItemsDropdown } from '../items-dropdown/ItemsDropdown';
 import './rooms-dropdown.scss';
+import { BaseDropdown } from '../base-dropdown/BaseDropdown';
+import { ItemSelect } from '../../libs/ItemSelect';
 
-class RoomsDropdown {
+class RoomsDropdown extends BaseDropdown {
   constructor(rootNode) {
-    this.$rootNode = $(rootNode);
-    this.$inputNode = this.$rootNode.find('.js-input');
-    this.baseDropbownNode = this.$rootNode.find('.js-baseDropdown')[0];
-    this.inputInstance = [...this.$inputNode].map((el) => $(el).data('toxin-inputInstance'));
-    this.settings = {};
-    this.htmlSettings = this.$rootNode.data('value');
-    this.getDefaultSettings();
-    this.combineSettings();
-    this.createDropdown();
+    super($(rootNode).find('.js-baseDropdown')[0], {});
+    this.initial();
   }
 
-  getDefaultSettings() {
-    this.settings = {
+  initial() {
+    this.onChange = this.onChange.bind(this);
+    new ItemSelect(this.$dropdownContentNode[0], {
       items: [
         {
-          name: 'Спальни', value: 0, maxValue: 5, minValue: 0,
+          title: 'Спальни', value: 0, max: 5, min: 0,
         },
         {
-          name: 'Кровати', value: 0, maxValue: 5, minValue: 0,
+          title: 'Кровати', value: 0, max: 5, min: 0,
         },
         {
-          name: 'Ванные комнаты', value: 0, maxValue: 5, minValue: 0,
+          title: 'Ванные комнаты', value: 0, max: 5, min: 0,
         },
       ],
-      buttons: [],
-      windowListener: true,
-      inputListener: true,
-      open: false,
-    };
-  }
-
-  createDropdown() {
-    this.dropdownCallback = this.dropdownCallback.bind(this);
-    this.dropdownInstance = new ItemsDropdown({
-      rootNode: this.baseDropbownNode,
-      options: this.settings,
-      callback: this.dropdownCallback,
+      clearButton: false,
+      submitButton: false,
+      onChange: this.onChange,
     });
   }
 
-  combineSettings() {
-    const combine = (el) => {
-      const result = el;
-      if (this.htmlSettings.some((element) => element.name === el.name)) {
-        result.value = this.htmlSettings.find((element) => element.name === el.name).value;
-      }
-      return result;
-    };
-    this.settings = {
-      ...this.settings,
-      items: this.settings.items.map(combine),
-    };
-  }
-
-  dropdownCallback(state) {
-    const normalizedState = {};
-    state.forEach((el) => {
-      normalizedState[el.name] = el.value;
-    });
+  onChange(state) {
     const getItemDeclensionObj = (value, declension) => {
       const declensionOfNum = (number, titles) => {
         const numArray = [2, 0, 1, 1, 1, 2];

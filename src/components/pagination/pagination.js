@@ -1,11 +1,11 @@
-import 'paginationjs';
 import './pagination.scss';
+import { Pagination } from '../../libs/Pagination';
 
-const container = $('.pagination');
+const container = $('.js-pagination');
 container.find('.pagination__wrapper').each((index, el) => {
   const totalPages = $(el).closest('.pagination').data('totalpages');
   const pagesArr = new Array(totalPages).fill(false).map((element, i) => i + 1);
-  $(el).pagination({
+  new Pagination(el, {
     pageSize: 1,
     dataSource: pagesArr,
     pageRange: 1,

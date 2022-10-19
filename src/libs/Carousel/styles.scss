@@ -1,0 +1,101 @@
+@import '../../styles/variables.scss';
+
+body .owl{
+  &-item{
+    display: inline-block;
+  }
+  &-nav {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: transform 0.3s;
+
+    &:before {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      left: 0;
+      width: 42px;
+      height: 100%;
+      transition: transform 0.3s;
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%);
+      transform: translateX(-42px);
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      right: 0;
+      width: 42px;
+      height: 100%;
+      transition: transform 0.3s;
+      background: linear-gradient(-90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%);
+      transform: translateX(42px);
+    }
+  }
+  &-prev {
+    transition: transform 0.3s, opacity 0.3s;
+    position: relative;
+    z-index: 2;
+    background-color: transparent;
+    border: none;
+    user-select: none;
+    cursor: pointer;
+    opacity: 0;
+    &:focus {
+      opacity: 1;
+    }
+  }
+  &-next {
+    transition: transform 0.3s, opacity 0.3s;
+    position: relative;
+    z-index: 2;
+    background-color: transparent;
+    border: none;
+    user-select: none;
+    cursor: pointer;
+    opacity: 0;
+    &:focus {
+      opacity: 1;
+    }
+  }
+  &-arrow-img {
+    display: inline-block;
+    color: white;
+    font-family: $font-MaterialIcon;
+    line-height: 24px;
+    font-size: 24px;
+    user-select: none;
+    &--left {
+      transform: rotate(90deg);
+    }
+    &--right {
+      transform: rotate(-90deg);
+    }
+  }
+  &-dots{
+    position: absolute;
+    bottom: 12px;
+    right: 15px;
+    z-index: 3;
+  }
+  &-dot{
+    height: 7.5px;
+    width: 7.5px;
+    padding: 0;
+    border: 1px solid #FFFFFF;
+    filter: drop-shadow(0px 5px 5px rgba(31, 32, 65, 0.3));
+    background-color: transparent;
+    border-radius: 50%;
+    &:not(:first-child){
+      margin-left: 3.75px;
+    }
+    &.active{
+      background-color: #FFFFFF;
+    }
+  }
+}

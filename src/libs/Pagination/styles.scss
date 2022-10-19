@@ -1,0 +1,52 @@
+@import '../../styles/variables.scss';
+
+body .paginationjs {
+  &-pages {
+    & > ul {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+  }
+  &-page {
+    font-family: $font-Montserrat;
+    border-radius: 50%;
+
+    &.active {
+      background: $gradient-primary-default;
+      font-family: $font-Montserrat;
+      font-weight: bold;
+      color: white;
+    }
+    &:hover:not(.active) {
+      background: $gradient-primary-25
+    }
+    &.disabled{
+      display: none
+    }
+  }
+  &-next,
+  &-prev {
+    border-radius: 50%;
+    background: $gradient-secondary-default;
+    & a {
+      font-family: $font-MaterialIcon;
+      color: white;
+      line-height: 20.4px;
+      font-size: 24px;
+    }
+    &.disabled {
+      display: none
+    }
+  }
+  & a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    text-decoration: none;
+    border-radius: 50%;
+  }
+}
