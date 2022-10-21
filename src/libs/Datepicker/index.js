@@ -6,8 +6,19 @@ class Datepicker {
   constructor(rootNode, options) {
     this.rootNode = rootNode;
     this.options = { ...defaultOptions, ...options };
-    this.pluginInstance = new AirDatepicker(this.rootNode, this.options);
+    this.init();
     this.changeButtonsType();
+  }
+
+  init() {
+    this.pluginInstance = new AirDatepicker(this.rootNode, {
+      range: this.options.isRange,
+      selectedDates: this.options.initialDates,
+      prevHtml: 'arrow_back',
+      nextHtml: 'arrow_forward',
+      navTitles: { days: 'MMMM yyyy' },
+      buttons: this.options.buttons,
+    });
   }
 
   changeButtonsType() {
