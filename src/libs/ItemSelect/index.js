@@ -11,6 +11,7 @@ export class ItemSelect {
     this.createContainer();
     this.createItems();
     this.createCustomButtons();
+    this.clearBtnToggle(this.state);
   }
 
   createContainer() {
@@ -38,28 +39,23 @@ export class ItemSelect {
   }
 
   createCustomButtons() {
-    if (!this.options.submitButton && !this.options.clearButton) { return; }
+    if (!this.options.buttons) { return; }
     this.clear = this.clear.bind(this);
     this.submit = this.submit.bind(this);
     const createBtn = (title, type, callback) => {
       const button = document.createElement('button');
       button.classList.add('item-select__custom-button');
       button.classList.add(`item-select__custom-button--${type}`);
+      button.classList.add(`js-itemSelectCustomBtn-${type}`);
       button.type = 'button';
       button.textContent = title;
       button.addEventListener('pointerdown', callback);
       return button;
     };
-
     const element = document.createElement('div');
     element.classList.add('item-select__custom-buttons');
-    if (this.options.submitButton) {
-      element.appendChild(createBtn('Применить', 'submit', this.submit));
-    }
-    if (this.options.clearButton) {
-      element.appendChild(createBtn('Очистить', 'clear', this.clear));
-    }
-
+    element.appendChild(createBtn('Применить', 'submit', this.submit));
+    element.appendChild(createBtn('Очистить', 'clear', this.clear));
     this.containerNode.appendChild(element);
   }
 
@@ -73,7 +69,15 @@ export class ItemSelect {
     });
     this.validateState();
     this.updateItems();
+    this.clearBtnToggle(this.state);
     this.options.onChange(this.state);
+  }
+
+  clearBtnToggle(state) {
+    if (!this.options.buttons) { return; }
+    const totalValue = state.reduce((acc, curr) => acc + curr.value, 0);
+    const button = $(this.rootNode).find('.js-itemSelectCustomBtn-clear');
+    button.toggleClass('item-select__custom-button--hidden', totalValue === 0);
   }
 
   validateState() {
@@ -90,13 +94,21 @@ export class ItemSelect {
   }
 
   clear() {
-    this.state = this.options.items;
+    this.state = this.options.items.map((el) => ({ ...el, value: el.min }));
     this.validateState();
     this.updateItems();
+    this.clearBtnToggle(this.state);
     this.options.onClear(this.state);
   }
 
   submit() {
     this.options.onSubmit(this.state);
+  }
+
+  update(state) {
+    this.state = state;
+    this.validateState();
+    this.updateItems();
+    this.options.onChange(this.state);
   }
 }
