@@ -5,20 +5,20 @@ include ./sections/nav-item/nav-item
 
 mixin header(props={})
   - const { type = 'default', login = false, username = 'Анонимный пользователь'} = props
-  - const { headerLinks } = require('../../utils/props')
+  - const { headerLinks, pagesLinks } = require('../../props/links')
 
   if type === 'ui-kit'
     header.header.header--ui-kit
       .header__wrapper
         .header__logo
-          +logo({type: 'ui-kit', href: './'})
+          +logo({type: 'ui-kit', href: pagesLinks.index})
 
   if type === 'default'
     header.header.header--default.js-header
       .header__wrapper
 
         .header__logo
-          +logo({type: 'default', href: './'})
+          +logo({type: 'default', href: pagesLinks.index})
 
         .header__container--hamburger
           +hamburger()
@@ -35,6 +35,6 @@ mixin header(props={})
                   span= username
               else
                 .header__nav-btn.header__nav-btn--with-login
-                  +button({type: "outlined", text: "Войти", href: "./sign-in.html"})
+                  +button({type: "outlined", text: "Войти", href: pagesLinks.login})
                 .header__nav-btn.header__nav-btn--with-register
-                  +button({type: "default", text: "Зарегистрироваться", href: "./registration.html"})
+                  +button({type: "default", text: "Зарегистрироваться", href: pagesLinks.registration})
