@@ -6,37 +6,48 @@ include ../price-list/price-list
 include ../total-price/total-price
 
 mixin card-selected-room(props={})
-  - const { priceListItems=[], priceTotal=0 } = props
+  -
+    const {
+      roomNumber = 0,
+      pricePerDay = 0,
+      priceTotal = 0,
+      luxury = false,
+      priseListOptions = {},
+      datesDropdownOptions = {},
+      guestsDropdownOptions = {}
+    } = props
+  - const { numberWithSpaces } = require('../../utils/number-with-spaces');
+  - const formattedPricePerDay = numberWithSpaces(pricePerDay);
 
   .card-selected-room
     .card-selected-room__title
       .card-selected-room__room-number-container
-        span.card-selected-room__room-number №888
-        span.card-selected-room__room-type люкс
+        span.card-selected-room__room-number= `№${roomNumber}`
+        span.card-selected-room__room-type= luxury ? 'люкс' : ''
       .card-selected-room__room-price-container
-        span.card-selected-room__price-sum 9 990₽
+        span.card-selected-room__price-sum= `${formattedPricePerDay} ₽`
         span.card-selected-room__price-text в сутки
     form.card-selected-room__form
 
       .card-selected-room__form-section.card-selected-room__form-section--with-date-dropdown
         .card-selected-room__container.card-selected-room__container--with-date-dropdown
-          +date-dropdown({isRange: true})
+          +date-dropdown(datesDropdownOptions)
             .card-selected-room__container.card-selected-room__container--with-date-dropdown-inputs
-              +form-item-container({title: 'прибытие', shortTitleMargin: true})
-                +input({placeholder: "ДД.ММ.ГГГГ", icon: "expand_more", readonly: true})
-              +form-item-container({title: 'выезд', shortTitleMargin: true})
-                +input({placeholder: "ДД.ММ.ГГГГ", icon: "expand_more", readonly: true})
+              +form-item-container({title: 'прибытие'})
+                +input({placeholder: "ДД.ММ.ГГГГ", icon: "expand_more", mask: 'Dd.Mm.THNY'})
+              +form-item-container({title: 'выезд'})
+                +input({placeholder: "ДД.ММ.ГГГГ", icon: "expand_more", mask: 'Dd.Mm.THNY'})
 
       .card-selected-room__form-section.card-selected-room__form-section--with-guest-dropdown
         .card-selected-room__container.card-selected-room__container--with-guest-dropdown
-          +guest-dropdown()
+          +guest-dropdown(guestsDropdownOptions)
             .card-selected-room__container.card-selected-room__container--with-guest-dropdown-inputs
-              +form-item-container({title: "гости", shortTitleMargin: true})
-                +input({placeholder: "Сколько гостей", icon: "expand_more", readonly: true, dropdown: true})
+              +form-item-container({title: "гости"})
+                +input({placeholder: "Сколько гостей", icon: "expand_more", readonly: true})
 
       .card-selected-room__form-section.card-selected-room__form-section--with-price
         .card-selected-room__container.card-selected-room__container--with-price-list
-          +price-list({items: priceListItems, totalPrice: true})
+          +price-list(priseListOptions)
         .card-selected-room__container.card-selected-room__container--with-total-price
           +total-price({value: priceTotal})
 

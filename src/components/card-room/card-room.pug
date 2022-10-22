@@ -14,6 +14,7 @@ mixin card-room(props={})
     const { numberWithSpaces } = require('../../utils/number-with-spaces');
     const validPrice = numberWithSpaces(price);
     if (img.length===0){imageArray=arr} else { imageArray=img }
+  - const { pagesLinks } = require('../../props/links');
 
 
   .card-room
@@ -21,7 +22,7 @@ mixin card-room(props={})
     .card-room__carousel
       +carousel({items: imageArray })
 
-    a(href=`./room-details.html#${number}`).card-room__link
+    a(href=`${pagesLinks.roomDetails}#${number}`).card-room__link
       .card-room__container
 
         .card-room__title

@@ -5,7 +5,12 @@ include ../rooms-dropdown/rooms-dropdown
 include ../title/title
 
 mixin card-search-room(props={})
-  - const {} = props
+  -
+    const {
+      datesDropdownOptions = {},
+      guestsDropdownOptions = {},
+    } = props
+  - const { pagesLinks } = require('../../props/links');
 
   .card-search-room
     .card-search-room__title
@@ -14,19 +19,19 @@ mixin card-search-room(props={})
 
       .card-search-room__form-section.card-search-room__form-section--with-date-dropdown
         .card-search-room__container.card-search-room__container--with-date-dropdown
-          +date-dropdown({isRange: true})
+          +date-dropdown(datesDropdownOptions)
             .card-search-room__container.card-search-room__container--with-date-dropdown-inputs
               +form-item-container({title: 'прибытие'})
-                +input({placeholder: "ДД.ММ.ГГГГ", icon: "expand_more", readonly: false})
+                +input({placeholder: "ДД.ММ.ГГГГ", icon: "expand_more", mask: 'Dd.Mm.THNY'})
               +form-item-container({title: 'выезд'})
-                +input({placeholder: "ДД.ММ.ГГГГ", icon: "expand_more", readonly: false})
+                +input({placeholder: "ДД.ММ.ГГГГ", icon: "expand_more", mask: 'Dd.Mm.THNY'})
 
       .card-search-room__form-section.card-search-room__form-section--with-guest-dropdown
         .card-search-room__container.card-search-room__container--with-guest-dropdown
-          +guest-dropdown()
+          +guest-dropdown(guestsDropdownOptions)
             .card-search-room__container.card-search-room__container--with-guest-dropdown-inputs
-              +form-item-container({title: "гости", shortTitleMargin: true})
-                +input({placeholder: "Сколько гостей", icon: "expand_more", readonly: true, dropdown: true})
+              +form-item-container({title: "гости"})
+                +input({placeholder: "Сколько гостей", icon: "expand_more", readonly: true})
 
       .card-search-room__form-section.card-search-room__form-section--with-find-room-btn
-        +button({text: "Подобрать номер", type: "big", icon: "arrow_forward", href: "./search-room.html"})
+        +button({text: "Подобрать номер", type: "big", icon: "arrow_forward", href: pagesLinks.searchRoom})
