@@ -6,6 +6,7 @@
   display: grid;
   grid-template-columns: 20px 1fr;
   grid-gap: 10px;
+  cursor: pointer;
 
   &__true-checkbox {
     position: absolute;
