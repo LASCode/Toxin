@@ -1,7 +1,6 @@
 mixin i-button(props={})
-  - const {title=false} = props
+  - const {text='changeMe'} = props
 
   .i-button
-    label.i-button__label
-    .i-button__wrapper
-      span.i-button__text i
+    span.i-button__button i
+    .i-button__dropdown= text
