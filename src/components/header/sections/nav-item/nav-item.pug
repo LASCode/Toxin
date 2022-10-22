@@ -1,9 +1,9 @@
 mixin nav-item(props={})
-  - const {title="", bold=false, expandable=false, items=[], href=false} = props
+  - const {title='', bold=false, expandable=false, items=[], href=false} = props
   -
     const linkClassObj = {
-      "header__nav-link": true,
-      "header__nav-link--with-bold-text": bold
+      'header__nav-link': true,
+      'header__nav-link--with-bold-text': bold
     }
 
   li.header__nav-item

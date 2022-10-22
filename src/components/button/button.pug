@@ -11,15 +11,15 @@ mixin button(props)
     } = props
   -
     const buttonCLassObj = {
-      "button": true,
-      "button--default": type === "default",
-      "button--outlined": type === "outlined",
-      "button--borderless": type === "borderless",
-      "button--big": type === "big",
-      "button--hover": hover,
-      "button--disabled": disabled
+      'button': true,
+      'button--default': type === 'default',
+      'button--outlined': type === 'outlined',
+      'button--borderless': type === 'borderless',
+      'button--big': type === 'big',
+      'button--hover': hover,
+      'button--disabled': disabled
     }
-    const btnType = submit?"submit":"button"
+    const btnType = submit?'submit':'button'
 
   if (!href)
     button(class=buttonCLassObj type=btnType disabled=disabled)&attributes(attributes)

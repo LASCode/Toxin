@@ -2,7 +2,12 @@ mixin radio-button(props={})
   - const { group = null, value = null, checked = false, title = null } = props;
 
   label.radio-button__label
-    input.radio-button__real-input(type="radio" name=group, checked=checked, value=value)
+    input.radio-button__real-input(
+      type='radio'
+      name=group,
+      checked=checked,
+      value=value
+      )
     span.radio-button__fake-input
     if (title)
       span.radio-button__title=title

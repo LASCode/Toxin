@@ -34,16 +34,28 @@ mixin card-selected-room(props={})
           +date-dropdown(datesDropdownOptions)
             .card-selected-room__container.card-selected-room__container--with-date-dropdown-inputs
               +form-item-container({title: 'прибытие'})
-                +input({placeholder: "ДД.ММ.ГГГГ", icon: "expand_more", mask: 'Dd.Mm.THNY'})
+                +input({
+                  placeholder: 'ДД.ММ.ГГГГ',
+                  icon: 'expand_more',
+                  mask: 'Dd.Mm.THNY',
+                })
               +form-item-container({title: 'выезд'})
-                +input({placeholder: "ДД.ММ.ГГГГ", icon: "expand_more", mask: 'Dd.Mm.THNY'})
+                +input({
+                  placeholder: 'ДД.ММ.ГГГГ',
+                  icon: 'expand_more',
+                  mask: 'Dd.Mm.THNY',
+                })
 
       .card-selected-room__form-section.card-selected-room__form-section--with-guest-dropdown
         .card-selected-room__container.card-selected-room__container--with-guest-dropdown
           +guest-dropdown(guestsDropdownOptions)
             .card-selected-room__container.card-selected-room__container--with-guest-dropdown-inputs
-              +form-item-container({title: "гости"})
-                +input({placeholder: "Сколько гостей", icon: "expand_more", readonly: true})
+              +form-item-container({title: 'гости'})
+                +input({
+                  placeholder: 'Сколько гостей',
+                  icon: 'expand_more',
+                  readonly: true,
+                })
 
       .card-selected-room__form-section.card-selected-room__form-section--with-price
         .card-selected-room__container.card-selected-room__container--with-price-list
@@ -53,4 +65,4 @@ mixin card-selected-room(props={})
 
       .card-selected-room__form-section.card-selected-room__form-section--with-submit-btn
         .card-selected-room__container.card-selected-room__container--with-submit-btn
-          +button({type: "big", text: "Забронировать", icon: "arrow_forward"})
+          +button({type: 'big', text: 'Забронировать', icon: 'arrow_forward'})

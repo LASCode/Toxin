@@ -4,8 +4,8 @@ mixin footer(props={})
   - const { mobile = false } = props
   -
     const footerClassObj = {
-      "footer": true,
-      "footer--mobile": mobile
+      'footer': true,
+      'footer--mobile': mobile
     }
     const { socials, footerLinks } = require('../../props/links');
 
@@ -16,7 +16,7 @@ mixin footer(props={})
 
           .footer__grid-item.footer__grid-item--with-brand-info
             .footer__brand-logo
-              img(src="img/logo/logo-default.svg")
+              img(src='img/logo/logo-default.svg')
             .footer__brand-info
               span Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
 
@@ -50,8 +50,12 @@ mixin footer(props={})
             .footer__subscribe-text
               span Получайте специальные предложения и новости сервиса
             .footer__subscribe-input
-              form(action="https://echo.htmlacademy.ru" method="post" name="subscribe")
-                +input({placeholder: "Email", icon: "arrow_forward", iconType: "submit"})&attributes({name: "Email"})
+              form(action='https://echo.htmlacademy.ru' method='post' name='subscribe')
+                +input({
+                  placeholder: 'Email',
+                  icon: 'arrow_forward',
+                  iconType: 'submit',
+                })&attributes({name: 'Email'})
 
     section.footer__section.footer__section--with-copyright
       .footer__section-container
@@ -60,7 +64,12 @@ mixin footer(props={})
             span Copyright © 2018 Toxin отель. Все права защищены.
           .footer__copyright-socials
             for item in socials
-              a(href=item.href target="_blank" rel="noopener noreferrer" title=item.title).footer__social-link
+              a(
+                href=item.href
+                target='_blank'
+                rel='noopener noreferrer'
+                title=item.title
+                ).footer__social-link
                 span.footer__social-icon=item.icon
 
 

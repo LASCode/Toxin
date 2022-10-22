@@ -3,12 +3,17 @@ mixin rate-button(props={})
   -
     const starsArr = new Array(stars).fill(false)
     const rateButtonClassObj = {
-      "rate-button": true,
-      "js-rateButton": true,
-      "js-rateButton--readonly": readonly,
+      'rate-button': true,
+      'js-rateButton': true,
+      'js-rateButton--readonly': readonly,
     }
 
-  span(class=rateButtonClassObj, data-stars=stars, data-value=defaultValue, data-readonly=readonly)
+  span(
+    class=rateButtonClassObj,
+    data-stars=stars,
+    data-value=defaultValue,
+    data-readonly=readonly
+    )
     input.rate-button__input.js-rateButtonInput(value=defaultValue)
     span.rate-button__body.js-rateButtonBody
 

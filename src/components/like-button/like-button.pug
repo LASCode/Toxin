@@ -2,12 +2,12 @@ mixin like-button(props={})
   - const { count = 0, liked = false, hovered = false } = props
   -
     const buttonClassObj = {
-      "like-button": true,
-      "like-button--liked": liked,
-      "like-button--hovered": hovered,
+      'like-button': true,
+      'like-button--liked': liked,
+      'like-button--hovered': hovered,
     }
 
-  button(class=buttonClassObj, data-action="like-it")
+  button(class=buttonClassObj, data-action='like-it')
     span.like-button__container
       span.like-button__icon
       span.like-button__count= count

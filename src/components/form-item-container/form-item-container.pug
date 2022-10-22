@@ -1,6 +1,12 @@
 include ../title/title
 mixin form-item-container (props={})
-  - const { title = '', subtitle = '', titleMargin = false, itemMargin = true} = props
+  -
+    const {
+      title = '',
+      subtitle = '',
+      titleMargin = false,
+      itemMargin = true,
+    } = props
   -
     const titleClassObj = {
       'form-item-container__title--with-margin': titleMargin,

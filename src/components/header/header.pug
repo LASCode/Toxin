@@ -4,7 +4,12 @@ include ../hamburger/hamburger
 include ./sections/nav-item/nav-item
 
 mixin header(props={})
-  - const { type = 'default', login = false, username = 'Анонимный пользователь'} = props
+  -
+    const {
+      type = 'default',
+      login = false,
+      username = 'Анонимный пользователь',
+    } = props
   - const { headerLinks, pagesLinks } = require('../../props/links')
 
   if type === 'ui-kit'
@@ -35,6 +40,14 @@ mixin header(props={})
                   span= username
               else
                 .header__nav-btn.header__nav-btn--with-login
-                  +button({type: "outlined", text: "Войти", href: pagesLinks.login})
+                  +button({
+                    type: 'outlined',
+                    text: 'Войти',
+                    href: pagesLinks.login,
+                  })
                 .header__nav-btn.header__nav-btn--with-register
-                  +button({type: "default", text: "Зарегистрироваться", href: pagesLinks.registration})
+                  +button({
+                    type: 'default',
+                    text: 'Зарегистрироваться',
+                    href: pagesLinks.registration,
+                  })

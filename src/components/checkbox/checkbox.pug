@@ -8,12 +8,12 @@ mixin checkbox(props)
     } = props
   -
     const titleClassObj = {
-      "checkbox__title": true,
-      "checkbox__title--bold": boldTitle
+      'checkbox__title': true,
+      'checkbox__title--bold': boldTitle
     }
 
   label.checkbox
-    input(type="checkbox" checked=checked).checkbox__true-checkbox
+    input(type='checkbox' checked=checked).checkbox__true-checkbox
     span.checkbox__fake-checkbox
     span.checkbox__info
       if (title)

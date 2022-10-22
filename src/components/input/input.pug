@@ -22,18 +22,18 @@ mixin input(props = {})
       'js-input-withBaseIcon': icon && iconType === 'icon',
     }
     const inputClassObj = {
-      "input__input": true,
-      "input__input--hovered": hovered,
-      "input__input--with-icon": icon,
-      "input__input--readonly": readonly,
-      "input__input--masked": mask,
-      "js-maskedInput": mask,
+      'input__input': true,
+      'input__input--hovered': hovered,
+      'input__input--with-icon': icon,
+      'input__input--readonly': readonly,
+      'input__input--masked': mask,
+      'js-maskedInput': mask,
       'js-inputElement': true,
     }
     const inputAttributesObj = {
-      "readonly": readonly,
-      "placeholder": placeholder,
-      "value": defaultValue,
+      'readonly': readonly,
+      'placeholder': placeholder,
+      'value': defaultValue,
       'mask': mask,
       ...attributes
     }
@@ -41,7 +41,7 @@ mixin input(props = {})
   div(class = wrapperCLassObj)
     .input__container
       if (icon && iconType === 'submit')
-        button(type="submit").input__button.js-formInput-iconNode= icon
+        button(type='submit').input__button.js-formInput-iconNode= icon
       if (icon && iconType === 'link')
         a(href = href).input__icon.js-formInput-iconNode= icon
       if (icon && iconType === 'icon')

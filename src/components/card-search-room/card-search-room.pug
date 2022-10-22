@@ -22,16 +22,33 @@ mixin card-search-room(props={})
           +date-dropdown(datesDropdownOptions)
             .card-search-room__container.card-search-room__container--with-date-dropdown-inputs
               +form-item-container({title: 'прибытие'})
-                +input({placeholder: "ДД.ММ.ГГГГ", icon: "expand_more", mask: 'Dd.Mm.THNY'})
+                +input({
+                  placeholder: 'ДД.ММ.ГГГГ',
+                  icon: 'expand_more',
+                  mask: 'Dd.Mm.THNY',
+                })
               +form-item-container({title: 'выезд'})
-                +input({placeholder: "ДД.ММ.ГГГГ", icon: "expand_more", mask: 'Dd.Mm.THNY'})
+                +input({
+                  placeholder: 'ДД.ММ.ГГГГ',
+                  icon: 'expand_more',
+                  mask: 'Dd.Mm.THNY',
+                })
 
       .card-search-room__form-section.card-search-room__form-section--with-guest-dropdown
         .card-search-room__container.card-search-room__container--with-guest-dropdown
           +guest-dropdown(guestsDropdownOptions)
             .card-search-room__container.card-search-room__container--with-guest-dropdown-inputs
-              +form-item-container({title: "гости"})
-                +input({placeholder: "Сколько гостей", icon: "expand_more", readonly: true})
+              +form-item-container({title: 'гости'})
+                +input({
+                  placeholder: 'Сколько гостей',
+                  icon: 'expand_more',
+                  readonly: true,
+                })
 
       .card-search-room__form-section.card-search-room__form-section--with-find-room-btn
-        +button({text: "Подобрать номер", type: "big", icon: "arrow_forward", href: pagesLinks.searchRoom})
+        +button({
+          text: 'Подобрать номер',
+          type: 'big',
+          icon: 'arrow_forward',
+          href: pagesLinks.searchRoom,
+        })

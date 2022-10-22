@@ -7,7 +7,7 @@ mixin card-room(props={})
       img = [],
       rate = 0,
       price = 0,
-      amount = "в сутки",
+      amount = 'в сутки',
       comments = 0,
       number = 0,
       type = false,
@@ -15,10 +15,10 @@ mixin card-room(props={})
   -
     let imageArray = [];
     const arr = [
-      {src: "img/rooms/room-1-thumbnail.jpg", alt: "Фотография комнаты №1"},
-      {src: "img/rooms/room-2-thumbnail.jpg", alt: "Фотография комнаты №2"},
-      {src: "img/rooms/room-3-thumbnail.jpg", alt: "Фотография комнаты №3"},
-      {src: "img/rooms/room-4-thumbnail.jpg", alt: "Фотография комнаты №4"}
+      {src: 'img/rooms/room-1-thumbnail.jpg', alt: 'Фотография комнаты №1'},
+      {src: 'img/rooms/room-2-thumbnail.jpg', alt: 'Фотография комнаты №2'},
+      {src: 'img/rooms/room-3-thumbnail.jpg', alt: 'Фотография комнаты №3'},
+      {src: 'img/rooms/room-4-thumbnail.jpg', alt: 'Фотография комнаты №4'}
     ]
     const { numberWithSpaces } = require('../../utils/number-with-spaces');
     const validPrice = numberWithSpaces(price);

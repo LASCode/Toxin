@@ -26,33 +26,54 @@ mixin card-registration(props={})
 
       .card-registration__form-section.card-registration__form-section--with-user-data
         .card-registration__firstname-wrapper
-          +input({placeholder: "Имя", defaultValue: initialFirstName})
+          +input({placeholder: 'Имя', defaultValue: initialFirstName})
         .card-registration__lastname-wrapper
-          +input({placeholder: "Фамилия", defaultValue: initialLastName})
+          +input({placeholder: 'Фамилия', defaultValue: initialLastName})
         .card-registration__sex-wrapper
-          +radio-button({group: 'user-sex', value: 'Мужчина', title: 'Мужчина', checked: initialSex==='Мужчина'})
-          +radio-button({group: 'user-sex', value: 'Женщина', title: 'Женщина', checked: initialSex==='Женщина'})
+          +radio-button({
+            group: 'user-sex',
+            value: 'Мужчина',
+            title: 'Мужчина',
+            checked: initialSex==='Мужчина',
+          })
+          +radio-button({
+            group: 'user-sex',
+            value: 'Женщина',
+            title: 'Женщина',
+            checked: initialSex==='Женщина',
+          })
 
       .card-registration__form-section.card-registration__form-section--with-birthday-data
         .card-registration__birthday-wrapper
-          +form-item-container({title: "Дата рождения"})
-              +input({placeholder: "ДД.ММ.ГГГГ", defaultValue: initialDateOfBirth, mask: 'Dd.Mm.THNY'})
+          +form-item-container({title: 'Дата рождения'})
+              +input({
+                placeholder: 'ДД.ММ.ГГГГ',
+                defaultValue:
+                initialDateOfBirth, mask: 'Dd.Mm.THNY',
+              })
 
       .card-registration__form-section.card-registration__form-section--with-acccount-data
-        +form-item-container({title: "данные для входа в сервис"})
+        +form-item-container({title: 'данные для входа в сервис'})
           .card-registration__grid-container.card-registration__grid-container--with-account-data
             .card-registration__email-wrapper
-              +input({placeholder: "Email", defaultValue: initialEmail})
+              +input({placeholder: 'Email', defaultValue: initialEmail})
             .card-registration__password-wrapper
-              +input({placeholder: "Пароль", defaultValue: initialPassword})
+              +input({placeholder: 'Пароль', defaultValue: initialPassword})
             .card-registration__promo-wrapper
-              +toggle-button({title: "Получать спецпредложения", checked: initialPromo})
+              +toggle-button({
+                title: 'Получать спецпредложения',
+                checked: initialPromo,
+              })
 
       .card-registration__form-section
         .card-registration__submit-wrapper
-          +button({text: "Зарегистрироваться", type: "big", icon: "arrow_forward"})
+          +button({
+            text: 'Зарегистрироваться',
+            type: 'big',
+            icon: 'arrow_forward',
+          })
 
     .card-registration__already-register-container
       span Уже есть аккаунт на Toxin
       .card-registration__login-btn
-        +button({text: "Войти", type: "outlined", href: pagesLinks.login})
+        +button({text: 'Войти', type: 'outlined', href: pagesLinks.login})
