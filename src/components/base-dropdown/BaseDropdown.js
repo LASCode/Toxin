@@ -94,6 +94,20 @@ class BaseDropdown {
     });
     this.$dropdownExpandableNode.addClass('base-dropdown__body--hidden');
   }
+
+  getDropdownContentNode() {
+    return this.$dropdownContentNode[0];
+  }
+
+  startShacking() {
+    this.stopShacking = this.stopShacking.bind(this);
+    $(this.$dropdownContentNode).addClass('base-dropdown__content--shacking');
+    setTimeout(this.stopShacking, 200);
+  }
+
+  stopShacking() {
+    $(this.$dropdownContentNode).removeClass('base-dropdown__content--shacking');
+  }
 }
 
 export { BaseDropdown };

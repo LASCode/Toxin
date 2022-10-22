@@ -1,8 +1,8 @@
 include ../base-dropdown/base-dropdown
 
 mixin guest-dropdown(props={})
-  - const { isOpen=false, defaultValue=[], windowListener=true, inputListener=true, clearBtn=true } = props
+  - const { isOpen=false, windowListener=true, inputListener=true, buttons=true, items=false, template=false } = props
 
-  div(data-value=defaultValue, data-clearBtn=clearBtn).guest-dropdown.js-guestDropdown
+  div(data-buttons=buttons, data-items=items, data-template=template).guest-dropdown.js-guestDropdown
     +baseDropdown({ isOpen, windowListener, inputListener })
       block
