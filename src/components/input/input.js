@@ -11,28 +11,15 @@ class Input {
 
   init() {
     if (this.rootNode.classList.contains('js-input-withMask')) {
-      this.inputNode.mask('Dd.Mm.THNY', {
-        translation: {
-          D: { pattern: /[0-3]/, recursive: true },
-          d: { pattern: /[0-9]/, recursive: true },
-          M: { pattern: /[0-3]/, recursive: true },
-          m: { pattern: /[0-9]/, recursive: true },
-          T: { pattern: /2/, recursive: true },
-          H: { pattern: /[0-9]/, recursive: true },
-          N: { pattern: /[0-9]/, recursive: true },
-          Y: { pattern: /[0-9]/ },
-        },
-      });
+      const maskType = this.inputNode.attr('mask');
+      this.setMask(maskType);
     }
   }
 
-  setCallback(callback) {
-    this.callback = callback;
-  }
-
-  setMask() {
-    $(this.inputNode).mask('Dd.Mm.THNY', {
-      translation: {
+  setMask(maskType) {
+    const maskOption = { translation: {} };
+    switch (maskType) {
+      case 'Dd.Mm.THNY': maskOption.translation = {
         D: { pattern: /[0-3]/, recursive: true },
         d: { pattern: /[0-9]/, recursive: true },
         M: { pattern: /[0-3]/, recursive: true },
@@ -41,8 +28,13 @@ class Input {
         H: { pattern: /[0-9]/, recursive: true },
         N: { pattern: /[0-9]/, recursive: true },
         Y: { pattern: /[0-9]/ },
-      },
-    });
+      }; break;
+      case '00 MMM - 00 MMM': maskOption.translation = {
+        M: { pattern: /[а-яА-Я]/, recursive: false },
+      }; break;
+      default: maskOption.translation = {};
+    }
+    this.inputNode.mask(maskType, maskOption);
   }
 
   rotateIcon(value) {
