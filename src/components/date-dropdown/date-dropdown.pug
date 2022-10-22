@@ -1,6 +1,14 @@
 include ../base-dropdown/base-dropdown
 mixin date-dropdown(props={})
-  - const { isOpen=false, windowListener=true, inputListener=true, initialDates=false, isRange=true, format=false } = props
+  -
+    const {
+      isOpen = false,
+      windowListener = true,
+      inputListener = true,
+      initialDates = false,
+      isRange = true,
+      format = false,
+    } = props
   -
     const dropdownClass = {
       'js-dateDropdown' : true,

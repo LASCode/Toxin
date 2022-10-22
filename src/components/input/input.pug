@@ -1,29 +1,40 @@
 include ../form-item-container/form-item-container
 mixin input(props = {})
-  - const { placeholder, readonly = false, defaultValue, masked, icon, hovered, iconType = 'icon', href} = props
+  -
+    const {
+      placeholder = '',
+      readonly = false,
+      defaultValue = '',
+      mask = false,
+      icon = '',
+      hovered = false,
+      iconType = 'icon',
+      href = false,
+    } = props
   -
     const wrapperCLassObj = {
-    'input': true,
-    'js-input': true,
-    'js-input-withIcon': icon,
-    'js-input-withMask': masked,
-    'js-input-withSubmit': icon && iconType === 'submit',
-    'js-input-withLink': icon && iconType === 'link',
-    'js-input-withBaseIcon': icon && iconType === 'icon',
+      'input': true,
+      'js-input': true,
+      'js-input-withIcon': icon,
+      'js-input-withMask': mask,
+      'js-input-withSubmit': icon && iconType === 'submit',
+      'js-input-withLink': icon && iconType === 'link',
+      'js-input-withBaseIcon': icon && iconType === 'icon',
     }
     const inputClassObj = {
       "input__input": true,
       "input__input--hovered": hovered,
       "input__input--with-icon": icon,
       "input__input--readonly": readonly,
-      "input__input--masked": masked,
-      "js-maskedInput": masked,
+      "input__input--masked": mask,
+      "js-maskedInput": mask,
       'js-inputElement': true,
     }
     const inputAttributesObj = {
       "readonly": readonly,
       "placeholder": placeholder,
       "value": defaultValue,
+      'mask': mask,
       ...attributes
     }
 

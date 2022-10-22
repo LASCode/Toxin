@@ -1,8 +1,8 @@
 include ../i-button/i-button
 
 mixin price-list(props={})
-  - const {items=[]} = props
-  - const {numberWithSpaces} = require('../../utils/number-with-spaces');
+  - const { items = [] } = props
+  - const { numberWithSpaces } = require('../../utils/number-with-spaces');
 
   .price-list
     .price-list__items
@@ -13,5 +13,5 @@ mixin price-list(props={})
           span.price-list__title= item.title
           span.price-list__info
             if (item.info)
-                +i-button({title: item.info})
+                +i-button({text: item.info})
           span.price-list__price= `${validPrice} ₽`

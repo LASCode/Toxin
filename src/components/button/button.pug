@@ -1,5 +1,14 @@
 mixin button(props)
-  - const {type='default', text='', disabled=false, hover=false, href=false, icon, submit=false} = props
+  -
+    const {
+      type = 'default',
+      text = '',
+      disabled = false,
+      hover = false,
+      href = false,
+      icon = '',
+      submit = false
+    } = props
   -
     const buttonCLassObj = {
       "button": true,

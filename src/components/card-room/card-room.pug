@@ -2,7 +2,16 @@ include ../carousel/carousel
 include ../rate-button/rate-button
 
 mixin card-room(props={})
-  - const {img=[], rate=0, price=0, amount="в сутки", comments=0, number=0, type=false} = props
+  -
+    const {
+      img = [],
+      rate = 0,
+      price = 0,
+      amount = "в сутки",
+      comments = 0,
+      number = 0,
+      type = false,
+    } = props
   -
     let imageArray = [];
     const arr = [
