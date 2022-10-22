@@ -15,7 +15,6 @@ import '../../components/card-registration/card-registration';
 import '../../components/card-search-room/card-search-room';
 import '../../components/card-selected-room/card-selected-room';
 
-
 $(document).ready(() => {
   $('.js-datepicker').each((index, el) => {
     const saveButton = {

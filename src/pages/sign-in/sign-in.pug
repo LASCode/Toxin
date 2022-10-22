@@ -3,11 +3,12 @@ include ../../components/card-login/card-login
 
 
 block head
-  -const title = 'Sign-in'
+  - const title = 'Sign-in'
+  - const { propsSignInLogin } = require('../../props/card-props');
 
 block content
   .sign-in-page
     .sign-in-page__container
       .sign-in-page__content
         .sign-in-page__card-container
-          +card-login()
+          +card-login(propsSignInLogin)

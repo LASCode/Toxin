@@ -3,11 +3,12 @@ include ../../components/card-registration/card-registration
 
 
 block head
-  -const title = 'Registration'
+  - const title = 'Registration'
+  - const { propsRegistrationRegistration } = require('../../props/card-props');
 
 block content
   .registration-page
     .registration-page__container
       .registration-page__content
         .registration-page__card-container
-          +card-registration()
+          +card-registration(propsRegistrationRegistration)

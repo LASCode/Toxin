@@ -3,7 +3,8 @@ include ../../components/card-search-room/card-search-room
 
 
 block head
-  -const title = 'Toxin Landing'
+  - const title = 'Toxin Landing'
+  - const { propsSearchRoomSearchRoom } = require('../../props/card-props');
 
 block content
   .index-page
@@ -11,7 +12,7 @@ block content
       .index-page__content
         .index-page__flex-container
           .index-page__flex-item.index-page__flex-item--with-card
-            +card-search-room()
+            +card-search-room(propsSearchRoomSearchRoom)
           .index-page__flex-item.index-page__flex-item--with-site-desctiption.index-page__flex-item--with-margin-top
             span.index-page__site-desctiption Лучшие номера для вашей работы, отдыха и просто вдохновения
 

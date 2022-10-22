@@ -13,10 +13,9 @@ include ../../components/pagination/pagination
 
 
 block head
-  -const title = 'Search room'
+  - const title = 'Search room'
 
 block content
-  - const { roomsArray } = require('../../utils/props');
   .search-room-page
     .search-room-page__blur-container.js-blur
     button.search-room-page__show-filter-button.js-show-filter
@@ -32,17 +31,19 @@ block content
             .search-room-page__filter.js-filter
 
               .search-room-page__form-section.search-room-page__form-section--with-date-dropdown
-                +date-dropdown({isRange: true})
-                  +form-item-container({title: 'даты пребывания в отеле', shortTitleMargin: true})
-                    +input({placeholder: "ДД МММ - ДД МММ", icon: "expand_more", readonly: false, defaultValue: '19 авг - 23 авг'})
+                - const {propsSearchRoomDateDropdown} = require('../../props/dropdowns-props')
+                +date-dropdown(propsSearchRoomDateDropdown)
+                  +form-item-container({title: 'даты пребывания в отеле'})
+                    +input({placeholder: "ДД МММ - ДД МММ", icon: "expand_more"})
 
               .search-room-page__form-section.search-room-page__form-section--with-guest-dropdown
-                +guest-dropdown({isRange: true})
+                - const {propsSearchRoomGuestDropdownItems, propsSearchRoomGuestDropdownTemplate} = require('../../props/dropdowns-props')
+                +guest-dropdown({items: propsSearchRoomGuestDropdownItems, template: propsSearchRoomGuestDropdownTemplate})
                   +form-item-container({title: 'гости'})
                     +input({placeholder: "Сколько гостей", icon: "expand_more", readonly: true})
 
               .search-room-page__form-section.search-room-page__form-section--with-slider
-                +form-item-container({title: "диапазон цены", subtitle: "5 000₽ - 10 000₽", longTitleMargin: true})
+                +form-item-container({title: "диапазон цены", subtitle: "5 000₽ - 10 000₽"})
                   .search-room-page__form-element.search-room-page__form-element--slider
                     +slider({min: 5000, max: 10000})
                   .search-room-page__form-element.search-room-page__form-element--slider-subtitle
@@ -62,8 +63,8 @@ block content
                     +checkbox({title: "Помощник для инвалидов", boldTitle: true, description: "На 1 этаже вас встретит специалист и проводит до номера."})
 
               .search-room-page__form-section.search-room-page__form-section--with-rooms-dropdown
-                - const defaultRoomsValue = [{name: 'Спальни', value: 2}, {name: 'Кровати', value: 2}]
-                +rooms-dropdown({isOpen: false, defaultValue: defaultRoomsValue})
+                - const {propsSearchRoomRoomsDropdownItems, propsSearchRoomRoomsDropdownTemplate} = require('../../props/dropdowns-props')
+                +rooms-dropdown({items: propsSearchRoomRoomsDropdownItems, template: propsSearchRoomRoomsDropdownTemplate})
                   +form-item-container({title: 'удобства номера'})
                     +input({placeholder: "Удобства в номере", icon: "expand_more", readonly: true})
 
@@ -81,7 +82,8 @@ block content
             .search-room-page__title
               +title({text: 'Номера, которые мы для вас подобрали', level: 1})
             .search-room-page__rooms-container
-              for room in roomsArray
+              - const {propsSearchRoomRoomCardsArray} = require('../../props/card-props');
+              for room in propsSearchRoomRoomCardsArray
                 .search-room-page__single-room.js-single-room-card
                   +card-room(room)
             .search-room-page__pagination

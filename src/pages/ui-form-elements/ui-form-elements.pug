@@ -134,8 +134,8 @@ block content
             .ui-form-elements-page__grid-section.ui-form-elements-page__grid-section--with-dropdowns
               -
                 const defaultValue = [
-                  {name: 'Спальни', value: 2},
-                  {name: 'Кровати', value: 2},
+                  {title: 'Спальни', value: 2},
+                  {title: 'Кровати', value: 2},
                 ]
               .ui-form-elements-page__element-container
                 +rooms-dropdown({isOpen: false, defaultValue: defaultValue})
@@ -152,14 +152,14 @@ block content
 
             .ui-form-elements-page__grid-section
               .ui-form-elements-page__element-container.ui-form-elements-page__element-container--with-guest-dropdown-open
-                +guest-dropdown({ isOpen: true, windowListener: false })
+                +guest-dropdown({ isOpen: true, windowListener: false, clearBtn: false })
                   +form-item-container({title: 'dropdown'})
                     .ui-form-elements-page__form-item.ui-form-elements-page__form-item--input-guest-dropdown
                       +input({placeholder: "Сколько гостей", icon: "expand_more", readonly: true})
 
             .ui-form-elements-page__grid-section
               .ui-form-elements-page__element-container.ui-form-elements-page__element-container--with-guest-dropdown-open
-                -const defaultValu1 = [{name: 'Взрослые', value: 2}, {name: 'Дети', value: 1}]
+                -const defaultValu1 = [{title: 'Взрослые', value: 2}, {title: 'Дети', value: 1}]
                 +guest-dropdown({isOpen: true, windowListener: false, defaultValue: defaultValu1})
                   +form-item-container({title: 'dropdown'})
                     .ui-form-elements-page__form-item.ui-form-elements-page__form-item--input-guest-dropdown

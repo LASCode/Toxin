@@ -9,7 +9,8 @@ block head
   -const title = 'Room details'
 
 block content
-  - const { selectedRoomCardData, selectedRoomData } = require('../../utils/props');
+  - const { selectedRoomData } = require('../../props/other');
+  - const { propsRoomDetailsSelectedRoom } = require('../../props/card-props');
 
   .room-details-page
 
@@ -26,7 +27,7 @@ block content
       .room-details-page__wrapper.room-details-page__wrapper--with-details
 
         .room-details-page__details-item.room-details-page__details-item--with-room-card
-          +card-selected-room(selectedRoomCardData)
+          +card-selected-room(propsRoomDetailsSelectedRoom)
 
         .room-details-page__details-item.room-details-page__details-item--with-details
           +title({text: 'Сведения о номере', level: 2})
