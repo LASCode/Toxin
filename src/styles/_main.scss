@@ -1,9 +1,11 @@
+@import "normalize.css";
 @import "./fonts.scss";
 @import "./variables.scss";
 @import "./components.scss";
-@import "./normalize.scss";
 
 html, body {
+  margin: 0;
+  padding: 0;
   height: 100%;
   font-family: $font-Montserrat;
   font-size: 14px;
